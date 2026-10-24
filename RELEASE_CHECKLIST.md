@@ -13,11 +13,12 @@ Read directly from the supplied three-page CS4680 Prompt Engineering AI Assistan
 | Required usable UI and AI outputs | Browser review, clarification, stale-state and export workflows verified |
 | Complete code/documentation GitHub URL | Published and verified anonymously: https://github.com/Prabscodes/test-evidence . Final checklist: ASSIGNMENT_CHECKLIST.md. |
 | Published short demo video link | Script ready in `docs/DEMO.md`; record, edit, check strictly <120 seconds and publish after authorization |
+| Google Slides URL | Required by the actual submission form; deck and verified viewer URL pending with the deck worker |
 | Live presentation/demo | Rehearse the real model wait, fixture distinction, prompt patterns, limitations and disclosed recording fallback |
-| Submit project through Google Form | https://forms.gle/nMHp5owwYidszwt58 — GitHub link and short video; not submitted |
+| Submit project through Google Form | https://forms.gle/nMHp5owwYidszwt58 — required Name, GitHub Repo URL, Demo Video URL and Google Slides URL; optional Email and optional/highly recommended Published URL; not submitted |
 | Publicly hosted app | Optional in the rubric, now explicitly desired by the user; host/inference destination remains unconfirmed |
 
-Design is required as part of the process but has no separate document submission in the PDF. Grading: problem relevance 10%, implementation 30%, prompt engineering 20%, UI/UX 10%, presentation/live demo 30%. Video is requested in the final semester week; confirm course scheduling in Canvas.
+Design is required as part of the process but has no separate document submission in the PDF. The live form additionally requires a Google Slides URL, so slides and a verified viewer link are required for submission despite their omission from the PDF. Grading: problem relevance 10%, implementation 30%, prompt engineering 20%, UI/UX 10%, presentation/live demo 30%. Video is requested in the final semester week; confirm course scheduling in Canvas.
 
 ## Before the hard freeze
 
@@ -40,7 +41,8 @@ Design is required as part of the process but has no separate document submissio
 - [ ] Create/push GitHub repository only after authorization; check a fresh clone's README/run commands and links.
 - [ ] Record/edit the 90–110-second script; distinguish actual model calls, shortened waiting and deterministic demo fixtures. Verify duration <120 seconds, audio, legibility and no private data.
 - [ ] Publish video only after authorization; check link access signed out or in an appropriate viewer session.
-- [ ] Put the final GitHub/video URLs in the Google Form; review all fields, then submit only with authorization. Save receipt.
+- [ ] Finish the Google Slides deck and verify that its viewer URL is accessible to the intended reviewer.
+- [ ] Put Name and the final GitHub/video/Google Slides URLs in the Google Form; review all fields, then submit only with authorization. Save receipt.
 
 No deadline, GitHub publication, video or course submission is silently marked complete. Current technical results are in `docs/SUBMISSION_VALIDATION.md`; final actions remain for the owner/authorized publishing step.
 
@@ -49,4 +51,4 @@ Latest bounded usability update: [request UX validation](docs/REQUEST_UX_VALIDAT
 
 Current timeboxed publication plan: [PUBLISH_PLAN.md](docs/PUBLISH_PLAN.md). User will narrate the under-two-minute video; prepare genuine screen footage, storyboard and captions without generated replacement narration.
 
-Current evidence:90 tests, public-browser/container checks and12-case author-created frozen readout complete. Silent105second video and timed narration are ready; user narration and video publication remain pending. Repository publication status is tracked separately. See docs/QWEN27_VALIDATION.md and docs/PUBLIC_DEPLOYMENT.md.
+Current evidence:90 tests, public-browser/container checks and12-case author-created frozen readout complete. Silent105second video and timed narration are ready; user narration, video publication, and the required Google Slides deck/viewer URL remain pending. Repository publication status is tracked separately. See docs/QWEN27_VALIDATION.md and docs/PUBLIC_DEPLOYMENT.md.

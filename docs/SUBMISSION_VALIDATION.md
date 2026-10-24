@@ -33,3 +33,7 @@ Raw case outputs, scores, manual citation audits and original source snapshots a
 ## Remaining evidence limits
 
 Single-analyst synthetic labels, single stochastic runs, no real-repository user study or competitor baseline, restricted context and latency, native Windows not verified, no public-service hardening. Models can invent policy, overlook table entries, misread assertions and follow misleading text despite prompts. Passing application tests says the implemented workflows behave as tested; it does not establish model correctness, novelty or adoption. Actual execution remains immutable bundled fixtures only.
+
+## Submission form requirement correction —24 October2026
+
+The live form at https://forms.gle/nMHp5owwYidszwt58 requires **Name, GitHub Repo URL, Demo Video URL and Google Slides URL**. Email is optional. Published URL (live app) is optional/highly recommended. The PDF does not explicitly require slides, but the form does. The required deck and verified viewer URL are pending with a separate worker. Narrated-video publication and authorized form submission also remain pending; prior technical validation and a packaged silent video do not establish final submission readiness. No application code or recorded evaluation result changes in this correction.

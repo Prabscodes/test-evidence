@@ -11,8 +11,11 @@ User target: **10:30pmPacific tonight (05:30UTC24 October2026)**; worst case **1
 - [x]105second silent1080p demo and separate timed narration/captions/storyboard delivered privately in Library. No AI narration. Paused frames labelled; waits not accelerated. See docs/DEMO.md.
 - [ ] User records narration, combines it with the silent video, checks clarity/audio and final duration **strictly under120seconds**.
 - [ ] Publish the voiced video to a user-confirmed account/destination; paste the verified viewer URL here: **pending**.
+- [ ] Prepare the required Google Slides deck, verify viewer access, and record its URL: **pending**. A separate worker is preparing the deck.
 - [ ] Review the live presentation: problem → actual recorded model workflow → prompt patterns → clarification → separate trusted fixture → limitations.
-- [ ] Review required fields and submit https://forms.gle/nMHp5owwYidszwt58 with verified GitHub/video URLs only after appropriate authorization; save receipt. **Not submitted.**
+- [ ] Review required fields and submit https://forms.gle/nMHp5owwYidszwt58 with the required **Name, GitHub Repo URL, Demo Video URL and Google Slides URL** only after appropriate authorization; save receipt. **Email is optional. Published URL (live app) is optional/highly recommended.** **Not submitted.**
 - [ ] Optional-bonus public app: host/account and approved hosted model/key/cost/data processing remain unconfirmed. Do not expose the PC/GPU or silently substitute demo for live inference. No paid service is provisioned.
+
+The live submission form requires Google Slides even though the assignment PDF does not explicitly list a slides deliverable. Narration, published video, Google Slides/viewer link and authorized form submission remain pending; the project is not ready for final submission until those required items are complete.
 
 Application source license remains unselected; no unrestricted reuse license is invented. Model weights, credentials, private machine/session data, assignment PDF and unrelated projects are excluded. This checklist distinguishes prepared/delivered artifacts from publication and submission.
