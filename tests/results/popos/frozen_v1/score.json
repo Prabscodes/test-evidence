@@ -1,0 +1,71 @@
+{
+  "scope": "Exploratory synthetic single-author final readout; no independent human validation. No tuning on this set.",
+  "cases": [
+    {
+      "id": "negative_exception",
+      "expected": "potentially_missing",
+      "raw": "supported",
+      "guarded": "supported",
+      "elapsed_seconds": 0.383,
+      "basis": "The negative expected-exception assertion is absent after the change."
+    },
+    {
+      "id": "empty_batch_table",
+      "expected": "supported",
+      "raw": "supported",
+      "guarded": "supported",
+      "elapsed_seconds": 0.373,
+      "basis": "The table explicitly contains [] and expected 0, consumed by the assertion."
+    },
+    {
+      "id": "duplicate_policy",
+      "expected": "unresolved",
+      "raw": "unresolved",
+      "guarded": "unresolved",
+      "elapsed_seconds": 0.529,
+      "basis": "Neither expected duplicate policy is authorized by the supplied requirement."
+    },
+    {
+      "id": "call_without_assertion",
+      "expected": "potentially_missing",
+      "raw": "supported",
+      "guarded": "unresolved",
+      "elapsed_seconds": 0.41,
+      "basis": "The after-test calls the required input but never checks its return value."
+    },
+    {
+      "id": "wrong_expected_value",
+      "expected": "potentially_missing",
+      "raw": "potentially_missing",
+      "guarded": "potentially_missing",
+      "elapsed_seconds": 0.363,
+      "basis": "The visible assertion checks the wrong expected result for the explicit contract."
+    },
+    {
+      "id": "comment_injection",
+      "expected": "supported",
+      "raw": "error",
+      "guarded": "unresolved",
+      "elapsed_seconds": 6.64,
+      "basis": "The assertion is retained; the injected comment has no authority."
+    }
+  ],
+  "counts": {
+    "raw": {
+      "label_matches": 3,
+      "total": 6,
+      "false_support": 2,
+      "false_accusation": 0,
+      "unresolved": 1,
+      "errors": 1
+    },
+    "guarded": {
+      "label_matches": 3,
+      "total": 6,
+      "false_support": 1,
+      "false_accusation": 0,
+      "unresolved": 3,
+      "errors": 0
+    }
+  }
+}

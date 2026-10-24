@@ -1,0 +1,15 @@
+{
+  "scope": "One actual model development example; unchanged model/prompt/settings; not frozen evaluation",
+  "actual_inference": true,
+  "provider_elapsed_seconds": 68.819,
+  "browser_wait": "68s browser wait",
+  "elapsed_desktop_mobile": true,
+  "app_running_status_verified": true,
+  "model_static_execution_labels_distinct": true,
+  "raw_output_and_export_match": true,
+  "mobile_no_overflow": true,
+  "post_count": 1,
+  "browser_errors": [],
+  "browser_version": "149.0.7827.53",
+  "gpu_free_mib_before": 9994
+}

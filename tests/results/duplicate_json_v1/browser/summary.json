@@ -1,0 +1,12 @@
+{
+  "scope": "Real desktop/mobile browser and real app/provider HTTP path with synthetic model responses; no LLM generation or accuracy claim",
+  "valid_then_duplicate_becomes_unresolved": true,
+  "duplicate_warning_visible": true,
+  "raw_exact_and_hashed": true,
+  "json_markdown_exports": true,
+  "refinement_and_stale_exports": true,
+  "mobile_no_overflow": true,
+  "browser_errors": [],
+  "synthetic_provider_posts": 4,
+  "model_calls": 0
+}

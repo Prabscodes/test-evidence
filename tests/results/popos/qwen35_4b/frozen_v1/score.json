@@ -1,0 +1,71 @@
+{
+  "scope": "Reused frozen diagnostic comparison requested by user. Labels already inspected in Dolphin readout; no new held-out accuracy claim. No tuning on these Qwen outputs.",
+  "cases": [
+    {
+      "id": "negative_exception",
+      "expected": "potentially_missing",
+      "raw": "potentially_missing",
+      "guarded": "potentially_missing",
+      "elapsed_seconds": 37.669,
+      "basis": "The negative expected-exception assertion is absent after the change."
+    },
+    {
+      "id": "empty_batch_table",
+      "expected": "supported",
+      "raw": "potentially_missing",
+      "guarded": "potentially_missing",
+      "elapsed_seconds": 43.081,
+      "basis": "The table explicitly contains [] and expected 0, consumed by the assertion."
+    },
+    {
+      "id": "duplicate_policy",
+      "expected": "unresolved",
+      "raw": "potentially_missing",
+      "guarded": "potentially_missing",
+      "elapsed_seconds": 92.378,
+      "basis": "Neither expected duplicate policy is authorized by the supplied requirement."
+    },
+    {
+      "id": "call_without_assertion",
+      "expected": "potentially_missing",
+      "raw": "potentially_missing",
+      "guarded": "potentially_missing",
+      "elapsed_seconds": 52.487,
+      "basis": "The after-test calls the required input but never checks its return value."
+    },
+    {
+      "id": "wrong_expected_value",
+      "expected": "potentially_missing",
+      "raw": "potentially_missing",
+      "guarded": "potentially_missing",
+      "elapsed_seconds": 39.201,
+      "basis": "The visible assertion checks the wrong expected result for the explicit contract."
+    },
+    {
+      "id": "comment_injection",
+      "expected": "supported",
+      "raw": "potentially_missing",
+      "guarded": "potentially_missing",
+      "elapsed_seconds": 58.719,
+      "basis": "The assertion is retained; the injected comment has no authority."
+    }
+  ],
+  "counts": {
+    "raw": {
+      "label_matches": 3,
+      "total": 6,
+      "false_support": 0,
+      "false_accusation": 3,
+      "unresolved": 0,
+      "errors": 0
+    },
+    "guarded": {
+      "label_matches": 3,
+      "total": 6,
+      "false_support": 0,
+      "false_accusation": 3,
+      "unresolved": 0,
+      "errors": 0
+    }
+  }
+}

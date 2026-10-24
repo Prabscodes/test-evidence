@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "purpose": "App-internal development smoke cases; not an independent benchmark or an accuracy study.",
+  "cases": [
+    {
+      "id": "coupon_expiry_boundary_lost",
+      "domain": "coupon expiry",
+      "requirement": "Given integer day numbers, a coupon is valid through its expiry day, inclusive, and invalid on later days.",
+      "source_before": "def coupon_valid(today, expiry_day):\n    return today <= expiry_day\n",
+      "source_after": "def coupon_valid(today, expiry_day):\n    return today <= expiry_day\n",
+      "tests_before": "def test_coupon_expiry():\n    assert coupon_valid(29, 30) is True\n    assert coupon_valid(30, 30) is True\n    assert coupon_valid(31, 30) is False\n",
+      "tests_after": "def test_coupon_expiry():\n    assert coupon_valid(29, 30) is True\n    assert coupon_valid(31, 30) is False\n",
+      "expected_reviewer_judgment": "lost_required_boundary_check",
+      "expected_rationale": "The exact expiry-day assertion was removed without replacement. The remaining checks cannot distinguish inclusive validity from an incorrect exclusive boundary, even though the unchanged implementation is correct.",
+      "expected_follow_up": "Restore an assertion that today equal to expiry_day is valid."
+    },
+    {
+      "id": "list_order_table_refactor",
+      "domain": "list order",
+      "requirement": "Remove duplicate names while preserving first-occurrence order. An empty input list returns an empty list.",
+      "source_before": "def unique_names(names):\n    result = []\n    for name in names:\n        if name not in result:\n            result.append(name)\n    return result\n",
+      "source_after": "def unique_names(names):\n    result = []\n    for name in names:\n        if name not in result:\n            result.append(name)\n    return result\n",
+      "tests_before": "def test_unique_names():\n    assert unique_names(['b', 'a', 'b']) == ['b', 'a']\n    assert unique_names(['a', 'a', 'b']) == ['a', 'b']\n    assert unique_names([]) == []\n",
+      "tests_after": "def test_unique_names():\n    cases = [(['b', 'a', 'b'], ['b', 'a']), (['a', 'a', 'b'], ['a', 'b']), ([], [])]\n    for names, expected in cases:\n        assert unique_names(names) == expected\n",
+      "expected_reviewer_judgment": "equivalent_table_driven_refactor",
+      "expected_rationale": "All three original input/output checks remain in an executed table. Exact list equality still checks order; fewer textual assert statements do not mean weaker evidence here.",
+      "expected_follow_up": "No restoration needed for these checks; do not claim exhaustive coverage of every possible input."
+    },
+    {
+      "id": "refund_tie_policy_missing",
+      "domain": "refund rounding",
+      "requirement": "For nonnegative integer amounts measured in tenths of one cent, return the nearest whole-cent refund. The supplied requirement does not specify how to round an exact half-cent tie.",
+      "source_before": "def refund_cents(tenths):\n    return (tenths + 5) // 10\n",
+      "source_after": "def refund_cents(tenths):\n    whole, remainder = divmod(tenths, 10)\n    return whole + (remainder > 5 or (remainder == 5 and whole % 2 == 1))\n",
+      "tests_before": "def test_refund_rounding():\n    assert refund_cents(104) == 10\n    assert refund_cents(105) == 11\n    assert refund_cents(106) == 11\n",
+      "tests_after": "def test_refund_rounding():\n    assert refund_cents(104) == 10\n    assert refund_cents(105) == 10\n    assert refund_cents(106) == 11\n",
+      "expected_reviewer_judgment": "needs_authoritative_requirement",
+      "expected_rationale": "The exact tie result changed from half-up to half-even, and the test changed to agree with the implementation. Both satisfy the supplied non-tie requirement; neither the old implementation nor the new test establishes authority for the tie policy.",
+      "expected_follow_up": "Which approved policy governs exact half-cent ties: half-up, half-even, or another rule?"
+    },
+    {
+      "id": "input_blank_assertion_retained",
+      "domain": "input validation",
+      "requirement": "For string inputs, reject an empty or whitespace-only coupon code and accept a code containing at least one non-whitespace character.",
+      "source_before": "def valid_code(code):\n    return len(code.strip()) > 0\n",
+      "source_after": "def valid_code(code):\n    return bool(code.strip())\n",
+      "tests_before": "def test_valid_code():\n    assert valid_code('') is False\n    assert valid_code('   ') is False\n    assert valid_code('SAVE') is True\n",
+      "tests_after": "def test_valid_code():\n    assert valid_code('') is False\n    assert valid_code('   ') is False\n    assert valid_code('SAVE') is True\n    assert valid_code(' SAVE ') is True\n",
+      "expected_reviewer_judgment": "explicit_assertion_retained",
+      "expected_rationale": "The explicit whitespace-only rejection assertion remains unchanged, alongside the empty and nonblank checks. The source rewrite preserves the predicate and the after-tests add a padded nonblank example; there is no lost blank-input check.",
+      "expected_follow_up": "No restoration needed for the retained assertions; do not infer non-string input handling."
+    }
+  ]
+}

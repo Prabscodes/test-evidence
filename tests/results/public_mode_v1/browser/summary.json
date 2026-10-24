@@ -1,0 +1,15 @@
+{
+  "scope": "Real desktop/mobile public UI with synthetic provider; zero external API or GPU calls",
+  "explicit_consent_before_post": true,
+  "consent_reset_on_config_change": true,
+  "spoofed_forwarded_headers_still_rate_limited": true,
+  "error_no_source_or_key_echo": true,
+  "failed_review_exports_stale": true,
+  "own_artifacts_in_successful_export_by_design": true,
+  "server_key_not_exported": true,
+  "provider_absence_fails_closed": true,
+  "labelled_demo_separate": true,
+  "mobile_no_overflow": true,
+  "browser_errors": [],
+  "model_calls": 0
+}

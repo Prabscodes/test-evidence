@@ -1,0 +1,71 @@
+<LOCAL_PATH>:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_access_rejection_keeps_credentials_out_of_error (tests.test_request_lifecycle.RequestLifecycleTests.test_access_rejection_keeps_credentials_out_of_error) ... FAIL
+test_context_rejection_suggests_shorter_excerpts_without_leaking_body (tests.test_request_lifecycle.RequestLifecycleTests.test_context_rejection_suggests_shorter_excerpts_without_leaking_body) ... FAIL
+test_missing_model_is_actionable_without_upstream_body (tests.test_request_lifecycle.RequestLifecycleTests.test_missing_model_is_actionable_without_upstream_body) ... FAIL
+test_running_status_and_duplicate_request_remain_locked_until_completion (tests.test_request_lifecycle.RequestLifecycleTests.test_running_status_and_duplicate_request_remain_locked_until_completion) ... FAIL
+test_timeout_is_actionable_and_does_not_retry (tests.test_request_lifecycle.RequestLifecycleTests.test_timeout_is_actionable_and_does_not_retry) ... FAIL
+test_unreachable_model_is_actionable_and_sanitized (tests.test_request_lifecycle.RequestLifecycleTests.test_unreachable_model_is_actionable_and_sanitized) ... FAIL
+
+======================================================================
+FAIL: test_access_rejection_keeps_credentials_out_of_error (tests.test_request_lifecycle.RequestLifecycleTests.test_access_rejection_keeps_credentials_out_of_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 60, in test_access_rejection_keeps_credentials_out_of_error
+    self.check_failure(lambda request:httpx.Response(401,json={'error':'SECRET-CREDENTIAL'},request=request),502,'access')
+  File "<LOCAL_PATH> line 45, in check_failure
+    self.assertIn(phrase,response.json()['detail'])
+AssertionError: 'access' not found in 'Inference failed. Check server provider configuration. No conclusion was accepted; secrets and provider responses are not logged.'
+
+======================================================================
+FAIL: test_context_rejection_suggests_shorter_excerpts_without_leaking_body (tests.test_request_lifecycle.RequestLifecycleTests.test_context_rejection_suggests_shorter_excerpts_without_leaking_body)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 58, in test_context_rejection_suggests_shorter_excerpts_without_leaking_body
+    self.check_failure(lambda request:httpx.Response(400,json={'error':'SECRET-SOURCE'},request=request),400,'Shorten')
+  File "<LOCAL_PATH> line 44, in check_failure
+    self.assertEqual(response.status_code,expected,response.text)
+AssertionError: 502 != 400 : {"detail":"Inference failed. Check server provider configuration. No conclusion was accepted; secrets and provider responses are not logged."}
+
+======================================================================
+FAIL: test_missing_model_is_actionable_without_upstream_body (tests.test_request_lifecycle.RequestLifecycleTests.test_missing_model_is_actionable_without_upstream_body)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 56, in test_missing_model_is_actionable_without_upstream_body
+    self.check_failure(lambda request:httpx.Response(404,json={'error':'SECRET-SOURCE'},request=request),503,'model name')
+  File "<LOCAL_PATH> line 44, in check_failure
+    self.assertEqual(response.status_code,expected,response.text)
+AssertionError: 502 != 503 : {"detail":"Inference failed. Check server provider configuration. No conclusion was accepted; secrets and provider responses are not logged."}
+
+======================================================================
+FAIL: test_running_status_and_duplicate_request_remain_locked_until_completion (tests.test_request_lifecycle.RequestLifecycleTests.test_running_status_and_duplicate_request_remain_locked_until_completion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 26, in test_running_status_and_duplicate_request_remain_locked_until_completion
+    self.assertTrue(state.get('analysis_running'),state)
+AssertionError: None is not true : {'endpoint_config_valid': None, 'http_temperature': 0.0, 'temperature_config_valid': True, 'http_timeout_seconds': 90, 'timeout_config_valid': True, 'backend': 'none', 'configured': False, 'model': 'not configured', 'processing_location': 'none', 'endpoint_calls_enabled': False, 'remote_processing_enabled': False, 'execution': 'Only explicitly selected bundled fixtures can run.'}
+
+======================================================================
+FAIL: test_timeout_is_actionable_and_does_not_retry (tests.test_request_lifecycle.RequestLifecycleTests.test_timeout_is_actionable_and_does_not_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 51, in test_timeout_is_actionable_and_does_not_retry
+    self.check_failure(fail,504,'may still be finishing')
+  File "<LOCAL_PATH> line 44, in check_failure
+    self.assertEqual(response.status_code,expected,response.text)
+AssertionError: 502 != 504 : {"detail":"Inference failed. Check server provider configuration. No conclusion was accepted; secrets and provider responses are not logged."}
+
+======================================================================
+FAIL: test_unreachable_model_is_actionable_and_sanitized (tests.test_request_lifecycle.RequestLifecycleTests.test_unreachable_model_is_actionable_and_sanitized)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 54, in test_unreachable_model_is_actionable_and_sanitized
+    self.check_failure(fail,503,'model server')
+  File "<LOCAL_PATH> line 44, in check_failure
+    self.assertEqual(response.status_code,expected,response.text)
+AssertionError: 502 != 503 : {"detail":"Inference failed. Check server provider configuration. No conclusion was accepted; secrets and provider responses are not logged."}
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.087s
+
+FAILED (failures=6)

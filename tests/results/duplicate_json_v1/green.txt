@@ -1,0 +1,16 @@
+<LOCAL_PATH>:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_contradictory_status_duplicates_rejected_in_either_order (tests.test_duplicate_json.DuplicateModelJsonTests.test_contradictory_status_duplicates_rejected_in_either_order) ... ok
+test_duplicate_top_level_obligations_rejected (tests.test_duplicate_json.DuplicateModelJsonTests.test_duplicate_top_level_obligations_rejected) ... ok
+test_escaped_equivalent_keys_rejected (tests.test_duplicate_json.DuplicateModelJsonTests.test_escaped_equivalent_keys_rejected) ... ok
+test_existing_fenced_json_path_remains_valid (tests.test_duplicate_json.DuplicateModelJsonTests.test_existing_fenced_json_path_remains_valid) ... ok
+test_identical_duplicate_values_still_rejected (tests.test_duplicate_json.DuplicateModelJsonTests.test_identical_duplicate_values_still_rejected) ... ok
+test_invalid_json_does_not_get_permissive_repair (tests.test_duplicate_json.DuplicateModelJsonTests.test_invalid_json_does_not_get_permissive_repair) ... ok
+test_long_duplicate_output_preserved_without_silent_truncation (tests.test_duplicate_json.DuplicateModelJsonTests.test_long_duplicate_output_preserved_without_silent_truncation) ... ok
+test_nested_citation_duplicate_rejected_even_in_ignored_extension (tests.test_duplicate_json.DuplicateModelJsonTests.test_nested_citation_duplicate_rejected_even_in_ignored_extension) ... ok
+test_valid_json_with_repeated_names_in_distinct_objects_preserved (tests.test_duplicate_json.DuplicateModelJsonTests.test_valid_json_with_repeated_names_in_distinct_objects_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.693s
+
+OK

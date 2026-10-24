@@ -1,0 +1,166 @@
+[
+  {
+    "case_id": "coupon_expiry_boundary_lost",
+    "http_status": 200,
+    "elapsed_seconds": 31.875,
+    "response": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"A coupon is valid on expiry day inclusive and invalid on days after expiry\",\n      \"test_support\": \"checked\",\n      \"rationale\": \"The requirement specifies that a coupon is valid through its expiry day inclusive and invalid on later days. The test `tests_after:L2` asserts `coupon_valid(29, 30) is True`, which satisfies validity on the expiry day (29 \u2264 30). The test `tests_after:L3` asserts `coupon_valid(31, 30) is False`, which satisfies invalidity on a day after expiry (31 > 30). Both assertions directly verify the inclusive expiry behavior as specified in requirement:L1.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L2\",\n        \"tests_after:L3\"\n      ]\n    }\n  ],\n  \"questions\": []\n}"
+          }
+        }
+      ],
+      "created": 1792771221,
+      "model": "te-qwen3-4b",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 205,
+        "prompt_tokens": 975,
+        "total_tokens": 1180,
+        "prompt_tokens_details": {
+          "cached_tokens": 6
+        }
+      },
+      "id": "chatcmpl-9SrkvH3fer6HlMwVzgEPaLrgkVooXvZa",
+      "timings": {
+        "cache_n": 6,
+        "prompt_n": 969,
+        "prompt_ms": 14809.384,
+        "prompt_per_token_ms": 15.283162022703818,
+        "prompt_per_second": 65.43148587409172,
+        "predicted_n": 205,
+        "predicted_ms": 16966.32,
+        "predicted_per_token_ms": 83.16823529411765,
+        "predicted_per_second": 12.023821311869634
+      }
+    }
+  },
+  {
+    "case_id": "list_order_table_refactor",
+    "http_status": 200,
+    "elapsed_seconds": 30.783,
+    "response": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"Remove duplicate names while preserving first-occurrence order. An empty input list returns an empty list.\",\n      \"test_support\": \"checked\",\n      \"rationale\": \"The requirement explicitly states that duplicate names should be removed while preserving first-occurrence order, and that an empty input returns an empty list. The after-test `tests_after:L4` contains assertions for each case in `tests_after:L2`: for `(['b', 'a', 'b'], ['b', 'a'])`, `(['a', 'a', 'b'], ['a', 'b'])`, and `([], [])`. Each assertion directly verifies that `unique_names(names) == expected`, confirming both the order preservation and empty input handling. The actual test cases match the requirement exactly.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L2\",\n        \"tests_after:L3\",\n        \"tests_after:L4\"\n      ]\n    }\n  ],\n  \"questions\": []\n}"
+          }
+        }
+      ],
+      "created": 1792771251,
+      "model": "te-qwen3-4b",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 226,
+        "prompt_tokens": 1192,
+        "total_tokens": 1418,
+        "prompt_tokens_details": {
+          "cached_tokens": 415
+        }
+      },
+      "id": "chatcmpl-jVWeolIXVxKy2SgEZHJAdY4e6hvlZrdC",
+      "timings": {
+        "cache_n": 415,
+        "prompt_n": 777,
+        "prompt_ms": 12146.692,
+        "prompt_per_token_ms": 15.632808236808236,
+        "prompt_per_second": 63.96803343659328,
+        "predicted_n": 226,
+        "predicted_ms": 18559.65,
+        "predicted_per_token_ms": 82.48733333333334,
+        "predicted_per_second": 12.123073441578908
+      }
+    }
+  },
+  {
+    "case_id": "refund_tie_policy_missing",
+    "http_status": 200,
+    "elapsed_seconds": 45.86,
+    "response": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"Refund rounding for exact half-cent tie (remainder == 5) uses odd-whole-cents rule\",\n      \"test_support\": \"gap\",\n      \"rationale\": \"The requirement does not specify how to round an exact half-cent tie, so no explicit policy is defined. The after-tests include cases for 104, 105, and 106, but do not contain a test where remainder == 5 and whole is odd. The test for tenths=105 (which has remainder 5) returns 10, but the source code shows that when remainder == 5 and whole % 2 == 1, it returns whole + 1. However, the actual test assertion for tenths=105 is assert refund_cents(105) == 10, which contradicts the source logic. This indicates a discrepancy between the source and test expectations. Since the requirement does not specify the tie-breaking rule, and the actual test does not verify the behavior under remainder == 5 with odd whole cents, the obligation is not checked. The absence of a test case explicitly evaluating the odd-whole-cents rule means the behavior is not verified.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L3\"\n      ]\n    }\n  ],\n  \"questions\": [\n    \"Is the behavior of refund_cents when remainder == 5 and whole is odd (e.g., tenths=105 with whole=10) correctly implemented and tested in the after-tests?\"\n  ]\n}"
+          }
+        }
+      ],
+      "created": 1792771297,
+      "model": "te-qwen3-4b",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 349,
+        "prompt_tokens": 1171,
+        "total_tokens": 1520,
+        "prompt_tokens_details": {
+          "cached_tokens": 415
+        }
+      },
+      "id": "chatcmpl-6HtHGMHL5kQ8Mr3y8hrkBPFBKBLTbHUu",
+      "timings": {
+        "cache_n": 415,
+        "prompt_n": 756,
+        "prompt_ms": 11111.264,
+        "prompt_per_token_ms": 14.697439153439152,
+        "prompt_per_second": 68.03906378248236,
+        "predicted_n": 349,
+        "predicted_ms": 34681.218,
+        "predicted_per_token_ms": 99.6586724137931,
+        "predicted_per_second": 10.034249662165843
+      }
+    }
+  },
+  {
+    "case_id": "input_blank_assertion_retained",
+    "http_status": 200,
+    "elapsed_seconds": 33.643,
+    "response": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"Empty or whitespace-only string inputs are rejected, and non-whitespace inputs are accepted\",\n      \"test_support\": \"checked\",\n      \"rationale\": \"The requirement explicitly states that empty or whitespace-only coupon codes are rejected and that codes containing at least one non-whitespace character are accepted. The after-test assertions confirm this: `tests_after:L2` asserts `valid_code('') is False`, `tests_after:L3` asserts `valid_code('   ') is False`, and `tests_after:L4` and `tests_after:L5` assert `valid_code('SAVE') is True` and `valid_code(' SAVE ') is True`, respectively. These cases directly verify the behavior specified in requirement:L1. The actual input values and outcomes satisfy the equality condition defined by the requirement.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L2\",\n        \"tests_after:L3\",\n        \"tests_after:L4\",\n        \"tests_after:L5\"\n      ]\n    }\n  ],\n  \"questions\": []\n}"
+          }
+        }
+      ],
+      "created": 1792771331,
+      "model": "te-qwen3-4b",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 237,
+        "prompt_tokens": 1003,
+        "total_tokens": 1240,
+        "prompt_tokens_details": {
+          "cached_tokens": 415
+        }
+      },
+      "id": "chatcmpl-ZGyB4acMtqKYYNWRO7NF0x1W39Aq4Yav",
+      "timings": {
+        "cache_n": 415,
+        "prompt_n": 588,
+        "prompt_ms": 10525.651,
+        "prompt_per_token_ms": 17.90076700680272,
+        "prompt_per_second": 55.8635280611147,
+        "predicted_n": 237,
+        "predicted_ms": 23016.572,
+        "predicted_per_token_ms": 97.52784745762712,
+        "predicted_per_second": 10.253481708744465
+      }
+    }
+  }
+]

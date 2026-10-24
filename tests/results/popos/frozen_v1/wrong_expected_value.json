@@ -1,0 +1,101 @@
+{
+  "id": "wrong_expected_value",
+  "started_at": "2026-10-23T22:13:30.462348+00:00",
+  "http_status": 200,
+  "response": {
+    "analysis_id": "8c152150-0aac-4efa-aedc-5de0a28b1056",
+    "created_at": "2026-10-23T22:13:30.768249+00:00",
+    "mode": "llm",
+    "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+    "obligations": [
+      {
+        "id": "O1",
+        "description": "duration(\"minute\") returns 60",
+        "rationale": "The after-test checks 100, but the requirement specifies 60.",
+        "status": "potentially_missing",
+        "evidence": [
+          {
+            "artifact": "requirement",
+            "line_start": 1,
+            "line_end": 1,
+            "quote": "duration(\"minute\") must return 60."
+          },
+          {
+            "artifact": "tests_after",
+            "line_start": 3,
+            "line_end": 3,
+            "quote": "    assert duration(\"minute\") == 100"
+          }
+        ],
+        "origin": "llm_inference"
+      }
+    ],
+    "questions": [],
+    "observations": [
+      {
+        "kind": "deterministic_static",
+        "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "tests_before: valid Python syntax; 1 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "tests_after: valid Python syntax; 1 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      }
+    ],
+    "warnings": [],
+    "provider": {
+      "http_temperature": 0.0,
+      "http_timeout_seconds": 300,
+      "backend": "openai-compatible",
+      "model": "te-dolphin3-8b-q4",
+      "elapsed_seconds": 0.304,
+      "actual_inference": true,
+      "prompt_version": "3.1-explicit-boundary-evidence",
+      "prompt_patterns": [
+        "persona",
+        "few-shot",
+        "iterative refinement"
+      ],
+      "raw_response": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"duration(\\\"minute\\\") returns 60\",\"test_support\":\"gap\",\"rationale\":\"The after-test checks 100, but the requirement specifies 60.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L3\"]}], \"questions\":[]}"
+    },
+    "artifact_sha256": {
+      "requirement": "29cf377455db7c851fcbfd9b0024d6e5dcb465633d97a358961fb197a842a798",
+      "source_before": "f8968bd872ddbeb271510a4f71f8025c20f5a26561afa2f25796fba15ade7911",
+      "source_after": "f8968bd872ddbeb271510a4f71f8025c20f5a26561afa2f25796fba15ade7911",
+      "tests_before": "d8d418ff5e16d7fd1c58c1a996309a2b7372478f68ffe4538a11c8698fad86d1",
+      "tests_after": "84cfba7a8009b4993b871fc82d67c90acaf4f360cf0e4d0c448fb73ac646df4f",
+      "clarification": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "prompt_provenance": {
+      "version": "3.1-explicit-boundary-evidence",
+      "sha256": "498df8fd058f2d26d748be66e39b11317e04b4748b59999c2e707b194ba25357",
+      "canonicalization": "UTF-8 JSON sorted keys, no insignificant whitespace",
+      "previous_analysis_supplied": false,
+      "previous_analysis_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "used_by_model": true
+    },
+    "review_context": {
+      "previous_analysis": null
+    },
+    "artifacts": {
+      "requirement": "duration(\"minute\") must return 60.",
+      "source_before": "def duration(unit):\n    return 60 if unit == \"minute\" else 1",
+      "source_after": "def duration(unit):\n    return 60 if unit == \"minute\" else 1",
+      "tests_before": "from subject import duration\ndef test_minute():\n    assert duration(\"minute\") == 60",
+      "tests_after": "from subject import duration\ndef test_minute():\n    assert duration(\"minute\") == 100",
+      "clarification": ""
+    },
+    "execution": {
+      "performed": false,
+      "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+    }
+  },
+  "elapsed_seconds": 0.363
+}

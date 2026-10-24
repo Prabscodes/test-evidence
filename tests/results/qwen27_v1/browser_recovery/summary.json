@@ -1,0 +1,22 @@
+{
+  "scope": "Actual27B local UI workflow on reused demo/development artifacts; not independent accuracy",
+  "review_seconds": 8.493,
+  "refinement_seconds": 8.948,
+  "review_statuses": [
+    "potentially_missing",
+    "supported"
+  ],
+  "refinement_statuses": [
+    "potentially_missing",
+    "supported"
+  ],
+  "exact_citation_selection": true,
+  "raw_hash_json_markdown_exports": true,
+  "clarification_prior_context": true,
+  "stale_export_disabled": true,
+  "immutable_fixture_separate_export": true,
+  "actual_model_post_count": 2,
+  "browser_errors": [],
+  "gpu_free_mib_before": 11912,
+  "footage": "Genuine browser capture, no generated narration; no wait speed-up applied to raw footage."
+}

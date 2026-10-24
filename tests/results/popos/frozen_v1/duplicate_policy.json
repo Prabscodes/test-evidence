@@ -1,0 +1,105 @@
+{
+  "id": "duplicate_policy",
+  "started_at": "2026-10-23T22:13:29.523392+00:00",
+  "http_status": 200,
+  "response": {
+    "analysis_id": "0b326781-e2e7-470e-9739-a4a9f1312cf9",
+    "created_at": "2026-10-23T22:13:29.998544+00:00",
+    "mode": "llm",
+    "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+    "obligations": [
+      {
+        "id": "O1",
+        "description": "Expected policy requires authoritative clarification",
+        "rationale": "Consistency guard: the model's own explanation explicitly acknowledges unspecified or ambiguous authority. Any unsupported policy claim is withheld. Original model output remains available for inspection; this wording check is not semantic proof.",
+        "status": "unresolved",
+        "evidence": [
+          {
+            "artifact": "requirement",
+            "line_start": 1,
+            "line_end": 1,
+            "quote": "The winning value for a duplicate key is unspecified. Ask the owner before choosing first or last."
+          },
+          {
+            "artifact": "tests_after",
+            "line_start": 3,
+            "line_end": 3,
+            "quote": "    assert to_map([(\"k\", 1), (\"k\", 2)]) == {\"k\": 1}"
+          }
+        ],
+        "origin": "deterministic_consistency_guard"
+      }
+    ],
+    "questions": [
+      "What authoritative expected outcome applies to this unspecified or ambiguous behavior?"
+    ],
+    "observations": [
+      {
+        "kind": "deterministic_static",
+        "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "tests_before: valid Python syntax; 1 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "tests_after: valid Python syntax; 1 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      }
+    ],
+    "warnings": [
+      "O1: model acknowledged insufficient authority; clarification required by consistency guard."
+    ],
+    "provider": {
+      "http_temperature": 0.0,
+      "http_timeout_seconds": 300,
+      "backend": "openai-compatible",
+      "model": "te-dolphin3-8b-q4",
+      "elapsed_seconds": 0.474,
+      "actual_inference": true,
+      "prompt_version": "3.1-explicit-boundary-evidence",
+      "prompt_patterns": [
+        "persona",
+        "few-shot",
+        "iterative refinement"
+      ],
+      "raw_response": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"The winning value for a duplicate key is unspecified. Ask the owner before choosing first or last.\",\"test_support\":\"unknown\",\"rationale\":\"The requirement does not specify the expected outcome for the behavior of the to_map function when there are duplicate keys. The before tests show a different expected outcome than the after tests, but neither outcome is justified by the requirement.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L3\"]}], \"questions\":[]}"
+    },
+    "artifact_sha256": {
+      "requirement": "fb07dfcb6aab5b9830929bbb809340d8e62d599d74e08e7f1781a8a6348eb7ec",
+      "source_before": "88926af97bc1ce6f9f1bb57c440b017d5ad4796f9afdef01a6ba8c2db19a0820",
+      "source_after": "88926af97bc1ce6f9f1bb57c440b017d5ad4796f9afdef01a6ba8c2db19a0820",
+      "tests_before": "162e7452c31a37737b576f1650f00cab5aee9394b920781423f3a29e10aae2c3",
+      "tests_after": "54d73a130e18f46c1c5c6ce1402c6ab8c7806c0e50f922c22a437f50017d4b54",
+      "clarification": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "prompt_provenance": {
+      "version": "3.1-explicit-boundary-evidence",
+      "sha256": "af25c4ffe102a7581e589d630c3e0bd64f523b788c9f35af7e030991f638d644",
+      "canonicalization": "UTF-8 JSON sorted keys, no insignificant whitespace",
+      "previous_analysis_supplied": false,
+      "previous_analysis_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "used_by_model": true
+    },
+    "review_context": {
+      "previous_analysis": null
+    },
+    "artifacts": {
+      "requirement": "The winning value for a duplicate key is unspecified. Ask the owner before choosing first or last.",
+      "source_before": "def to_map(pairs):\n    return dict(pairs)",
+      "source_after": "def to_map(pairs):\n    return dict(pairs)",
+      "tests_before": "from subject import to_map\ndef test_duplicate():\n    assert to_map([(\"k\", 1), (\"k\", 2)]) == {\"k\": 2}",
+      "tests_after": "from subject import to_map\ndef test_duplicate():\n    assert to_map([(\"k\", 1), (\"k\", 2)]) == {\"k\": 1}",
+      "clarification": ""
+    },
+    "execution": {
+      "performed": false,
+      "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+    }
+  },
+  "elapsed_seconds": 0.529
+}

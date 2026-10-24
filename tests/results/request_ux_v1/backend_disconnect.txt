@@ -1,0 +1,14 @@
+<LOCAL_PATH>:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_access_rejection_keeps_credentials_out_of_error (tests.test_request_lifecycle.RequestLifecycleTests.test_access_rejection_keeps_credentials_out_of_error) ... ok
+test_context_rejection_suggests_shorter_excerpts_without_leaking_body (tests.test_request_lifecycle.RequestLifecycleTests.test_context_rejection_suggests_shorter_excerpts_without_leaking_body) ... ok
+test_disconnected_http_client_does_not_release_active_review_lock (tests.test_request_lifecycle.RequestLifecycleTests.test_disconnected_http_client_does_not_release_active_review_lock) ... ok
+test_missing_model_is_actionable_without_upstream_body (tests.test_request_lifecycle.RequestLifecycleTests.test_missing_model_is_actionable_without_upstream_body) ... ok
+test_running_status_and_duplicate_request_remain_locked_until_completion (tests.test_request_lifecycle.RequestLifecycleTests.test_running_status_and_duplicate_request_remain_locked_until_completion) ... ok
+test_timeout_is_actionable_and_does_not_retry (tests.test_request_lifecycle.RequestLifecycleTests.test_timeout_is_actionable_and_does_not_retry) ... ok
+test_unreachable_model_is_actionable_and_sanitized (tests.test_request_lifecycle.RequestLifecycleTests.test_unreachable_model_is_actionable_and_sanitized) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.317s
+
+OK

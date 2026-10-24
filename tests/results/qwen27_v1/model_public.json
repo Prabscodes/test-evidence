@@ -1,0 +1,45 @@
+{
+  "model": "Qwen3.5-27B existing quantized files",
+  "base_model_card": "Qwen/Qwen3.5-27B",
+  "architecture": "Qwen3_5ForConditionalGeneration",
+  "quantization": "compressed-tensors symmetric4bit group32 pack-quantized",
+  "download_revision": "65497df9ca706cd6aa9cc8374fc259f39e78672d",
+  "weights": {
+    "model-00001-of-00004.safetensors": {
+      "bytes": 5363544192,
+      "sha256": "5941fc60c867a6544c39c141e483b2805659476846a236d996f7e4f800c1b6f0"
+    },
+    "model-00002-of-00004.safetensors": {
+      "bytes": 5337276192,
+      "sha256": "916a590128793eb85b8faea64d1a5f9063d9bdc6524b2cbfeaba53d34b52bbcc"
+    },
+    "model-00003-of-00004.safetensors": {
+      "bytes": 4005566840,
+      "sha256": "f4b8889eb0fff33c9a88ec06eb1d689972254aa3d97c7f88216543601544c3c8"
+    },
+    "model-00004-of-00004.safetensors": {
+      "bytes": 5351621176,
+      "sha256": "fbd1d038954c94845fd74c1c14061f6983cb244394dcc3c1b7f2decda7c8b015"
+    }
+  },
+  "runtime": "vLLM0.25.1 g752a3a504 / PyTorch2.11.0 / Transformers5.14.1",
+  "settings": {
+    "cpu_offload_gb": 0,
+    "thinking": false,
+    "context": 6144,
+    "concurrency": 1,
+    "prefill_tokens": 128,
+    "kv_cache_bytes": 1073741824,
+    "eager": true,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "min_p": 0,
+    "presence_penalty": 1.5,
+    "repetition_penalty": 1.0,
+    "seed": 42,
+    "local_max_output_tokens": 1536,
+    "local_timeout_seconds": 300
+  },
+  "scope": "Exact local bytes and download metadata verified; upstream quantizer repository identity not independently resolved. No local model paths or weights included."
+}

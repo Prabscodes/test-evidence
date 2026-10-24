@@ -1,0 +1,10 @@
+{
+  "recorded_at": "2026-10-24T01:02:51.672808+00:00",
+  "files": {
+    "analysis.py": "034d0c7a574f111e3dcafc60626aeb383ffd47ca838a776b9a879703549f8dcb",
+    "prompts.py": "9f77f6ed95013d685aea27fa97a583ded805629585c214a085842c43c4092df2",
+    "provider.py": "0a812febb44e7f2e203927f6aa979aa5be650fc9f9f85870a8ed37c2c17003eb",
+    "static/app.js": "89969e173ab34da788bcd37831bea9add5fd7127f00da47020c46024dce76459",
+    "fixtures.py": "a32971e3987a5a8f7fa0ce801575fa49e12699d2e1a66cd020f2dd2e496296be"
+  }
+}

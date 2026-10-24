@@ -1,0 +1,57 @@
+<LOCAL_PATH>:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_authority_and_after_test_both_required (test_api.ApiTests.test_authority_and_after_test_both_required) ... ok
+test_clarification_can_supply_authority (test_api.ApiTests.test_clarification_can_supply_authority) ... ok
+test_demo_cases_and_exact_evidence (test_api.ApiTests.test_demo_cases_and_exact_evidence) ... ok
+test_edited_demo_never_reuses_canned_inference (test_api.ApiTests.test_edited_demo_never_reuses_canned_inference) ... ok
+test_endpoints_and_security_headers (test_api.ApiTests.test_endpoints_and_security_headers) ... ok
+test_fabricated_citation_downgraded (test_api.ApiTests.test_fabricated_citation_downgraded) ... ok
+test_fixture_concurrency_limit (test_api.ApiTests.test_fixture_concurrency_limit) ... ok
+test_fixture_endpoint_is_allowlisted (test_api.ApiTests.test_fixture_endpoint_is_allowlisted) ... ok
+test_ids_in_text_cannot_create_authority (test_api.ApiTests.test_ids_in_text_cannot_create_authority) ... ok
+test_import_only_after_citation_abstains (test_api.ApiTests.test_import_only_after_citation_abstains) ... ok
+test_input_validation (test_api.ApiTests.test_input_validation) ... ok
+test_internal_error_never_exposes_secrets (test_api.ApiTests.test_internal_error_never_exposes_secrets) ... ok
+test_invalid_line_ids_and_blank_refs_downgrade (test_api.ApiTests.test_invalid_line_ids_and_blank_refs_downgrade) ... ok
+test_invalid_llm_json_is_unresolved_not_successful_assessment (test_api.ApiTests.test_invalid_llm_json_is_unresolved_not_successful_assessment) ... ok
+test_missing_provider_fails_honestly (test_api.ApiTests.test_missing_provider_fails_honestly) ... ok
+test_prompt_provenance_tracks_refinement_context (test_api.ApiTests.test_prompt_provenance_tracks_refinement_context) ... ok
+test_provider_valueerror_is_not_returned_to_client (test_api.ApiTests.test_provider_valueerror_is_not_returned_to_client) ... ok
+test_refinement_does_not_reuse_demo_semantics (test_api.ApiTests.test_refinement_does_not_reuse_demo_semantics) ... ok
+test_supported_without_cited_assertion_abstains (test_api.ApiTests.test_supported_without_cited_assertion_abstains) ... ok
+test_uploaded_code_is_not_executed (test_api.ApiTests.test_uploaded_code_is_not_executed) ... ok
+test_valid_citations_preserved (test_api.ApiTests.test_valid_citations_preserved) ... ok
+test_api_withholds_contradictory_claim_and_retains_raw (test_consistency.ConsistencyTests.test_api_withholds_contradictory_claim_and_retains_raw) ... ok
+test_negative_domains_and_negation (test_consistency.ConsistencyTests.test_negative_domains_and_negation) ... ok
+test_positive_domains (test_consistency.ConsistencyTests.test_positive_domains) ... ok
+test_general_criteria_no_development_domain (test_critique.CritiqueTests.test_general_criteria_no_development_domain) ... ok
+test_original_data_and_review_remain_untrusted (test_critique.CritiqueTests.test_original_data_and_review_remain_untrusted) ... ok
+test_raw_output_limit (test_critique.CritiqueTests.test_raw_output_limit) ... ok
+test_all_samples_have_expected_outcomes (test_fixtures.FixtureTests.test_all_samples_have_expected_outcomes) ... ok
+test_executable_snapshot_not_mutable_through_samples (test_fixtures.FixtureTests.test_executable_snapshot_not_mutable_through_samples) ... ok
+test_harness_errors_are_not_assertion_failures (test_fixtures.FixtureTests.test_harness_errors_are_not_assertion_failures) ... ok
+test_hashes_are_reproducible (test_fixtures.FixtureTests.test_hashes_are_reproducible) ... ok
+test_oracle_failure_is_assertion_not_harness_error (test_fixtures.FixtureTests.test_oracle_failure_is_assertion_not_harness_error) ... ok
+test_subprocess_environment_contains_no_inherited_secret (test_fixtures.FixtureTests.test_subprocess_environment_contains_no_inherited_secret) ... ok
+test_timeout_is_not_assertion_failure (test_fixtures.FixtureTests.test_timeout_is_not_assertion_failure) ... ok
+test_unknown_ids_rejected_before_execution (test_fixtures.FixtureTests.test_unknown_ids_rejected_before_execution) ... ok
+test_zero_tests_is_not_passing_evidence (test_fixtures.FixtureTests.test_zero_tests_is_not_passing_evidence) ... ok
+test_http_temperature_is_bounded_and_finite (test_provider.ProviderTests.test_http_temperature_is_bounded_and_finite) ... ok
+test_http_timeout_bounds_and_sanitized_errors (test_provider.ProviderTests.test_http_timeout_bounds_and_sanitized_errors) ... ok
+test_loopback_bypasses_environment_proxy (test_provider.ProviderTests.test_loopback_bypasses_environment_proxy) ... ok
+test_loopback_status_not_remote_or_paid (test_provider.ProviderTests.test_loopback_status_not_remote_or_paid) ... ok
+test_prompt_authority_precedes_gap_classification (test_provider.ProviderTests.test_prompt_authority_precedes_gap_classification) ... ok
+test_prompt_groups_after_target_separately_from_history (test_provider.ProviderTests.test_prompt_groups_after_target_separately_from_history) ... ok
+test_prompt_requires_boundary_equality_without_domain_hardcoding (test_provider.ProviderTests.test_prompt_requires_boundary_equality_without_domain_hardcoding) ... ok
+test_refinement_is_inspectable (test_provider.ProviderTests.test_refinement_is_inspectable) ... ok
+test_remote_inference_requires_opt_in (test_provider.ProviderTests.test_remote_inference_requires_opt_in) ... ok
+test_source_stays_in_untrusted_user_message (test_provider.ProviderTests.test_source_stays_in_untrusted_user_message) ... ok
+test_status_never_exposes_credentials (test_provider.ProviderTests.test_status_never_exposes_credentials) ... ok
+test_unconfigured_does_not_claim_inference (test_provider.ProviderTests.test_unconfigured_does_not_claim_inference) ... ok
+test_url_validation_allows_exact_loopback_and_https (test_provider.ProviderTests.test_url_validation_allows_exact_loopback_and_https) ... ok
+test_url_validation_rejects_authority_confusion_without_network (test_provider.ProviderTests.test_url_validation_rejects_authority_confusion_without_network) ... ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 2.778s
+
+OK

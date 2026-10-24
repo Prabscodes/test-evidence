@@ -1,0 +1,43 @@
+{
+  "recorded_at": "2026-10-23T22:45:36.502077+00:00",
+  "status": "completed_local_diagnostic_profile",
+  "app_url": "http://127.0.0.1:8765",
+  "model": "te-qwen35-4b-bf16",
+  "quantization": "none; BF16",
+  "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "frozen_counts": {
+    "raw": {
+      "label_matches": 3,
+      "total": 6,
+      "false_support": 0,
+      "false_accusation": 3,
+      "unresolved": 0,
+      "errors": 0
+    },
+    "guarded": {
+      "label_matches": 3,
+      "total": 6,
+      "false_support": 0,
+      "false_accusation": 3,
+      "unresolved": 0,
+      "errors": 0
+    }
+  },
+  "latency_seconds": {
+    "median": 47.784000000000006,
+    "mean": 53.9225,
+    "minimum": 37.669,
+    "maximum": 92.378,
+    "sum": 323.53499999999997
+  },
+  "decision": "Keep conservative 4 GiB CPU offload; no further startup. No clear overall reliability improvement over Dolphin.",
+  "technical_blockers": [],
+  "limitations": [
+    "semantic false accusations and erroneous rationales",
+    "reused synthetic single-author six-case diagnostic; not new held-out accuracy",
+    "shared GPU memory changing; samples not guaranteed peaks",
+    "slow single-request CPU-offloaded profile; restricted context"
+  ],
+  "no_downloads_for_followup": true,
+  "comfyui_and_ollama_untouched": true
+}

@@ -1,0 +1,87 @@
+{
+  "analysis_id": "35ecabc0-f697-4c07-8ab0-dce225d2d55a",
+  "created_at": "2026-10-24T01:06:00.651283+00:00",
+  "mode": "llm",
+  "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+  "obligations": [
+    {
+      "id": "O1",
+      "description": "Model output needs human review",
+      "status": "unresolved",
+      "rationale": "The model returned duplicate JSON object keys, making its output ambiguous. No model claim has been accepted.",
+      "evidence": [],
+      "origin": "llm_inference"
+    }
+  ],
+  "questions": [
+    "Please refine the requirement or use a stronger configured model."
+  ],
+  "observations": [
+    {
+      "kind": "deterministic_static",
+      "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+    },
+    {
+      "kind": "deterministic_static",
+      "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+    },
+    {
+      "kind": "deterministic_static",
+      "detail": "tests_before: valid Python syntax; 1 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+    },
+    {
+      "kind": "deterministic_static",
+      "detail": "tests_after: valid Python syntax; 1 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+    }
+  ],
+  "warnings": [
+    "Model response contains duplicate JSON object keys; all conclusions remain unresolved."
+  ],
+  "provider": {
+    "http_temperature": 0,
+    "http_timeout_seconds": 30,
+    "backend": "openai-compatible",
+    "model": "synthetic-parser-contract",
+    "elapsed_seconds": 0.007,
+    "actual_inference": true,
+    "prompt_version": "3.1-explicit-boundary-evidence",
+    "prompt_patterns": [
+      "persona",
+      "few-shot",
+      "iterative refinement"
+    ],
+    "raw_response": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"Required value\",\"rationale\":\"The explicit case is checked.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\"],\"test_support\":\"gap\",\"test_support\":\"checked\"}],\"questions\":[]}",
+    "raw_response_sha256": "4334a6866595534715da2c6b45147c39d371ed18571aba5ebf94ba11c1c8e23c"
+  },
+  "artifact_sha256": {
+    "requirement": "cee629adc39472129fc162aba2efd8bb6e4a8898f00a998524ed2d98b223fe4b",
+    "source_before": "27324066118451dcf38081d6dfa2f4fc8c03e2b4817f579b1d16c72840f7a0c1",
+    "source_after": "27324066118451dcf38081d6dfa2f4fc8c03e2b4817f579b1d16c72840f7a0c1",
+    "tests_before": "2d86636537d76ee3c6899521a11d43d989c745a61ff6a6b294edaa62b1c65544",
+    "tests_after": "2d86636537d76ee3c6899521a11d43d989c745a61ff6a6b294edaa62b1c65544",
+    "clarification": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "prompt_provenance": {
+    "version": "3.1-explicit-boundary-evidence",
+    "sha256": "e2be371165be558250e63e77cb779d54692d468087344445518643917a2efccd",
+    "canonicalization": "UTF-8 JSON sorted keys, no insignificant whitespace",
+    "previous_analysis_supplied": false,
+    "previous_analysis_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "used_by_model": true
+  },
+  "review_context": {
+    "previous_analysis": null
+  },
+  "artifacts": {
+    "requirement": "f(1) must return 2.",
+    "source_before": "def f(x):\n    return x+1\n",
+    "source_after": "def f(x):\n    return x+1\n",
+    "tests_before": "def test_f():\n    assert f(1)==2\n",
+    "tests_after": "def test_f():\n    assert f(1)==2\n",
+    "clarification": ""
+  },
+  "execution": {
+    "performed": false,
+    "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+  }
+}

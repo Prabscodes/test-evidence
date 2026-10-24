@@ -1,0 +1,31 @@
+{
+  "completed_at": "2026-10-23T22:38:42.592187+00:00",
+  "inputs_sha256": "24858048e18f8c215ca07d185399276a3e4db593b8f004959d8298dddb4438e6",
+  "provider_status": {
+    "endpoint_config_valid": true,
+    "http_temperature": 0.7,
+    "temperature_config_valid": true,
+    "http_timeout_seconds": 300,
+    "timeout_config_valid": true,
+    "backend": "openai-compatible",
+    "configured": true,
+    "model": "te-qwen35-4b-bf16",
+    "processing_location": "loopback_endpoint",
+    "endpoint_calls_enabled": true,
+    "remote_processing_enabled": false,
+    "execution": "Only explicitly selected bundled fixtures can run."
+  },
+  "protocol_sha256": "4fbbc4e5048138318a4f2a798cc3a6924ff0a01a9c94c9f8444e2b2094e8cfdd",
+  "evaluator_sha256": "c728903651f8e05e73400cadf233f5132051c91a95b611b4f11a09575f80c1a5",
+  "runtime_manifest_sha256": "a7c8fdf6e2cdfe554b1c3c94496d4f06fa2d0c3e30661fb2a6dd894625e2c8e8",
+  "launch_script_sha256": "9b3b64c30a4c072f6e8f7546b2c9372a861458b908b3fc5a6ec4b413e42480a6",
+  "outputs": {
+    "comment_injection.json": "5f215ef7a5f6899d78681fd4899aa6b32758378498ba1ae402ba1603c89625d9",
+    "wrong_expected_value.json": "4cf137f14d96f55d8ec99ad8212cecb18ad8757d3e75db53f62afca4bd1eecfc",
+    "call_without_assertion.json": "cc99d5bd64eddeca2b480ef8f0f06a2a732e926751ab66e5fb1449a9a676ece5",
+    "empty_batch_table.json": "e7d8f2259da78d51fcd0e89affbb3da99ee1febd08179392e0048c6d6bfc3475",
+    "source_sha256.json": "a3203fec237e7f4963b5f043b9054749f738750e3a0f1ff9e77f8dbe7f5f9a5e",
+    "duplicate_policy.json": "157d31527126236c9d5ddfc447e91d3a638133f2747148558505ca06528ae299",
+    "negative_exception.json": "2e7dcf2ba37880c89bcd499aab12a732a8f27a3c80009a6176fd973d4c7f4a0a"
+  }
+}

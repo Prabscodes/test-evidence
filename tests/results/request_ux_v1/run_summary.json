@@ -1,0 +1,32 @@
+{
+  "recorded_at": "2026-10-23T23:58:51.539021+00:00",
+  "runs": [
+    {
+      "name": "unittest_final",
+      "exit_code": 0,
+      "wall_seconds": 3.314
+    },
+    {
+      "name": "frontend_final",
+      "exit_code": 0,
+      "wall_seconds": 0.033
+    },
+    {
+      "name": "clarification_final",
+      "exit_code": 0,
+      "wall_seconds": 0.019
+    },
+    {
+      "name": "dom_final",
+      "exit_code": 0,
+      "wall_seconds": 1.04
+    },
+    {
+      "name": "browser_demo",
+      "exit_code": 0,
+      "wall_seconds": 3.02
+    }
+  ],
+  "actual_browser_review": "browser_actual/summary.json",
+  "simulated_browser_errors": "browser_mock/summary.json"
+}

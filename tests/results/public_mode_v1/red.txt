@@ -1,0 +1,97 @@
+<LOCAL_PATH>:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_absent_public_provider_fails_closed (tests.test_public_mode.PublicModeTests.test_absent_public_provider_fails_closed) ... FAIL
+test_client_cannot_choose_upstream (tests.test_public_mode.PublicModeTests.test_client_cannot_choose_upstream) ... ok
+test_consented_request_uses_server_config_without_secret_echo (tests.test_public_mode.PublicModeTests.test_consented_request_uses_server_config_without_secret_echo) ... ERROR
+test_fixture_and_review_share_public_work_slot (tests.test_public_mode.PublicModeTests.test_fixture_and_review_share_public_work_slot) ... ERROR
+test_public_blocks_loopback_provider_and_local_model_loading (tests.test_public_mode.PublicModeTests.test_public_blocks_loopback_provider_and_local_model_loading) ... 
+  test_public_blocks_loopback_provider_and_local_model_loading (tests.test_public_mode.PublicModeTests.test_public_blocks_loopback_provider_and_local_model_loading) (change={'TE_API_BASE': 'http://127.0.0.1:18083/v1'}) ... FAIL
+  test_public_blocks_loopback_provider_and_local_model_loading (tests.test_public_mode.PublicModeTests.test_public_blocks_loopback_provider_and_local_model_loading) (change={'TE_PROVIDER': 'local'}) ... FAIL
+test_public_body_read_has_timeout (tests.test_public_mode.PublicModeTests.test_public_body_read_has_timeout) ... FAIL
+test_public_llm_requires_explicit_processing_consent (tests.test_public_mode.PublicModeTests.test_public_llm_requires_explicit_processing_consent) ... FAIL
+test_public_post_rate_is_bounded (tests.test_public_mode.PublicModeTests.test_public_post_rate_is_bounded) ... FAIL
+test_public_timeout_config_is_bounded (tests.test_public_mode.PublicModeTests.test_public_timeout_config_is_bounded) ... FAIL
+
+======================================================================
+ERROR: test_consented_request_uses_server_config_without_secret_echo (tests.test_public_mode.PublicModeTests.test_consented_request_uses_server_config_without_secret_echo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 28, in test_consented_request_uses_server_config_without_secret_echo
+    status=self.client.get('/api/status');self.assertTrue(status.json()['public_mode']);self.assertTrue(status.json()['provider_processing_required']);self.assertNotIn('SERVER_ONLY_SENTINEL',status.text);self.assertNotIn('https://provider.example/v1',status.text)
+                                                          ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'public_mode'
+
+======================================================================
+ERROR: test_fixture_and_review_share_public_work_slot (tests.test_public_mode.PublicModeTests.test_fixture_and_review_share_public_work_slot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 45, in test_fixture_and_review_share_public_work_slot
+    from public_runtime import PublicGuard
+ModuleNotFoundError: No module named 'public_runtime'
+
+======================================================================
+FAIL: test_absent_public_provider_fails_closed (tests.test_public_mode.PublicModeTests.test_absent_public_provider_fails_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 18, in test_absent_public_provider_fails_closed
+    self.assertEqual(r.status_code,503);infer.assert_not_called()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 502 != 503
+
+======================================================================
+FAIL: test_public_blocks_loopback_provider_and_local_model_loading (tests.test_public_mode.PublicModeTests.test_public_blocks_loopback_provider_and_local_model_loading) (change={'TE_API_BASE': 'http://127.0.0.1:18083/v1'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 21, in test_public_blocks_loopback_provider_and_local_model_loading
+    with self.subTest(change=change),patch.dict(os.environ,change),patch('analysis.provider.infer') as infer:r=self.client.post('/api/analyze',json=DATA,headers={'X-Provider-Consent':'yes'});self.assertEqual(r.status_code,503);infer.assert_not_called()
+                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 502 != 503
+
+======================================================================
+FAIL: test_public_blocks_loopback_provider_and_local_model_loading (tests.test_public_mode.PublicModeTests.test_public_blocks_loopback_provider_and_local_model_loading) (change={'TE_PROVIDER': 'local'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 21, in test_public_blocks_loopback_provider_and_local_model_loading
+    with self.subTest(change=change),patch.dict(os.environ,change),patch('analysis.provider.infer') as infer:r=self.client.post('/api/analyze',json=DATA,headers={'X-Provider-Consent':'yes'});self.assertEqual(r.status_code,503);infer.assert_not_called()
+                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 502 != 503
+
+======================================================================
+FAIL: test_public_body_read_has_timeout (tests.test_public_mode.PublicModeTests.test_public_body_read_has_timeout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 43, in test_public_body_read_has_timeout
+    self.assertEqual(r.status_code,408)
+AssertionError: 422 != 408
+
+======================================================================
+FAIL: test_public_llm_requires_explicit_processing_consent (tests.test_public_mode.PublicModeTests.test_public_llm_requires_explicit_processing_consent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 15, in test_public_llm_requires_explicit_processing_consent
+    self.assertEqual(r.status_code,400);self.assertIn('consent',r.text.lower());infer.assert_not_called()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 502 != 400
+
+======================================================================
+FAIL: test_public_post_rate_is_bounded (tests.test_public_mode.PublicModeTests.test_public_post_rate_is_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 35, in test_public_post_rate_is_bounded
+    self.assertEqual(codes[:6],[404]*6);self.assertEqual(codes[6],429)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 429
+
+======================================================================
+FAIL: test_public_timeout_config_is_bounded (tests.test_public_mode.PublicModeTests.test_public_timeout_config_is_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 24, in test_public_timeout_config_is_bounded
+    self.assertEqual(r.status_code,503);infer.assert_not_called()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 502 != 503
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.177s
+
+FAILED (failures=7, errors=2)

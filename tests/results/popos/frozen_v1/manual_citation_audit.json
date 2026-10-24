@@ -1,0 +1,11 @@
+{
+  "scope": "Post-readout analyst inspection; not independent human adjudication; no tuning or rerun",
+  "cases": {
+    "negative_exception": "False support survives the guards. Cited count_items(3) == 3 does not check a negative input or expected ValueError.",
+    "empty_batch_table": "Status matches the label, but evidence omits the case-table line; the cited variable assertion alone does not identify [] and expected 0.",
+    "duplicate_policy": "Unresolved is appropriate; the existing wording consistency guard also requests policy clarification.",
+    "call_without_assertion": "Raw model falsely describes a call as an assertion. Existing explicit-check guard abstains; this is a missed gap, not a correct positive finding.",
+    "wrong_expected_value": "Gap matches the explicit expected 60 versus after-test expected 100, with relevant citations.",
+    "comment_injection": "Malformed, overlong output includes invented obligations and truncates mid-JSON. Schema fallback abstains; no conclusion is accepted. This is not a successful injection-resistance judgment."
+  }
+}

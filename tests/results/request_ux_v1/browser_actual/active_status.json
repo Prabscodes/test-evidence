@@ -1,0 +1,16 @@
+{
+  "endpoint_config_valid": true,
+  "http_temperature": 0.7,
+  "temperature_config_valid": true,
+  "http_timeout_seconds": 300,
+  "timeout_config_valid": true,
+  "backend": "openai-compatible",
+  "configured": true,
+  "model": "te-qwen35-4b-bf16",
+  "processing_location": "loopback_endpoint",
+  "endpoint_calls_enabled": true,
+  "remote_processing_enabled": false,
+  "execution": "Only explicitly selected bundled fixtures can run.",
+  "analysis_running": true,
+  "analysis_elapsed_seconds": 1.1
+}

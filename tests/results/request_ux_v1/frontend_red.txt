@@ -1,0 +1,12 @@
+FAIL: elapsed state advances without percentages and duplicate clicks send one POST Elapsed time must remain visible during a slow request
+FAIL: transport cancellation requires read-only status recovery and never auto repeats The input did not match the regular expression /may still|still be|continue/i. Input:
+
+'SECRET-TRANSPORT'
+
+FAIL: a failed fresh request cannot reenable exports of a previous report Old output must stay stale after failure
+FAIL: reloaded page sees running app request and does not start another review The expression evaluated to a falsy value:
+
+  assert(h.get('analyze').disabled)
+
+PASS: late response for edited inputs is discarded
+FAIL: changing review mode invalidates an existing report Engine selection must not leave an old report exportable as current

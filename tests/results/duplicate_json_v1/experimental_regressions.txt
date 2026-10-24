@@ -1,0 +1,23 @@
+test_authority_cannot_come_from_source (experiments.semantic_mapping_v1.test_mapping.MappingTests.test_authority_cannot_come_from_source) ... ok
+test_checked_requires_matches_and_a_check (experiments.semantic_mapping_v1.test_mapping.MappingTests.test_checked_requires_matches_and_a_check) ... ok
+test_duplicate_obligation_ids_fail_closed (experiments.semantic_mapping_v1.test_mapping.MappingTests.test_duplicate_obligation_ids_fail_closed) ... ok
+test_foreign_or_blank_ids_are_rejected (experiments.semantic_mapping_v1.test_mapping.MappingTests.test_foreign_or_blank_ids_are_rejected) ... ok
+test_gap_with_matching_map_is_internally_inconsistent (experiments.semantic_mapping_v1.test_mapping.MappingTests.test_gap_with_matching_map_is_internally_inconsistent) ... ok
+test_map_is_required (experiments.semantic_mapping_v1.test_mapping.MappingTests.test_map_is_required) ... ok
+test_mapping_refs_must_also_be_cited (experiments.semantic_mapping_v1.test_mapping.MappingTests.test_mapping_refs_must_also_be_cited) ... ok
+test_semantically_wrong_but_structurally_valid_map_can_still_pass (experiments.semantic_mapping_v1.test_mapping.MappingTests.test_semantically_wrong_but_structurally_valid_map_can_still_pass) ... ok
+test_uncertain_or_unspecified_cannot_resolve (experiments.semantic_mapping_v1.test_mapping.MappingTests.test_uncertain_or_unspecified_cannot_resolve) ... ok
+test_unknown_never_gets_promoted (experiments.semantic_mapping_v1.test_mapping.MappingTests.test_unknown_never_gets_promoted) ... ok
+test_valid_map_has_no_structural_issue_but_is_not_a_truth_certificate (experiments.semantic_mapping_v1.test_mapping.MappingTests.test_valid_map_has_no_structural_issue_but_is_not_a_truth_certificate) ... ok
+test_all_abstention_cannot_pass (experiments.semantic_mapping_v1.test_scoring.GateTests.test_all_abstention_cannot_pass) ... ok
+test_fewer_errors_without_increased_components_can_pass (experiments.semantic_mapping_v1.test_scoring.GateTests.test_fewer_errors_without_increased_components_can_pass) ... ok
+test_increased_false_support_cannot_be_hidden_by_other_reduction (experiments.semantic_mapping_v1.test_scoring.GateTests.test_increased_false_support_cannot_be_hidden_by_other_reduction) ... ok
+test_latency_ratio_and_absolute_cap_both_apply (experiments.semantic_mapping_v1.test_scoring.GateTests.test_latency_ratio_and_absolute_cap_both_apply) ... ok
+test_manual_policy_audit_and_complete_readout_are_required (experiments.semantic_mapping_v1.test_scoring.GateTests.test_manual_policy_audit_and_complete_readout_are_required) ... ok
+test_nontext_model_content_is_an_error_not_a_scoring_crash (experiments.semantic_mapping_v1.test_scoring.GateTests.test_nontext_model_content_is_an_error_not_a_scoring_crash) ... ok
+test_zero_to_zero_errors_is_not_an_improvement (experiments.semantic_mapping_v1.test_scoring.GateTests.test_zero_to_zero_errors_is_not_an_improvement) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.001s
+
+OK

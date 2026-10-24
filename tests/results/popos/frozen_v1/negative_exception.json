@@ -1,0 +1,101 @@
+{
+  "id": "negative_exception",
+  "started_at": "2026-10-23T22:13:28.766446+00:00",
+  "http_status": 200,
+  "response": {
+    "analysis_id": "675153ed-8352-4802-9a0e-f25bfa155037",
+    "created_at": "2026-10-23T22:13:29.090505+00:00",
+    "mode": "llm",
+    "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+    "obligations": [
+      {
+        "id": "O1",
+        "description": "count_items raises ValueError for negative input",
+        "rationale": "The after-test assertion checks for a ValueError when the input is negative.",
+        "status": "supported",
+        "evidence": [
+          {
+            "artifact": "requirement",
+            "line_start": 1,
+            "line_end": 1,
+            "quote": "For a negative count, count_items must raise ValueError."
+          },
+          {
+            "artifact": "tests_after",
+            "line_start": 3,
+            "line_end": 3,
+            "quote": "    assert count_items(3) == 3"
+          }
+        ],
+        "origin": "llm_inference"
+      }
+    ],
+    "questions": [],
+    "observations": [
+      {
+        "kind": "deterministic_static",
+        "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "tests_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "tests_after: valid Python syntax; 1 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      }
+    ],
+    "warnings": [],
+    "provider": {
+      "http_temperature": 0.0,
+      "http_timeout_seconds": 300,
+      "backend": "openai-compatible",
+      "model": "te-dolphin3-8b-q4",
+      "elapsed_seconds": 0.322,
+      "actual_inference": true,
+      "prompt_version": "3.1-explicit-boundary-evidence",
+      "prompt_patterns": [
+        "persona",
+        "few-shot",
+        "iterative refinement"
+      ],
+      "raw_response": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"count_items raises ValueError for negative input\",\"test_support\":\"checked\",\"rationale\":\"The after-test assertion checks for a ValueError when the input is negative.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L3\"]}], \"questions\":[]}"
+    },
+    "artifact_sha256": {
+      "requirement": "8d3bbc64bf18a73bebec9ebc0a36854702dfcee5eac9fec63fe9b8a3338dc5d6",
+      "source_before": "5da2a06597c59a6eb3ca30c6c77ad31d9f9feda3b577211d48b0c54a7e5b2cbc",
+      "source_after": "5da2a06597c59a6eb3ca30c6c77ad31d9f9feda3b577211d48b0c54a7e5b2cbc",
+      "tests_before": "32decce32c31efaa3a778fb1434ad0928a5c0d5e9e7f3ee34b7d1359f64ef788",
+      "tests_after": "de307320ba4b7007ce4a05b1efbe0b3718c718c3cc0ad97758727edb1cc7b0dc",
+      "clarification": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "prompt_provenance": {
+      "version": "3.1-explicit-boundary-evidence",
+      "sha256": "06be09babb9a686d004800b77ea156cc85ed7f5bce39a7d01b070c7081aeea67",
+      "canonicalization": "UTF-8 JSON sorted keys, no insignificant whitespace",
+      "previous_analysis_supplied": false,
+      "previous_analysis_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "used_by_model": true
+    },
+    "review_context": {
+      "previous_analysis": null
+    },
+    "artifacts": {
+      "requirement": "For a negative count, count_items must raise ValueError.",
+      "source_before": "def count_items(n):\n    if n < 0: raise ValueError(\"negative\")\n    return n",
+      "source_after": "def count_items(n):\n    if n < 0: raise ValueError(\"negative\")\n    return n",
+      "tests_before": "import pytest\nfrom subject import count_items\ndef test_negative():\n    with pytest.raises(ValueError): count_items(-2)",
+      "tests_after": "from subject import count_items\ndef test_positive():\n    assert count_items(3) == 3",
+      "clarification": ""
+    },
+    "execution": {
+      "performed": false,
+      "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+    }
+  },
+  "elapsed_seconds": 0.383
+}

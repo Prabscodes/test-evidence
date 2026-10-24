@@ -1,0 +1,83 @@
+{
+  "scope": "Reused six-case diagnostic comparison; not a controlled model accuracy benchmark. Profiles differ in model, precision, runtime, sampler, context limit, prefix caching and CPU offload. No tuning on Qwen cases.",
+  "qwen_counts": {
+    "raw": {
+      "label_matches": 3,
+      "total": 6,
+      "false_support": 0,
+      "false_accusation": 3,
+      "unresolved": 0,
+      "errors": 0
+    },
+    "guarded": {
+      "label_matches": 3,
+      "total": 6,
+      "false_support": 0,
+      "false_accusation": 3,
+      "unresolved": 0,
+      "errors": 0
+    }
+  },
+  "dolphin_counts": {
+    "raw": {
+      "label_matches": 3,
+      "total": 6,
+      "false_support": 2,
+      "false_accusation": 0,
+      "unresolved": 1,
+      "errors": 1
+    },
+    "guarded": {
+      "label_matches": 3,
+      "total": 6,
+      "false_support": 1,
+      "false_accusation": 0,
+      "unresolved": 3,
+      "errors": 0
+    }
+  },
+  "cases": [
+    {
+      "id": "negative_exception",
+      "same_canonical_application_prompt": true,
+      "same_artifact_hashes": true,
+      "qwen_raw_status": "potentially_missing",
+      "qwen_guarded_status": "potentially_missing"
+    },
+    {
+      "id": "empty_batch_table",
+      "same_canonical_application_prompt": true,
+      "same_artifact_hashes": true,
+      "qwen_raw_status": "potentially_missing",
+      "qwen_guarded_status": "potentially_missing"
+    },
+    {
+      "id": "duplicate_policy",
+      "same_canonical_application_prompt": true,
+      "same_artifact_hashes": true,
+      "qwen_raw_status": "potentially_missing",
+      "qwen_guarded_status": "potentially_missing"
+    },
+    {
+      "id": "call_without_assertion",
+      "same_canonical_application_prompt": true,
+      "same_artifact_hashes": true,
+      "qwen_raw_status": "potentially_missing",
+      "qwen_guarded_status": "potentially_missing"
+    },
+    {
+      "id": "wrong_expected_value",
+      "same_canonical_application_prompt": true,
+      "same_artifact_hashes": true,
+      "qwen_raw_status": "potentially_missing",
+      "qwen_guarded_status": "potentially_missing"
+    },
+    {
+      "id": "comment_injection",
+      "same_canonical_application_prompt": true,
+      "same_artifact_hashes": true,
+      "qwen_raw_status": "potentially_missing",
+      "qwen_guarded_status": "potentially_missing"
+    }
+  ]
+}

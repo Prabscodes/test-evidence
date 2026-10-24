@@ -1,0 +1,91 @@
+{
+  "analysis_id": "f466ddee-1c38-4073-a031-0bed3f391c97",
+  "created_at": "2026-10-23T22:41:52.386901+00:00",
+  "mode": "llm",
+  "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+  "obligations": [
+    {
+      "id": "O1",
+      "description": "Shipping at total exactly 50 must be free (returns 0)",
+      "rationale": "The authoritative requirement specifies shipping_cost(50) must return 0. However, the AFTER tests only check shipping_cost(50) == 5 (tests_after:L6). The explicit boundary case of exactly 50 is not tested with the required expected outcome. Evidence guard: invalid or insufficient authoritative/after-test citations (imports/comments alone are not test evidence); human review required.",
+      "status": "unresolved",
+      "evidence": [
+        {
+          "artifact": "tests_after",
+          "line_start": 6,
+          "line_end": 6,
+          "quote": "        self.assertEqual(shipping_cost(50), 5)"
+        }
+      ],
+      "origin": "llm_inference"
+    }
+  ],
+  "questions": [],
+  "observations": [
+    {
+      "kind": "deterministic_static",
+      "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+    },
+    {
+      "kind": "deterministic_static",
+      "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+    },
+    {
+      "kind": "deterministic_static",
+      "detail": "tests_before: valid Python syntax; 0 assert statements; 1 assert-prefixed method calls. Counts do not establish behavior coverage."
+    },
+    {
+      "kind": "deterministic_static",
+      "detail": "tests_after: valid Python syntax; 0 assert statements; 1 assert-prefixed method calls. Counts do not establish behavior coverage."
+    }
+  ],
+  "warnings": [
+    "O1: downgraded to unresolved by evidence validation."
+  ],
+  "provider": {
+    "http_temperature": 0.7,
+    "http_timeout_seconds": 300,
+    "backend": "openai-compatible",
+    "model": "te-qwen35-4b-bf16",
+    "elapsed_seconds": 43.364,
+    "actual_inference": true,
+    "prompt_version": "3.1-explicit-boundary-evidence",
+    "prompt_patterns": [
+      "persona",
+      "few-shot",
+      "iterative refinement"
+    ],
+    "raw_response": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"Shipping at total exactly 50 must be free (returns 0)\",\"test_support\":\"gap\",\"rationale\":\"The authoritative requirement specifies shipping_cost(50) must return 0. However, the AFTER tests only check shipping_cost(50) == 5 (tests_after:L6). The explicit boundary case of exactly 50 is not tested with the required expected outcome.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L6\"]}],\"questions\":[]}"
+  },
+  "artifact_sha256": {
+    "requirement": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_before": "b2ae907569fb6454199f690baf205827ffa76e60848b69b50888376f8fdf98b1",
+    "source_after": "44ddb4fedb93b6526636630d5ca3531613b7223ad79540f4792ce6a355a7dc21",
+    "tests_before": "2b47ce85ff98cb58b8047826a981bc04df96072bc96d6b221ba07c2e72abe2e1",
+    "tests_after": "06a8aaf7d20fd207cd5f8ffb1ec6c7fa693406c531fb7a217142b4994f6494b3",
+    "clarification": "8d93ac612bd12ac00ee504387e38217d4e52f46bbfe5c4ea610fcfd29018ea57"
+  },
+  "prompt_provenance": {
+    "version": "3.1-explicit-boundary-evidence",
+    "sha256": "280c126a829a0c5c1d26cf4ce39dd9697661cc528c8e1b12a042598f2ed98049",
+    "canonicalization": "UTF-8 JSON sorted keys, no insignificant whitespace",
+    "previous_analysis_supplied": false,
+    "previous_analysis_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "used_by_model": true
+  },
+  "review_context": {
+    "previous_analysis": null
+  },
+  "artifacts": {
+    "requirement": "",
+    "source_before": "def shipping_cost(total):\n    return 0 if total >= 50 else 5\n",
+    "source_after": "def shipping_cost(total):\n    return 0 if total > 50 else 5\n",
+    "tests_before": "import unittest\nfrom subject import shipping_cost\n\nclass ShippingTests(unittest.TestCase):\n    def test_threshold(self):\n        self.assertEqual(shipping_cost(50), 0)\n",
+    "tests_after": "import unittest\nfrom subject import shipping_cost\n\nclass ShippingTests(unittest.TestCase):\n    def test_threshold(self):\n        self.assertEqual(shipping_cost(50), 5)\n",
+    "clarification": "Shipping at total exactly 50 must be free: shipping_cost(50) returns 0."
+  },
+  "execution": {
+    "performed": false,
+    "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+  }
+}

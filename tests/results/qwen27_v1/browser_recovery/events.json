@@ -1,0 +1,42 @@
+[
+  {
+    "event": "title_and_requirement",
+    "seconds": 0.869
+  },
+  {
+    "event": "review_start",
+    "seconds": 3.395
+  },
+  {
+    "event": "review_complete",
+    "seconds": 12.001
+  },
+  {
+    "event": "citation_highlight",
+    "seconds": 14.558
+  },
+  {
+    "event": "prompt_patterns",
+    "seconds": 16.734
+  },
+  {
+    "event": "clarification",
+    "seconds": 19.283
+  },
+  {
+    "event": "refinement_start",
+    "seconds": 20.785
+  },
+  {
+    "event": "refinement_complete",
+    "seconds": 29.826
+  },
+  {
+    "event": "separate_fixture_execution",
+    "seconds": 32.624
+  },
+  {
+    "event": "end_recording",
+    "seconds": 35.815
+  }
+]

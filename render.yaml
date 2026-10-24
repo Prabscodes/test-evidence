@@ -1,0 +1,22 @@
+# Preparation only. Creating a service requires the confirmed account/destination.
+services:
+  - type: web
+    name: test-evidence
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    autoDeploy: false
+    envVars:
+      - key: TE_PUBLIC
+        value: "1"
+      - key: TE_PROVIDER
+        value: none
+      - key: TE_ALLOW_REMOTE
+        value: "0"
+      - key: TE_TIMEOUT_SECONDS
+        value: "90"
+      - key: TE_MAX_TOKENS
+        value: "1024"
+# Live mode is intentionally not configured. After explicit provider/data/cost approval,
+# configure TE_PROVIDER, TE_API_BASE, TE_MODEL, TE_ALLOW_REMOTE, TE_API_KEY,
+# TE_PUBLIC_PROVIDER_NAME and TE_PUBLIC_PROVIDER_POLICY_URL privately in the dashboard.

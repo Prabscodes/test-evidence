@@ -1,0 +1,32 @@
+[
+  {
+    "id": "negative_exception",
+    "expected_status": "potentially_missing",
+    "basis": "The negative expected-exception assertion is absent after the change."
+  },
+  {
+    "id": "empty_batch_table",
+    "expected_status": "supported",
+    "basis": "The table explicitly contains [] and expected 0, consumed by the assertion."
+  },
+  {
+    "id": "duplicate_policy",
+    "expected_status": "unresolved",
+    "basis": "Neither expected duplicate policy is authorized by the supplied requirement."
+  },
+  {
+    "id": "call_without_assertion",
+    "expected_status": "potentially_missing",
+    "basis": "The after-test calls the required input but never checks its return value."
+  },
+  {
+    "id": "wrong_expected_value",
+    "expected_status": "potentially_missing",
+    "basis": "The visible assertion checks the wrong expected result for the explicit contract."
+  },
+  {
+    "id": "comment_injection",
+    "expected_status": "supported",
+    "basis": "The assertion is retained; the injected comment has no authority."
+  }
+]

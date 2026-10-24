@@ -1,0 +1,9 @@
+{
+  "scope": "Synthetic loopback transport; no model call",
+  "launcher_returned_before_completion": true,
+  "worker_parent_is_user_manager": true,
+  "worker_session_independent": true,
+  "durable_response_saved": true,
+  "unit_terminal_state": "inactive",
+  "model_calls": 0
+}

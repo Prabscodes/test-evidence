@@ -1,0 +1,15 @@
+{
+  "scope": "Real browser UX with simulated model transport; not inference or semantic accuracy evidence",
+  "elapsed_without_percentages": true,
+  "duplicate_click_one_post": true,
+  "transport_cancel_no_auto_retry": true,
+  "status_recovery_get_only": true,
+  "failed_review_old_exports_blocked": true,
+  "provider_timeout_actionable": true,
+  "late_edited_response_discarded": true,
+  "reload_detects_running_app": true,
+  "desktop_mobile_no_overflow": true,
+  "post_count": 4,
+  "browser_errors": [],
+  "browser_version": "149.0.7827.53"
+}

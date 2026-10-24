@@ -1,0 +1,202 @@
+{
+  "scope": "Reused six development cases, author-known labels; not independent accuracy or causal comparison",
+  "rows": [
+    {
+      "id": "D01",
+      "expected": "supported",
+      "accepted": "supported",
+      "seconds": 4.653072,
+      "obligations": [
+        {
+          "id": "O1",
+          "description": "For input 2, add_three must return 5",
+          "rationale": "The requirement explicitly specifies that add_three(2) must return 5. The after-test at tests_after:L2 contains an assertion verifying exactly this: assert add_three(2) == 5.",
+          "status": "supported",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "For input 2, add_three must return 5."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert add_three(2) == 5"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "D02",
+      "expected": "supported",
+      "accepted": "supported",
+      "seconds": 53.305804,
+      "obligations": [
+        {
+          "id": "O1",
+          "description": "clean(' q ') must return 'q'",
+          "rationale": "The requirement explicitly specifies the outcome for input ' q '. The after-test parametrization includes this exact input with the expected output 'q', and the assertion verifies the result.",
+          "status": "supported",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "clean(' q ') must return 'q'."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "@pytest.mark.parametrize('raw, expected', [(' q ', 'q'), ('z ', 'z')])"
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 4,
+              "line_end": 4,
+              "quote": "    assert clean(raw) == expected"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "D03",
+      "expected": "unresolved",
+      "accepted": "unresolved",
+      "seconds": 5.793306,
+      "obligations": [
+        {
+          "id": "O1",
+          "description": "Expected policy requires authoritative clarification",
+          "rationale": "Consistency guard: the model's own explanation explicitly acknowledges unspecified or ambiguous authority. Any unsupported policy claim is withheld. Original model output remains available for inspection; this wording check is not semantic proof.",
+          "status": "unresolved",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "The name parser extracts a file extension. The treatment of dotfiles is not specified."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert extension('.profile') == ''"
+            }
+          ],
+          "origin": "deterministic_consistency_guard"
+        }
+      ],
+      "warnings": [
+        "O1: model acknowledged insufficient authority; clarification required by consistency guard."
+      ]
+    },
+    {
+      "id": "D04",
+      "expected": "potentially_missing",
+      "accepted": "potentially_missing",
+      "seconds": 4.57694,
+      "obligations": [
+        {
+          "id": "O1",
+          "description": "double(4) must return 8",
+          "rationale": "The requirement explicitly mandates the outcome for input 4. The after-tests only assert the outcome for input 6 (tests_after:L2). No after-test assertion checks the specific case of input 4.",
+          "status": "potentially_missing",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "double(4) must return 8."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert double(6) == 12"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "D05",
+      "expected": "potentially_missing",
+      "accepted": "potentially_missing",
+      "seconds": 5.107254,
+      "obligations": [
+        {
+          "id": "O1",
+          "description": "codepoint('A') must return 65",
+          "rationale": "The requirement explicitly mandates that codepoint('A') returns 65. However, the AFTER tests only contain an assertion for ping() returning 'pong' (tests_after:L2). There is no assertion in the AFTER tests checking the behavior of codepoint('A').",
+          "status": "potentially_missing",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "codepoint('A') must return 65."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert ping() == 'pong'"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "D06",
+      "expected": "potentially_missing",
+      "accepted": "potentially_missing",
+      "seconds": 5.693864,
+      "obligations": [
+        {
+          "id": "O1",
+          "description": "scale(3) must return 12",
+          "rationale": "The requirement explicitly mandates scale(3) returns 12. The after-test (tests_after:L2) contains an assertion 'assert scale(3) == 12 or True'. The 'or True' clause makes the assertion always pass regardless of the actual return value, meaning there is no visible check verifying the specific expected outcome of 12. Therefore, the required behavior is not effectively tested.",
+          "status": "potentially_missing",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "scale(3) must return 12."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert scale(3) == 12 or True"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "matches": 6,
+  "false_support": 0,
+  "false_accusation": 0,
+  "median_seconds": 5.400558999999999,
+  "cold_first_seconds": 53.305804,
+  "subsequent_range_seconds": [
+    4.57694,
+    5.793306
+  ]
+}

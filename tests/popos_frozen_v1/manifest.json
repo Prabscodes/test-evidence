@@ -1,0 +1,9 @@
+{
+  "frozen_at": "2026-10-23T21:50:40.375555+00:00",
+  "scope": "Exploratory synthetic single-author final readout; no independent human validation. No tuning on this set.",
+  "files": {
+    "labels.json": "50a8b2c8507d96f335964cb97c9b87fd576f502b1206a8a95edf7b8e6983e4b6",
+    "inputs.json": "24858048e18f8c215ca07d185399276a3e4db593b8f004959d8298dddb4438e6"
+  },
+  "scoring": "Case reducer: potentially_missing if any accepted obligation has it, else unresolved if any has it, else supported. Report raw and guarded outcomes, errors, abstentions, false support and false accusation separately; manually inspect evidence relevance. No population accuracy claim."
+}

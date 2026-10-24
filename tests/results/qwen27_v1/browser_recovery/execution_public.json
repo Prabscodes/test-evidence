@@ -1,0 +1,214 @@
+{
+  "scope": "Derived fixture execution copy: local project/user path strings redacted; original full raw execution and export are retained locally. Outcome fields and code hashes unchanged.",
+  "original_execution_sha256": "dad20f04c2db670b4af7975be8cc9ab367c3d84328ab95e3a1300e5ab07ff174",
+  "execution": {
+    "sample_id": "missing_regression",
+    "baseline_valid": true,
+    "requirement_sha256": "14ffbc7ec17649672f2462e5f34e86102fe5f0acb87856c88d5040b129d5b3b4",
+    "runner_sha256": "a32971e3987a5a8f7fa0ce801575fa49e12699d2e1a66cd020f2dd2e496296be",
+    "python_version": "3.11.13",
+    "origin": "actual_execution",
+    "scope": "Trusted bundled fixture only; not user-edited or uploaded code.",
+    "disclaimer": "Passing these finite examples is not proof of correctness. A failure against old tests does not establish which behavior is required.",
+    "command": [
+      "<PROJECT>/.venv/bin/python",
+      "-I",
+      "-c",
+      "import sys, unittest, json; sys.path.insert(0, '.'); suite = unittest.defaultTestLoader.discover('.', pattern='test_subject.py'); result = unittest.TextTestRunner(verbosity=2).run(suite); print(json.dumps({'tests_run': result.testsRun, 'assertion_failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped), 'successful': result.wasSuccessful(), 'failed_tests': [str(t) for t, _ in result.failures], 'error_tests': [str(t) for t, _ in result.errors]})); raise SystemExit(not result.wasSuccessful())"
+    ],
+    "revision": {
+      "baseline": {
+        "source_sha256": "22d18edd9fa94f34725bc23dd3e84e00230a2f24feb4863225bc43f3015a690f",
+        "tests_sha256": "1d8ccfc8d477a33abe4463b915f81e362db344b7d403dd9d2f091eb8a2a87195",
+        "combined_sha256": "a9304c3fc250af33fd1b31bbdb175fc3fba934aa82dc57971ea099f657ff992a"
+      },
+      "candidate": {
+        "source_sha256": "9a419d4f7c1b8ed0e3d17675c381dfd89b230e0527d231635d0a75c025b89094",
+        "tests_sha256": "16cb1d2d547677aee232b9f9257df386c8aa3c8557e48bbdb073dd5a6bfc12a0",
+        "combined_sha256": "621b9e95fdb68a717ca3133cb628678d4d0287f75927e2d73bc84a7b96b319e2"
+      },
+      "retained_tests": {
+        "source_sha256": "9a419d4f7c1b8ed0e3d17675c381dfd89b230e0527d231635d0a75c025b89094",
+        "tests_sha256": "1d8ccfc8d477a33abe4463b915f81e362db344b7d403dd9d2f091eb8a2a87195",
+        "combined_sha256": "a900786a86f5160313ecfd239bade43efad08b53a5e1efe3dff1e9397d1e2ae6"
+      },
+      "new_tests_on_before_source": {
+        "source_sha256": "22d18edd9fa94f34725bc23dd3e84e00230a2f24feb4863225bc43f3015a690f",
+        "tests_sha256": "16cb1d2d547677aee232b9f9257df386c8aa3c8557e48bbdb073dd5a6bfc12a0",
+        "combined_sha256": "940d2ef536a92d1b09d30a3c72fd6c8b5045a127fc61ef016b2a565aa1254984"
+      },
+      "independent_requirement_oracle": {
+        "source_sha256": "9a419d4f7c1b8ed0e3d17675c381dfd89b230e0527d231635d0a75c025b89094",
+        "tests_sha256": "94e5c1caa4eab1b877c4db91239b493b307c6d682bd2893f4839d24788a91a75",
+        "combined_sha256": "908cfd540c0b145b6a5198f314387d899afd7bf1019bd612f0f9693ae4949304"
+      }
+    },
+    "results": [
+      {
+        "label": "baseline",
+        "command": [
+          "<PROJECT>/.venv/bin/python",
+          "-I",
+          "-c",
+          "import sys, unittest, json; sys.path.insert(0, '.'); suite = unittest.defaultTestLoader.discover('.', pattern='test_subject.py'); result = unittest.TextTestRunner(verbosity=2).run(suite); print(json.dumps({'tests_run': result.testsRun, 'assertion_failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped), 'successful': result.wasSuccessful(), 'failed_tests': [str(t) for t, _ in result.failures], 'error_tests': [str(t) for t, _ in result.errors]})); raise SystemExit(not result.wasSuccessful())"
+        ],
+        "revision": {
+          "source_sha256": "22d18edd9fa94f34725bc23dd3e84e00230a2f24feb4863225bc43f3015a690f",
+          "tests_sha256": "1d8ccfc8d477a33abe4463b915f81e362db344b7d403dd9d2f091eb8a2a87195",
+          "combined_sha256": "a9304c3fc250af33fd1b31bbdb175fc3fba934aa82dc57971ea099f657ff992a"
+        },
+        "timeout_seconds": 5,
+        "returncode": 0,
+        "stdout": "{\"tests_run\": 3, \"assertion_failures\": 0, \"errors\": 0, \"skipped\": 0, \"successful\": true, \"failed_tests\": [], \"error_tests\": []}\n",
+        "stderr": "test_above_boundary (test_subject.EligibilityTests.test_above_boundary) ... ok\ntest_exact_boundary (test_subject.EligibilityTests.test_exact_boundary) ... ok\ntest_underage (test_subject.EligibilityTests.test_underage) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n",
+        "timed_out": false,
+        "counts": {
+          "tests_run": 3,
+          "assertion_failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "successful": true,
+          "failed_tests": [],
+          "error_tests": []
+        },
+        "observed_failure": false,
+        "harness_error": false,
+        "outcome": "passed"
+      },
+      {
+        "label": "candidate",
+        "command": [
+          "<PROJECT>/.venv/bin/python",
+          "-I",
+          "-c",
+          "import sys, unittest, json; sys.path.insert(0, '.'); suite = unittest.defaultTestLoader.discover('.', pattern='test_subject.py'); result = unittest.TextTestRunner(verbosity=2).run(suite); print(json.dumps({'tests_run': result.testsRun, 'assertion_failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped), 'successful': result.wasSuccessful(), 'failed_tests': [str(t) for t, _ in result.failures], 'error_tests': [str(t) for t, _ in result.errors]})); raise SystemExit(not result.wasSuccessful())"
+        ],
+        "revision": {
+          "source_sha256": "9a419d4f7c1b8ed0e3d17675c381dfd89b230e0527d231635d0a75c025b89094",
+          "tests_sha256": "16cb1d2d547677aee232b9f9257df386c8aa3c8557e48bbdb073dd5a6bfc12a0",
+          "combined_sha256": "621b9e95fdb68a717ca3133cb628678d4d0287f75927e2d73bc84a7b96b319e2"
+        },
+        "timeout_seconds": 5,
+        "returncode": 0,
+        "stdout": "{\"tests_run\": 2, \"assertion_failures\": 0, \"errors\": 0, \"skipped\": 0, \"successful\": true, \"failed_tests\": [], \"error_tests\": []}\n",
+        "stderr": "test_above_boundary (test_subject.EligibilityTests.test_above_boundary) ... ok\ntest_underage (test_subject.EligibilityTests.test_underage) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+        "timed_out": false,
+        "counts": {
+          "tests_run": 2,
+          "assertion_failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "successful": true,
+          "failed_tests": [],
+          "error_tests": []
+        },
+        "observed_failure": false,
+        "harness_error": false,
+        "outcome": "passed"
+      },
+      {
+        "label": "retained_tests",
+        "command": [
+          "<PROJECT>/.venv/bin/python",
+          "-I",
+          "-c",
+          "import sys, unittest, json; sys.path.insert(0, '.'); suite = unittest.defaultTestLoader.discover('.', pattern='test_subject.py'); result = unittest.TextTestRunner(verbosity=2).run(suite); print(json.dumps({'tests_run': result.testsRun, 'assertion_failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped), 'successful': result.wasSuccessful(), 'failed_tests': [str(t) for t, _ in result.failures], 'error_tests': [str(t) for t, _ in result.errors]})); raise SystemExit(not result.wasSuccessful())"
+        ],
+        "revision": {
+          "source_sha256": "9a419d4f7c1b8ed0e3d17675c381dfd89b230e0527d231635d0a75c025b89094",
+          "tests_sha256": "1d8ccfc8d477a33abe4463b915f81e362db344b7d403dd9d2f091eb8a2a87195",
+          "combined_sha256": "a900786a86f5160313ecfd239bade43efad08b53a5e1efe3dff1e9397d1e2ae6"
+        },
+        "timeout_seconds": 5,
+        "returncode": 1,
+        "stdout": "{\"tests_run\": 3, \"assertion_failures\": 1, \"errors\": 0, \"skipped\": 0, \"successful\": false, \"failed_tests\": [\"test_exact_boundary (test_subject.EligibilityTests.test_exact_boundary)\"], \"error_tests\": []}\n",
+        "stderr": "test_above_boundary (test_subject.EligibilityTests.test_above_boundary) ... ok\ntest_exact_boundary (test_subject.EligibilityTests.test_exact_boundary) ... FAIL\ntest_underage (test_subject.EligibilityTests.test_underage) ... ok\n\n======================================================================\nFAIL: test_exact_boundary (test_subject.EligibilityTests.test_exact_boundary)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/test-evidence-trusted-lv8wbme_/test_subject.py\", line 9, in test_exact_boundary\n    self.assertTrue(eligible(18))\nAssertionError: False is not true\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nFAILED (failures=1)\n",
+        "timed_out": false,
+        "counts": {
+          "tests_run": 3,
+          "assertion_failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "successful": false,
+          "failed_tests": [
+            "test_exact_boundary (test_subject.EligibilityTests.test_exact_boundary)"
+          ],
+          "error_tests": []
+        },
+        "observed_failure": true,
+        "harness_error": false,
+        "outcome": "assertion_failure"
+      },
+      {
+        "label": "new_tests_on_before_source",
+        "command": [
+          "<PROJECT>/.venv/bin/python",
+          "-I",
+          "-c",
+          "import sys, unittest, json; sys.path.insert(0, '.'); suite = unittest.defaultTestLoader.discover('.', pattern='test_subject.py'); result = unittest.TextTestRunner(verbosity=2).run(suite); print(json.dumps({'tests_run': result.testsRun, 'assertion_failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped), 'successful': result.wasSuccessful(), 'failed_tests': [str(t) for t, _ in result.failures], 'error_tests': [str(t) for t, _ in result.errors]})); raise SystemExit(not result.wasSuccessful())"
+        ],
+        "revision": {
+          "source_sha256": "22d18edd9fa94f34725bc23dd3e84e00230a2f24feb4863225bc43f3015a690f",
+          "tests_sha256": "16cb1d2d547677aee232b9f9257df386c8aa3c8557e48bbdb073dd5a6bfc12a0",
+          "combined_sha256": "940d2ef536a92d1b09d30a3c72fd6c8b5045a127fc61ef016b2a565aa1254984"
+        },
+        "timeout_seconds": 5,
+        "returncode": 0,
+        "stdout": "{\"tests_run\": 2, \"assertion_failures\": 0, \"errors\": 0, \"skipped\": 0, \"successful\": true, \"failed_tests\": [], \"error_tests\": []}\n",
+        "stderr": "test_above_boundary (test_subject.EligibilityTests.test_above_boundary) ... ok\ntest_underage (test_subject.EligibilityTests.test_underage) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+        "timed_out": false,
+        "counts": {
+          "tests_run": 2,
+          "assertion_failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "successful": true,
+          "failed_tests": [],
+          "error_tests": []
+        },
+        "observed_failure": false,
+        "harness_error": false,
+        "outcome": "passed"
+      },
+      {
+        "label": "independent_requirement_oracle",
+        "command": [
+          "<PROJECT>/.venv/bin/python",
+          "-I",
+          "-c",
+          "import sys, unittest, json; sys.path.insert(0, '.'); suite = unittest.defaultTestLoader.discover('.', pattern='test_subject.py'); result = unittest.TextTestRunner(verbosity=2).run(suite); print(json.dumps({'tests_run': result.testsRun, 'assertion_failures': len(result.failures), 'errors': len(result.errors), 'skipped': len(result.skipped), 'successful': result.wasSuccessful(), 'failed_tests': [str(t) for t, _ in result.failures], 'error_tests': [str(t) for t, _ in result.errors]})); raise SystemExit(not result.wasSuccessful())"
+        ],
+        "revision": {
+          "source_sha256": "9a419d4f7c1b8ed0e3d17675c381dfd89b230e0527d231635d0a75c025b89094",
+          "tests_sha256": "94e5c1caa4eab1b877c4db91239b493b307c6d682bd2893f4839d24788a91a75",
+          "combined_sha256": "908cfd540c0b145b6a5198f314387d899afd7bf1019bd612f0f9693ae4949304"
+        },
+        "timeout_seconds": 5,
+        "returncode": 1,
+        "stdout": "{\"tests_run\": 1, \"assertion_failures\": 1, \"errors\": 0, \"skipped\": 0, \"successful\": false, \"failed_tests\": [\"test_authoritative_age_threshold (test_subject.RequirementOracle.test_authoritative_age_threshold) (age=18)\"], \"error_tests\": []}\n",
+        "stderr": "test_authoritative_age_threshold (test_subject.RequirementOracle.test_authoritative_age_threshold) ... \n  test_authoritative_age_threshold (test_subject.RequirementOracle.test_authoritative_age_threshold) (age=18) ... FAIL\n\n======================================================================\nFAIL: test_authoritative_age_threshold (test_subject.RequirementOracle.test_authoritative_age_threshold) (age=18)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/test-evidence-trusted-s3vv48y0/test_subject.py\", line 9, in test_authoritative_age_threshold\n    self.assertEqual(eligible(age), age >= 18)\nAssertionError: False != True\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n",
+        "timed_out": false,
+        "counts": {
+          "tests_run": 1,
+          "assertion_failures": 1,
+          "errors": 0,
+          "skipped": 0,
+          "successful": false,
+          "failed_tests": [
+            "test_authoritative_age_threshold (test_subject.RequirementOracle.test_authoritative_age_threshold) (age=18)"
+          ],
+          "error_tests": []
+        },
+        "observed_failure": true,
+        "harness_error": false,
+        "outcome": "assertion_failure",
+        "oracle_basis": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible.",
+        "oracle_scope": "Separately authored fixture oracle, not retained old tests. Finite selected age cases only."
+      }
+    ],
+    "observed_failures": [
+      "retained_tests",
+      "independent_requirement_oracle"
+    ]
+  }
+}

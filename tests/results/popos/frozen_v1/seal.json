@@ -1,0 +1,31 @@
+{
+  "completed_at": "2026-10-23T22:13:37.466069+00:00",
+  "inputs_sha256": "24858048e18f8c215ca07d185399276a3e4db593b8f004959d8298dddb4438e6",
+  "provider_status": {
+    "endpoint_config_valid": true,
+    "http_temperature": 0.0,
+    "temperature_config_valid": true,
+    "http_timeout_seconds": 300,
+    "timeout_config_valid": true,
+    "backend": "openai-compatible",
+    "configured": true,
+    "model": "te-dolphin3-8b-q4",
+    "processing_location": "loopback_endpoint",
+    "endpoint_calls_enabled": true,
+    "remote_processing_enabled": false,
+    "execution": "Only explicitly selected bundled fixtures can run."
+  },
+  "protocol_sha256": "46a26d01b6ad88a934a9f71aa2cdd7f3207d44e7179b3d4a3466a75a2c1c92b1",
+  "evaluator_sha256": "6c8054bc2598dc139626b95643cc15db7887d22935ef2daa5d4813a9c2dbf78d",
+  "runtime_manifest_sha256": "c19f0c872df045671799d5fc246ad1dc4b0ee85109e8294969e8bf173fe2d1be",
+  "launch_script_sha256": "e5cc7dc73dd11c636a3a5417a0e40ca686690cac97a5afdffc8e13df6c762dfa",
+  "outputs": {
+    "comment_injection.json": "7a1a6102dba00c439e077350c65d3bf7fceb0dabd51ca091ea7b954c65182e96",
+    "wrong_expected_value.json": "3fa110347923525e9b736471a3c88c8f1cf53d0d7c4720f71809179638b39951",
+    "call_without_assertion.json": "8beb29096d0d0ff8114ec6a260d9d0ec965300da3d4b7bcd1d8bfb80bfcbcc01",
+    "empty_batch_table.json": "9944ab226bb936c71f947f61ea16068d025ef4c11892f517850e9e1c446f36ff",
+    "source_sha256.json": "a3203fec237e7f4963b5f043b9054749f738750e3a0f1ff9e77f8dbe7f5f9a5e",
+    "duplicate_policy.json": "c04f5327ad81e31efdd7130f7bc3796be0d8c4fe412192424ad3613511ea6676",
+    "negative_exception.json": "2669c34fa76354a8899d6311ecadb1ceca3913ee2668b4d575320811c3c1508f"
+  }
+}

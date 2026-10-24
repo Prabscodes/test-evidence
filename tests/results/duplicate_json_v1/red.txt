@@ -1,0 +1,91 @@
+<LOCAL_PATH>:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_contradictory_status_duplicates_rejected_in_either_order (tests.test_duplicate_json.DuplicateModelJsonTests.test_contradictory_status_duplicates_rejected_in_either_order) ... 
+  test_contradictory_status_duplicates_rejected_in_either_order (tests.test_duplicate_json.DuplicateModelJsonTests.test_contradictory_status_duplicates_rejected_in_either_order) (last='gap') ... FAIL
+  test_contradictory_status_duplicates_rejected_in_either_order (tests.test_duplicate_json.DuplicateModelJsonTests.test_contradictory_status_duplicates_rejected_in_either_order) (last='checked') ... FAIL
+test_duplicate_top_level_obligations_rejected (tests.test_duplicate_json.DuplicateModelJsonTests.test_duplicate_top_level_obligations_rejected) ... FAIL
+test_escaped_equivalent_keys_rejected (tests.test_duplicate_json.DuplicateModelJsonTests.test_escaped_equivalent_keys_rejected) ... FAIL
+test_existing_fenced_json_path_remains_valid (tests.test_duplicate_json.DuplicateModelJsonTests.test_existing_fenced_json_path_remains_valid) ... ok
+test_identical_duplicate_values_still_rejected (tests.test_duplicate_json.DuplicateModelJsonTests.test_identical_duplicate_values_still_rejected) ... FAIL
+test_invalid_json_does_not_get_permissive_repair (tests.test_duplicate_json.DuplicateModelJsonTests.test_invalid_json_does_not_get_permissive_repair) ... ok
+test_long_duplicate_output_preserved_without_silent_truncation (tests.test_duplicate_json.DuplicateModelJsonTests.test_long_duplicate_output_preserved_without_silent_truncation) ... FAIL
+test_nested_citation_duplicate_rejected_even_in_ignored_extension (tests.test_duplicate_json.DuplicateModelJsonTests.test_nested_citation_duplicate_rejected_even_in_ignored_extension) ... FAIL
+test_valid_json_with_repeated_names_in_distinct_objects_preserved (tests.test_duplicate_json.DuplicateModelJsonTests.test_valid_json_with_repeated_names_in_distinct_objects_preserved) ... ok
+
+======================================================================
+FAIL: test_contradictory_status_duplicates_rejected_in_either_order (tests.test_duplicate_json.DuplicateModelJsonTests.test_contradictory_status_duplicates_rejected_in_either_order) (last='gap')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 29, in test_contradictory_status_duplicates_rejected_in_either_order
+    with self.subTest(last=b):self.rejected_duplicate(wrapped(f'"test_support":"{a}","test_support":"{b}"'))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_PATH> line 19, in rejected_duplicate
+    self.assertTrue(all(o['status']=='unresolved' for o in result['obligations']))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_contradictory_status_duplicates_rejected_in_either_order (tests.test_duplicate_json.DuplicateModelJsonTests.test_contradictory_status_duplicates_rejected_in_either_order) (last='checked')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 29, in test_contradictory_status_duplicates_rejected_in_either_order
+    with self.subTest(last=b):self.rejected_duplicate(wrapped(f'"test_support":"{a}","test_support":"{b}"'))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_PATH> line 19, in rejected_duplicate
+    self.assertTrue(all(o['status']=='unresolved' for o in result['obligations']))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_duplicate_top_level_obligations_rejected (tests.test_duplicate_json.DuplicateModelJsonTests.test_duplicate_top_level_obligations_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 35, in test_duplicate_top_level_obligations_rejected
+    raw=wrapped('"test_support":"checked"');self.rejected_duplicate(raw[:-1]+',"obligations":'+json.dumps(json.loads(wrapped('"test_support":"gap"'))['obligations'])+'}')
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_PATH> line 19, in rejected_duplicate
+    self.assertTrue(all(o['status']=='unresolved' for o in result['obligations']))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_escaped_equivalent_keys_rejected (tests.test_duplicate_json.DuplicateModelJsonTests.test_escaped_equivalent_keys_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 33, in test_escaped_equivalent_keys_rejected
+    self.rejected_duplicate(wrapped(r'"test_support":"gap","test_\u0073upport":"checked"'))
+  File "<LOCAL_PATH> line 19, in rejected_duplicate
+    self.assertTrue(all(o['status']=='unresolved' for o in result['obligations']))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_identical_duplicate_values_still_rejected (tests.test_duplicate_json.DuplicateModelJsonTests.test_identical_duplicate_values_still_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 37, in test_identical_duplicate_values_still_rejected
+    self.rejected_duplicate(wrapped('"test_support":"checked","extra":{"quote":"same","quote":"same"}'))
+  File "<LOCAL_PATH> line 19, in rejected_duplicate
+    self.assertTrue(all(o['status']=='unresolved' for o in result['obligations']))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_long_duplicate_output_preserved_without_silent_truncation (tests.test_duplicate_json.DuplicateModelJsonTests.test_long_duplicate_output_preserved_without_silent_truncation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 49, in test_long_duplicate_output_preserved_without_silent_truncation
+    self.rejected_duplicate(wrapped('"test_support":"gap","test_support":"checked","padding":'+json.dumps('x'*20001)))
+  File "<LOCAL_PATH> line 19, in rejected_duplicate
+    self.assertTrue(all(o['status']=='unresolved' for o in result['obligations']))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_nested_citation_duplicate_rejected_even_in_ignored_extension (tests.test_duplicate_json.DuplicateModelJsonTests.test_nested_citation_duplicate_rejected_even_in_ignored_extension)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH> line 31, in test_nested_citation_duplicate_rejected_even_in_ignored_extension
+    self.rejected_duplicate(wrapped('"test_support":"checked","citations":[{"span":{"artifact":"tests_after","line":2,"line":9}}]'))
+  File "<LOCAL_PATH> line 19, in rejected_duplicate
+    self.assertTrue(all(o['status']=='unresolved' for o in result['obligations']))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.568s
+
+FAILED (failures=7)

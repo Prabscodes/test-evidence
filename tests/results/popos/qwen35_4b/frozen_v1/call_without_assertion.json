@@ -1,0 +1,114 @@
+{
+  "id": "call_without_assertion",
+  "started_at": "2026-10-23T22:36:12.151155+00:00",
+  "gpu_free_mib_before": 9994,
+  "http_status": 200,
+  "response": {
+    "analysis_id": "a742d0a1-b0e1-462f-9aec-41fb7decf47b",
+    "created_at": "2026-10-23T22:37:04.577921+00:00",
+    "mode": "llm",
+    "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+    "obligations": [
+      {
+        "id": "O1",
+        "description": "slug(\"A B\") must return \"a-b\"",
+        "rationale": "The authoritative requirement specifies the expected outcome for input \"A B\" as \"a-b\". However, the AFTER tests (tests_after:L1, tests_after:L2, tests_after:L3) only contain imports and function definitions; the explicit assertion `assert slug(\"A B\") == \"a-b\"` present in tests_before:L3 is absent from the AFTER tests.",
+        "status": "potentially_missing",
+        "evidence": [
+          {
+            "artifact": "requirement",
+            "line_start": 1,
+            "line_end": 1,
+            "quote": "slug(\"A B\") must return \"a-b\"."
+          },
+          {
+            "artifact": "tests_after",
+            "line_start": 1,
+            "line_end": 1,
+            "quote": "from subject import slug"
+          },
+          {
+            "artifact": "tests_after",
+            "line_start": 2,
+            "line_end": 2,
+            "quote": "def test_spaces():"
+          },
+          {
+            "artifact": "tests_after",
+            "line_start": 3,
+            "line_end": 3,
+            "quote": "    slug(\"A B\")"
+          }
+        ],
+        "origin": "llm_inference"
+      }
+    ],
+    "questions": [],
+    "observations": [
+      {
+        "kind": "deterministic_static",
+        "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "tests_before: valid Python syntax; 1 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "tests_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      }
+    ],
+    "warnings": [],
+    "provider": {
+      "http_temperature": 0.7,
+      "http_timeout_seconds": 300,
+      "backend": "openai-compatible",
+      "model": "te-qwen35-4b-bf16",
+      "elapsed_seconds": 52.425,
+      "actual_inference": true,
+      "prompt_version": "3.1-explicit-boundary-evidence",
+      "prompt_patterns": [
+        "persona",
+        "few-shot",
+        "iterative refinement"
+      ],
+      "raw_response": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"slug(\\\"A B\\\") must return \\\"a-b\\\"\",\"test_support\":\"gap\",\"rationale\":\"The authoritative requirement specifies the expected outcome for input \\\"A B\\\" as \\\"a-b\\\". However, the AFTER tests (tests_after:L1, tests_after:L2, tests_after:L3) only contain imports and function definitions; the explicit assertion `assert slug(\\\"A B\\\") == \\\"a-b\\\"` present in tests_before:L3 is absent from the AFTER tests.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L1\",\"tests_after:L2\",\"tests_after:L3\"]}],\"questions\":[]}"
+    },
+    "artifact_sha256": {
+      "requirement": "377eb6c933a6ef2a45d72dc5b73d9ef15378d68bbdcc0dfb6bbd8a54886d4695",
+      "source_before": "8f5282e3a72b1b309f1001da4b8effe77f00ecbd3cfed61518aa3415e4d4b871",
+      "source_after": "8f5282e3a72b1b309f1001da4b8effe77f00ecbd3cfed61518aa3415e4d4b871",
+      "tests_before": "12912b5da249a6d4a5e4dc314d5d5a53acd3887c828d7eae50d67e8f2f32b744",
+      "tests_after": "ccad29d72e13eabb092655df3f6b8554dac01dfc1b7530ad98eab45a6dd834ce",
+      "clarification": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "prompt_provenance": {
+      "version": "3.1-explicit-boundary-evidence",
+      "sha256": "40d3c622e3ec8b9c68dc1a2ef0847dd826044fd6ab21b26448c8b29b7d5b762d",
+      "canonicalization": "UTF-8 JSON sorted keys, no insignificant whitespace",
+      "previous_analysis_supplied": false,
+      "previous_analysis_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "used_by_model": true
+    },
+    "review_context": {
+      "previous_analysis": null
+    },
+    "artifacts": {
+      "requirement": "slug(\"A B\") must return \"a-b\".",
+      "source_before": "def slug(text):\n    return text.lower().replace(\" \", \"-\")",
+      "source_after": "def slug(text):\n    return text.lower().replace(\" \", \"-\")",
+      "tests_before": "from subject import slug\ndef test_spaces():\n    assert slug(\"A B\") == \"a-b\"",
+      "tests_after": "from subject import slug\ndef test_spaces():\n    slug(\"A B\")",
+      "clarification": ""
+    },
+    "execution": {
+      "performed": false,
+      "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+    }
+  },
+  "elapsed_seconds": 52.487
+}

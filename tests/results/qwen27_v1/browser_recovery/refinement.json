@@ -1,0 +1,247 @@
+{
+  "http_status": 200,
+  "request": {
+    "requirement": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible.",
+    "source_before": "def eligible(age):\n    return age >= 18\n",
+    "source_after": "def eligible(age):\n    return age > 18\n",
+    "tests_before": "import unittest\nfrom subject import eligible\n\nclass EligibilityTests(unittest.TestCase):\n    def test_underage(self):\n        self.assertFalse(eligible(17))\n\n    def test_exact_boundary(self):\n        self.assertTrue(eligible(18))\n\n    def test_above_boundary(self):\n        self.assertTrue(eligible(19))\n",
+    "tests_after": "import unittest\nfrom subject import eligible\n\nclass EligibilityTests(unittest.TestCase):\n    def test_underage(self):\n        self.assertFalse(eligible(17))\n\n    def test_above_boundary(self):\n        self.assertTrue(eligible(19))\n",
+    "mode": "llm",
+    "clarification": "Eligibility includes age18 exactly; this expected boundary behavior is authoritative.",
+    "previous_analysis": {
+      "obligations": [
+        {
+          "id": "O1",
+          "description": "Age 18 must be eligible (inclusive boundary)",
+          "rationale": "Requirement L1 explicitly mandates that age 18 is eligible. The after-tests check age 17 (L6) and age 19 (L9) but lack an assertion for the specific boundary value 18. The before-test L9 checked this, but it is not present in the after-tests.",
+          "status": "potentially_missing",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 6,
+              "line_end": 6,
+              "quote": "        self.assertFalse(eligible(17))"
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "        self.assertTrue(eligible(19))"
+            }
+          ],
+          "origin": "llm_inference"
+        },
+        {
+          "id": "O2",
+          "description": "Age 17 must not be eligible",
+          "rationale": "Requirement L1 mandates age 17 is not eligible. After-test L6 asserts eligible(17) is False, satisfying this obligation.",
+          "status": "supported",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 6,
+              "line_end": 6,
+              "quote": "        self.assertFalse(eligible(17))"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "response": {
+    "analysis_id": "1c6e1c45-6ebc-48cf-8eda-b33ec6a45fa6",
+    "created_at": "2026-10-24T01:30:09.603479+00:00",
+    "mode": "llm",
+    "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+    "obligations": [
+      {
+        "id": "O1",
+        "description": "Age 18 must be eligible (inclusive boundary)",
+        "rationale": "Requirement L1 and Clarification L1 explicitly mandate that age 18 is eligible. The after-tests check age 17 (L6) and age 19 (L9) but lack an assertion for the specific boundary value 18. The before-test L9 checked this, but it is not present in the after-tests.",
+        "status": "potentially_missing",
+        "evidence": [
+          {
+            "artifact": "requirement",
+            "line_start": 1,
+            "line_end": 1,
+            "quote": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible."
+          },
+          {
+            "artifact": "clarification",
+            "line_start": 1,
+            "line_end": 1,
+            "quote": "Eligibility includes age18 exactly; this expected boundary behavior is authoritative."
+          },
+          {
+            "artifact": "tests_after",
+            "line_start": 6,
+            "line_end": 6,
+            "quote": "        self.assertFalse(eligible(17))"
+          },
+          {
+            "artifact": "tests_after",
+            "line_start": 9,
+            "line_end": 9,
+            "quote": "        self.assertTrue(eligible(19))"
+          }
+        ],
+        "origin": "llm_inference"
+      },
+      {
+        "id": "O2",
+        "description": "Age 17 must not be eligible",
+        "rationale": "Requirement L1 mandates age 17 is not eligible. After-test L6 explicitly asserts eligible(17) is False.",
+        "status": "supported",
+        "evidence": [
+          {
+            "artifact": "requirement",
+            "line_start": 1,
+            "line_end": 1,
+            "quote": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible."
+          },
+          {
+            "artifact": "tests_after",
+            "line_start": 6,
+            "line_end": 6,
+            "quote": "        self.assertFalse(eligible(17))"
+          }
+        ],
+        "origin": "llm_inference"
+      }
+    ],
+    "questions": [],
+    "observations": [
+      {
+        "kind": "deterministic_static",
+        "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "tests_before: valid Python syntax; 0 assert statements; 3 assert-prefixed method calls. Counts do not establish behavior coverage."
+      },
+      {
+        "kind": "deterministic_static",
+        "detail": "tests_after: valid Python syntax; 0 assert statements; 2 assert-prefixed method calls. Counts do not establish behavior coverage."
+      }
+    ],
+    "warnings": [],
+    "provider": {
+      "http_temperature": 0.7,
+      "http_timeout_seconds": 300,
+      "backend": "openai-compatible",
+      "model": "te-qwen35-27b-ct4",
+      "elapsed_seconds": 8.948,
+      "actual_inference": true,
+      "prompt_version": "3.1-explicit-boundary-evidence",
+      "prompt_patterns": [
+        "persona",
+        "few-shot",
+        "iterative refinement"
+      ],
+      "raw_response": "{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"Age 18 must be eligible (inclusive boundary)\",\n      \"test_support\": \"gap\",\n      \"rationale\": \"Requirement L1 and Clarification L1 explicitly mandate that age 18 is eligible. The after-tests check age 17 (L6) and age 19 (L9) but lack an assertion for the specific boundary value 18. The before-test L9 checked this, but it is not present in the after-tests.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"clarification:L1\",\n        \"tests_after:L6\",\n        \"tests_after:L9\"\n      ]\n    },\n    {\n      \"id\": \"O2\",\n      \"description\": \"Age 17 must not be eligible\",\n      \"test_support\": \"checked\",\n      \"rationale\": \"Requirement L1 mandates age 17 is not eligible. After-test L6 explicitly asserts eligible(17) is False.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L6\"\n      ]\n    }\n  ],\n  \"questions\": []\n}",
+      "raw_response_sha256": "99b30c70e7463620662dda11562ddf3f1c1e162d626e124e368131d333aa99b7"
+    },
+    "artifact_sha256": {
+      "requirement": "14ffbc7ec17649672f2462e5f34e86102fe5f0acb87856c88d5040b129d5b3b4",
+      "source_before": "22d18edd9fa94f34725bc23dd3e84e00230a2f24feb4863225bc43f3015a690f",
+      "source_after": "9a419d4f7c1b8ed0e3d17675c381dfd89b230e0527d231635d0a75c025b89094",
+      "tests_before": "1d8ccfc8d477a33abe4463b915f81e362db344b7d403dd9d2f091eb8a2a87195",
+      "tests_after": "16cb1d2d547677aee232b9f9257df386c8aa3c8557e48bbdb073dd5a6bfc12a0",
+      "clarification": "0585f6ad582f277a74c0e533247fe72b64d7da1ae18efa617a91a2035ef3389d"
+    },
+    "prompt_provenance": {
+      "version": "3.1-explicit-boundary-evidence",
+      "sha256": "bd92681b0022f3bd2f1f4952227e0dec633b1ae554a8bb485bff9285465028e1",
+      "canonicalization": "UTF-8 JSON sorted keys, no insignificant whitespace",
+      "previous_analysis_supplied": true,
+      "previous_analysis_sha256": "720f8d314ea840ff576c245458b0d4b46aa6ed2d9a4baf4fe578c446c8585447",
+      "used_by_model": true
+    },
+    "review_context": {
+      "previous_analysis": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "Age 18 must be eligible (inclusive boundary)",
+            "rationale": "Requirement L1 explicitly mandates that age 18 is eligible. The after-tests check age 17 (L6) and age 19 (L9) but lack an assertion for the specific boundary value 18. The before-test L9 checked this, but it is not present in the after-tests.",
+            "status": "potentially_missing",
+            "evidence": [
+              {
+                "artifact": "requirement",
+                "line_start": 1,
+                "line_end": 1,
+                "quote": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible."
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 6,
+                "line_end": 6,
+                "quote": "        self.assertFalse(eligible(17))"
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 9,
+                "line_end": 9,
+                "quote": "        self.assertTrue(eligible(19))"
+              }
+            ],
+            "origin": "llm_inference"
+          },
+          {
+            "id": "O2",
+            "description": "Age 17 must not be eligible",
+            "rationale": "Requirement L1 mandates age 17 is not eligible. After-test L6 asserts eligible(17) is False, satisfying this obligation.",
+            "status": "supported",
+            "evidence": [
+              {
+                "artifact": "requirement",
+                "line_start": 1,
+                "line_end": 1,
+                "quote": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible."
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 6,
+                "line_end": 6,
+                "quote": "        self.assertFalse(eligible(17))"
+              }
+            ],
+            "origin": "llm_inference"
+          }
+        ],
+        "questions": []
+      }
+    },
+    "artifacts": {
+      "requirement": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible.",
+      "source_before": "def eligible(age):\n    return age >= 18\n",
+      "source_after": "def eligible(age):\n    return age > 18\n",
+      "tests_before": "import unittest\nfrom subject import eligible\n\nclass EligibilityTests(unittest.TestCase):\n    def test_underage(self):\n        self.assertFalse(eligible(17))\n\n    def test_exact_boundary(self):\n        self.assertTrue(eligible(18))\n\n    def test_above_boundary(self):\n        self.assertTrue(eligible(19))\n",
+      "tests_after": "import unittest\nfrom subject import eligible\n\nclass EligibilityTests(unittest.TestCase):\n    def test_underage(self):\n        self.assertFalse(eligible(17))\n\n    def test_above_boundary(self):\n        self.assertTrue(eligible(19))\n",
+      "clarification": "Eligibility includes age18 exactly; this expected boundary behavior is authoritative."
+    },
+    "execution": {
+      "performed": false,
+      "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+    }
+  },
+  "scope": "Actual local model development/demo workflow; not independent accuracy"
+}

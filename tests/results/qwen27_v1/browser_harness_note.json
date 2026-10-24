@@ -1,0 +1,4 @@
+{
+  "failure": "Browser harness tried hidden Inspect prompts button without opening its details container, after a completed and saved actual review/export. Not a model failure.",
+  "action": "Interrupt only task-owned QA Python to close context, preserve original footage/results, fix selector and repeat the disclosed development/demo UI check. No uncertain or held-out inference is repeated."
+}

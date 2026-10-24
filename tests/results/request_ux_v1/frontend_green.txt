@@ -1,0 +1,6 @@
+PASS: elapsed state advances without percentages and duplicate clicks send one POST
+PASS: transport cancellation requires read-only status recovery and never auto repeats
+PASS: a failed fresh request cannot reenable exports of a previous report
+PASS: reloaded page sees running app request and does not start another review
+PASS: late response for edited inputs is discarded
+PASS: changing review mode invalidates an existing report

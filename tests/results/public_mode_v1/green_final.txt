@@ -1,0 +1,19 @@
+<LOCAL_PATH>:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_absent_public_provider_fails_closed (tests.test_public_mode.PublicModeTests.test_absent_public_provider_fails_closed) ... ok
+test_client_cannot_choose_upstream (tests.test_public_mode.PublicModeTests.test_client_cannot_choose_upstream) ... ok
+test_consent_is_bound_to_server_provider_configuration (tests.test_public_mode.PublicModeTests.test_consent_is_bound_to_server_provider_configuration) ... ok
+test_consented_request_uses_server_config_without_secret_echo (tests.test_public_mode.PublicModeTests.test_consented_request_uses_server_config_without_secret_echo) ... ok
+test_fixture_and_review_share_public_work_slot (tests.test_public_mode.PublicModeTests.test_fixture_and_review_share_public_work_slot) ... ok
+test_public_blocks_loopback_provider_and_local_model_loading (tests.test_public_mode.PublicModeTests.test_public_blocks_loopback_provider_and_local_model_loading) ... ok
+test_public_body_read_has_timeout (tests.test_public_mode.PublicModeTests.test_public_body_read_has_timeout) ... ok
+test_public_llm_requires_explicit_processing_consent (tests.test_public_mode.PublicModeTests.test_public_llm_requires_explicit_processing_consent) ... ok
+test_public_post_rate_is_bounded (tests.test_public_mode.PublicModeTests.test_public_post_rate_is_bounded) ... ok
+test_public_timeout_config_is_bounded (tests.test_public_mode.PublicModeTests.test_public_timeout_config_is_bounded) ... ok
+test_public_work_slot_released_on_error (tests.test_public_mode.PublicModeTests.test_public_work_slot_released_on_error) ... ok
+test_rate_window_and_global_ceiling (tests.test_public_mode.PublicModeTests.test_rate_window_and_global_ceiling) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.135s
+
+OK

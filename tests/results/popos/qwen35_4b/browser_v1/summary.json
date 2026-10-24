@@ -1,0 +1,31 @@
+{
+  "demos": [
+    {
+      "sample": "missing_regression",
+      "summary": "0 supported\n1 potentially missing\n0 unresolved"
+    },
+    {
+      "sample": "legitimate_refactor",
+      "summary": "1 supported\n0 potentially missing\n0 unresolved"
+    },
+    {
+      "sample": "missing_spec",
+      "summary": "0 supported\n0 potentially missing\n1 unresolved"
+    },
+    {
+      "sample": "supported_boundary",
+      "summary": "1 supported\n0 potentially missing\n0 unresolved"
+    }
+  ],
+  "actual_gpu_review": true,
+  "actual_gpu_refinement": true,
+  "normal_review_retains_clarification": true,
+  "citation_selection_exact": true,
+  "stale_export_and_navigation_blocked": true,
+  "upload_ast_only_workflow": true,
+  "separate_immutable_execution_export": true,
+  "json_markdown_downloads": true,
+  "mobile_no_horizontal_overflow": true,
+  "browser_errors": [],
+  "browser_version": "149.0.7827.53"
+}

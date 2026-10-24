@@ -1,0 +1,41 @@
+{
+  "frozen_at": "2026-10-24T01:47:14.754072+00:00",
+  "inputs_sha256": "8e0ca466b8d319af1371d465c47465abe3cadeaa2f6015469c7ccf74ad99c290",
+  "labels_sha256": "acc94b7e6d8993af3ae5cad4b0776d6c401f693e3a11ce605bfef511649615a3",
+  "cases": 12,
+  "groups": {
+    "gap": 4,
+    "covered": 4,
+    "ambiguous": 4
+  },
+  "source_sha256": {
+    "prompts.py": "9f77f6ed95013d685aea27fa97a583ded805629585c214a085842c43c4092df2",
+    "analysis.py": "37f9b196b59f162796bfa1d42d321ffde94fce4f77c1e422e5e626e7354aada5",
+    "provider.py": "0a7115ff50047b6c4eb795aa419c02fc3fba1983c6ae0625d9e84f1d3ed304d7",
+    "app.py": "9900585fdede4d7b6b2f4c03a84f958073b6e125aee63a4ccc501a465ff29e09",
+    "public_runtime.py": "3a5e5114530aac425cf5db3c2feb2aafa20a488f26f05733900597576b5fa0bd"
+  },
+  "runtime_protocol_sha256": "0db974a18ce621b24de54632fa8d2dfff598da623b071e664b9777a8db1d8828",
+  "profile": "Existing27B compressed-tensors4bit, fullGPU, thinkingfalse,6144context,1GiBcache, one sequence, unchanged baseline prompt and guards",
+  "budget_seconds": 1800,
+  "per_call_timeout_seconds": 300,
+  "one_call_per_case_no_retries": true,
+  "no_labels_or_group_ids_in_model_body": true,
+  "gate": {
+    "no_false_support_for_gap_cases": true,
+    "ambiguous_policy_audit_no_invented_authority": true,
+    "parse_and_citation_failures_must_be_visible_and_recorded": true
+  },
+  "required_metrics": [
+    "missed_gaps",
+    "false_support",
+    "false_alarms",
+    "correct_supports",
+    "abstentions",
+    "schema_failures",
+    "citation_downgrades",
+    "latency"
+  ],
+  "execution_scope": "New snippets are not executed. Existing allowlisted fixture workflow was tested separately and does not validate these new labels.",
+  "limitations": "Author-authored synthetic labels, categories overlap known failures; exploratory and not an independent benchmark. No tuning after results; retain all failures. App is reloaded to this source before dispatch; public mode remains off locally."
+}

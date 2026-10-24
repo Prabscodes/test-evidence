@@ -1,0 +1,10 @@
+test_existing_completed_attempt_never_sends_again (tests.test_durable_request.DurableRequestTests.test_existing_completed_attempt_never_sends_again) ... ok
+test_existing_dispatched_attempt_never_sends_again (tests.test_durable_request.DurableRequestTests.test_existing_dispatched_attempt_never_sends_again) ... ok
+test_external_destination_rejected_before_dispatch (tests.test_durable_request.DurableRequestTests.test_external_destination_rejected_before_dispatch) ... ok
+test_response_saved_exactly_before_receipt_commits (tests.test_durable_request.DurableRequestTests.test_response_saved_exactly_before_receipt_commits) ... ok
+test_transport_failure_retains_uncertain_intent (tests.test_durable_request.DurableRequestTests.test_transport_failure_retains_uncertain_intent) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.585s
+
+OK

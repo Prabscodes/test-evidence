@@ -1,0 +1,1 @@
+PASS: mocked DOM UI flow; sample load, analysis, untrusted text rendering, refinement summary, missing specification, fixture API, prompt API. Not browser layout validation.

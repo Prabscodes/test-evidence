@@ -1,0 +1,21 @@
+{
+  "input": {
+    "requirement": "A user must be at least 18 years old to be eligible.",
+    "source_before": "def eligible(age):\n    return age >= 18",
+    "source_after": "def eligible(age):\n    return age > 18",
+    "tests_before": "def test_boundary():\n    assert eligible(18) is True",
+    "tests_after": "def test_adult():\n    assert eligible(20) is True"
+  },
+  "raw": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"Requirement A user must be at least 18 years old to be eligible.\",\"status\":\"supported\",\"rationale\":\"Before tests expect ValueError for an empty string, after tests remove it.\",\"evidence\":[{\"artifact\":\"eligibility_test\",\"line_start\":4,\"line_end\":6,\"quote\":\"ValueError: Age must be greater than or equal to 18.\"}]}]}.",
+  "metadata": {
+    "backend": "local",
+    "model": "/workspace/shared/models/qwen2.5-0.5b-instruct",
+    "elapsed_seconds": 22.047,
+    "actual_inference": true,
+    "prompt_patterns": [
+      "persona",
+      "few-shot",
+      "iterative refinement"
+    ]
+  }
+}

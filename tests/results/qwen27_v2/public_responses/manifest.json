@@ -1,0 +1,18 @@
+{
+  "scope": "Exact unaltered HTTP response-body copies for synthetic cases; original private process receipts retained locally",
+  "original_seal_sha256": "8c554edde485d4c30d2362d620149ff33682757133e819f9c2809dca4820875f",
+  "files": {
+    "A03.json": "9b3037010106371cd92f671665b622b2b502d7eda9be4c7e39913c820375f1c3",
+    "C03.json": "ed602f984a78401205de8c49ea7431fc47c8aa9b2ec0596fa465cc3f442372d3",
+    "G01.json": "905b8d83a7fc3e2fb7b8db2fef6481d0fbafba12c0d04f9a5b3b67df4398df24",
+    "G02.json": "33cc940552cc3f7116725ddb284f607d17b482d7b04c9c7acc9117823c4bbe36",
+    "A04.json": "5832fbda6585679335ee5a8d416259c5e961d721331bfd3e13abbb0e7e85988b",
+    "A02.json": "ad529d40b0977a34660239fb3e12a08a0eb81eb38976b711049e9903f234c647",
+    "G03.json": "53acc114d547887c379e4bf86fd62f1e74736f6fdfce679c839ad41a8831ed0b",
+    "A01.json": "e5d31f45fe63b5a382882fa984ee0a53a35fe3a471c99f2b3d61c6d8e7d0136a",
+    "C02.json": "30269ee33d7d46bb7e35cadb0708dc64415c21179fc4297d1faa1b5e289f15fb",
+    "C01.json": "c2ff00981437f79990525b8b09d45e5f54a6178d0f45ee93d3afb5bbf0315413",
+    "C04.json": "45e3517038e74fbdd6f145c2a72b93d0af7f675f395b9b3a0fb63b9c3d8538e6",
+    "G04.json": "26eabb08513a05aaa0748278038344df0df11e78e80b427d14531bfaf6af2fbb"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "scope": "Locally built container, loopback-only, no external provider or GPU calls",
+  "checks": [
+    {
+      "check": "provider_absent",
+      "status": 503
+    },
+    {
+      "check": "labelled_demo",
+      "status": 200
+    },
+    {
+      "check": "immutable_fixture_resource_bound",
+      "status": 200
+    },
+    {
+      "check": "sanitized_validation",
+      "status": 422
+    },
+    {
+      "check": "forwarded_headers_no_budget_bypass",
+      "statuses": [
+        404,
+        404,
+        429,
+        429,
+        429
+      ]
+    }
+  ],
+  "health": {
+    "status": "ok",
+    "live_provider_configured": false
+  },
+  "non_root_user": "app",
+  "memory_limit_bytes": 536870912,
+  "cpu_limit_nanocpus": 500000000,
+  "pid_limit": 64,
+  "read_only_root": true,
+  "no_gpu_device_requests": true,
+  "no_forwarded_header_trust": true,
+  "source_matches_current": true,
+  "source_sha256": {
+    "app.py": "9900585fdede4d7b6b2f4c03a84f958073b6e125aee63a4ccc501a465ff29e09",
+    "provider.py": "0a7115ff50047b6c4eb795aa419c02fc3fba1983c6ae0625d9e84f1d3ed304d7",
+    "analysis.py": "37f9b196b59f162796bfa1d42d321ffde94fce4f77c1e422e5e626e7354aada5",
+    "public_runtime.py": "3a5e5114530aac425cf5db3c2feb2aafa20a488f26f05733900597576b5fa0bd"
+  },
+  "image_id": "sha256:fe9d1fe362b17505fe11f037c99a771332407483df70096f2a3a1c7c27048cac",
+  "no_public_resource_created": true
+}

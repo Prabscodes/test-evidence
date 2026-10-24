@@ -1,0 +1,32 @@
+{
+  "scope": "Real browser with labelled demo only; no model-quality claim",
+  "demos": [
+    {
+      "sample": "missing_regression",
+      "summary": "0 supported\n1 potentially missing\n0 unresolved"
+    },
+    {
+      "sample": "legitimate_refactor",
+      "summary": "1 supported\n0 potentially missing\n0 unresolved"
+    },
+    {
+      "sample": "missing_spec",
+      "summary": "0 supported\n0 potentially missing\n1 unresolved"
+    },
+    {
+      "sample": "supported_boundary",
+      "summary": "1 supported\n0 potentially missing\n0 unresolved"
+    }
+  ],
+  "clarification_both_buttons": true,
+  "refine_prior_context_only": true,
+  "exact_citation_selection": true,
+  "stale_exports_blocked": true,
+  "ast_upload_and_immutable_execution": true,
+  "separate_execution_export": true,
+  "json_markdown_exports": true,
+  "prompt_inspection": true,
+  "mobile_no_overflow": true,
+  "browser_errors": [],
+  "browser_version": "149.0.7827.53"
+}

@@ -1,0 +1,710 @@
+{
+  "scored_at": "2026-10-24T01:51:15.342278+00:00",
+  "scope": "Twelve new frozen author-authored synthetic cases; exploratory, not independent benchmark or production reliability proof. Labels excluded from model prompts; no tuning after readout.",
+  "metrics": {
+    "expected_label_matches": 12,
+    "missed_gaps": 0,
+    "false_support_gap_cases": 0,
+    "false_alarms": 0,
+    "correct_supports": 4,
+    "abstentions_total": 4,
+    "appropriate_ambiguous_abstentions": 4,
+    "schema_failures": 0,
+    "invalid_citation_cases": 0,
+    "citation_downgrade_cases": 0,
+    "server_quote_mismatches": 0,
+    "latency_seconds": {
+      "median": 4.428842,
+      "min": 3.118939,
+      "max": 5.502101
+    }
+  },
+  "gate_checks": {
+    "all12_completed_once": true,
+    "no_false_support_on_explicit_gaps": true,
+    "no_silent_parse_or_citation_failures": true,
+    "ambiguous_policy_manual_audit": true
+  },
+  "gate_pass": true,
+  "manual_audit_pending": false,
+  "rows": [
+    {
+      "id": "G01",
+      "group": "gap",
+      "expected": "potentially_missing",
+      "basis": "After checks flank21 but no equality case checks the explicitly required21.",
+      "raw_status": "potentially_missing",
+      "accepted_status": "potentially_missing",
+      "seconds": 3.625986,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "access(21) must be True for the inclusive minimum age boundary",
+          "rationale": "The requirement explicitly mandates the boundary case age=21. The after-tests check ages 20 and 22 but omit the specific equality case 21. Flanking checks do not establish the boundary behavior.",
+          "status": "potentially_missing",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "For the inclusive minimum age21, access(21) must be True."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert access(20) is False"
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "    assert access(22) is True"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"access(21) must be True for the inclusive minimum age boundary\",\"test_support\":\"gap\",\"rationale\":\"The requirement explicitly mandates the boundary case age=21. The after-tests check ages 20 and 22 but omit the specific equality case 21. Flanking checks do not establish the boundary behavior.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\",\"tests_after:L3\"]}],\"questions\":[]}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "access(21) must be True for the inclusive minimum age boundary",
+            "test_support": "gap",
+            "rationale": "The requirement explicitly mandates the boundary case age=21. The after-tests check ages 20 and 22 but omit the specific equality case 21. Flanking checks do not establish the boundary behavior.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L2",
+              "tests_after:L3"
+            ]
+          }
+        ],
+        "questions": []
+      }
+    },
+    {
+      "id": "G02",
+      "group": "gap",
+      "expected": "potentially_missing",
+      "basis": "After assertion enforces74, contradicting required75; implementation does not supply an after-test oracle.",
+      "raw_status": "potentially_missing",
+      "accepted_status": "potentially_missing",
+      "seconds": 3.210677,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "net(80,5) must return 75",
+          "rationale": "The requirement specifies the expected outcome as 75, but the after-test assertion checks for 75's incorrect value (74). No after-test assertion verifies the required outcome.",
+          "status": "potentially_missing",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "net(80,5) must return75."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert net(80,5)==74"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"net(80,5) must return 75\",\"test_support\":\"gap\",\"rationale\":\"The requirement specifies the expected outcome as 75, but the after-test assertion checks for 75's incorrect value (74). No after-test assertion verifies the required outcome.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\"]}],\"questions\":[]}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "net(80,5) must return 75",
+            "test_support": "gap",
+            "rationale": "The requirement specifies the expected outcome as 75, but the after-test assertion checks for 75's incorrect value (74). No after-test assertion verifies the required outcome.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L2"
+            ]
+          }
+        ],
+        "questions": []
+      }
+    },
+    {
+      "id": "G03",
+      "group": "gap",
+      "expected": "potentially_missing",
+      "basis": "After tests cover positive conversion, not the required negative-input exception.",
+      "raw_status": "potentially_missing",
+      "accepted_status": "potentially_missing",
+      "seconds": 4.640069,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "parse_count('-2') must raise ValueError",
+          "rationale": "The requirement explicitly mandates that parse_count('-2') raises ValueError. The after-tests only assert the result for input '2' (tests_after:L2) and contain no assertion checking that '-2' raises an exception.",
+          "status": "potentially_missing",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "parse_count('-2') must raise ValueError."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert parse_count('2')==2"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"parse_count('-2') must raise ValueError\",\n      \"test_support\": \"gap\",\n      \"rationale\": \"The requirement explicitly mandates that parse_count('-2') raises ValueError. The after-tests only assert the result for input '2' (tests_after:L2) and contain no assertion checking that '-2' raises an exception.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L2\"\n      ]\n    }\n  ],\n  \"questions\": []\n}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "parse_count('-2') must raise ValueError",
+            "test_support": "gap",
+            "rationale": "The requirement explicitly mandates that parse_count('-2') raises ValueError. The after-tests only assert the result for input '2' (tests_after:L2) and contain no assertion checking that '-2' raises an exception.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L2"
+            ]
+          }
+        ],
+        "questions": []
+      }
+    },
+    {
+      "id": "G04",
+      "group": "gap",
+      "expected": "potentially_missing",
+      "basis": "A length assertion is irrelevant to the required function return value.",
+      "raw_status": "potentially_missing",
+      "accepted_status": "potentially_missing",
+      "seconds": 5.088791,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "initial('cat') must return 'c'",
+          "rationale": "The requirement explicitly mandates the behavior for input 'cat'. The after-tests only assert the length of 'cat' (tests_after:L2) and contain no assertion checking the return value of initial('cat'). The presence of this check in before_context (tests_before:L2) does not establish current test support.",
+          "status": "potentially_missing",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "initial('cat') must return 'c'."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert len('cat')==3"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"initial('cat') must return 'c'\",\n      \"test_support\": \"gap\",\n      \"rationale\": \"The requirement explicitly mandates the behavior for input 'cat'. The after-tests only assert the length of 'cat' (tests_after:L2) and contain no assertion checking the return value of initial('cat'). The presence of this check in before_context (tests_before:L2) does not establish current test support.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L2\"\n      ]\n    }\n  ],\n  \"questions\": []\n}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "initial('cat') must return 'c'",
+            "test_support": "gap",
+            "rationale": "The requirement explicitly mandates the behavior for input 'cat'. The after-tests only assert the length of 'cat' (tests_after:L2) and contain no assertion checking the return value of initial('cat'). The presence of this check in before_context (tests_before:L2) does not establish current test support.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L2"
+            ]
+          }
+        ],
+        "questions": []
+      }
+    },
+    {
+      "id": "C01",
+      "group": "covered",
+      "expected": "supported",
+      "basis": "The exact required row reaches the consuming equality assertion.",
+      "raw_status": "supported",
+      "accepted_status": "supported",
+      "seconds": 4.968501,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "multiply(6,7) must return 42",
+          "rationale": "The requirement explicitly specifies multiply(6,7) returns 42. The after-test parametrized table includes the case (6,7,42) and the assertion verifies the result matches the expected value.",
+          "status": "supported",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "multiply(6,7) must return42."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "@pytest.mark.parametrize('left,right,expected',[(1,4,4),(6,7,42)])"
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 4,
+              "line_end": 4,
+              "quote": "    assert multiply(left,right)==expected"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"multiply(6,7) must return 42\",\n      \"test_support\": \"checked\",\n      \"rationale\": \"The requirement explicitly specifies multiply(6,7) returns 42. The after-test parametrized table includes the case (6,7,42) and the assertion verifies the result matches the expected value.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L2\",\n        \"tests_after:L4\"\n      ]\n    }\n  ],\n  \"questions\": []\n}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "multiply(6,7) must return 42",
+            "test_support": "checked",
+            "rationale": "The requirement explicitly specifies multiply(6,7) returns 42. The after-test parametrized table includes the case (6,7,42) and the assertion verifies the result matches the expected value.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L2",
+              "tests_after:L4"
+            ]
+          }
+        ],
+        "questions": []
+      }
+    },
+    {
+      "id": "C02",
+      "group": "covered",
+      "expected": "supported",
+      "basis": "The implementation refactor retains the explicit required after assertion.",
+      "raw_status": "supported",
+      "accepted_status": "supported",
+      "seconds": 3.118939,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "area(3,5) returns 15",
+          "rationale": "The requirement explicitly mandates area(3,5) returns 15. The after-test assertion at tests_after:L2 visibly checks this exact input and expected outcome.",
+          "status": "supported",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "area(3,5) must return15."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert area(3,5)==15"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"area(3,5) returns 15\",\"test_support\":\"checked\",\"rationale\":\"The requirement explicitly mandates area(3,5) returns 15. The after-test assertion at tests_after:L2 visibly checks this exact input and expected outcome.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\"]}],\"questions\":[]}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "area(3,5) returns 15",
+            "test_support": "checked",
+            "rationale": "The requirement explicitly mandates area(3,5) returns 15. The after-test assertion at tests_after:L2 visibly checks this exact input and expected outcome.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L2"
+            ]
+          }
+        ],
+        "questions": []
+      }
+    },
+    {
+      "id": "C03",
+      "group": "covered",
+      "expected": "supported",
+      "basis": "After expected-exception context directly enforces the required input/type.",
+      "raw_status": "supported",
+      "accepted_status": "supported",
+      "seconds": 4.648329,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "checked_size(0) must raise ValueError",
+          "rationale": "The requirement explicitly mandates that checked_size(0) raises ValueError. The after-test (tests_after:L3-L4) uses pytest.raises to assert this exact behavior for input 0.",
+          "status": "supported",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "checked_size(0) must raise ValueError."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "    with pytest.raises(ValueError):"
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 4,
+              "line_end": 4,
+              "quote": "        checked_size(0)"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"checked_size(0) must raise ValueError\",\n      \"test_support\": \"checked\",\n      \"rationale\": \"The requirement explicitly mandates that checked_size(0) raises ValueError. The after-test (tests_after:L3-L4) uses pytest.raises to assert this exact behavior for input 0.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L3\",\n        \"tests_after:L4\"\n      ]\n    }\n  ],\n  \"questions\": []\n}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "checked_size(0) must raise ValueError",
+            "test_support": "checked",
+            "rationale": "The requirement explicitly mandates that checked_size(0) raises ValueError. The after-test (tests_after:L3-L4) uses pytest.raises to assert this exact behavior for input 0.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L3",
+              "tests_after:L4"
+            ]
+          }
+        ],
+        "questions": []
+      }
+    },
+    {
+      "id": "C04",
+      "group": "covered",
+      "expected": "supported",
+      "basis": "An explicit unittest assertion retains the inclusive boundary64 outcome.",
+      "raw_status": "supported",
+      "accepted_status": "supported",
+      "seconds": 4.684206,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "At the inclusive cap 64, allowed(64) must return True",
+          "rationale": "The requirement explicitly mandates that allowed(64) returns True. The after-test assertion in tests_after:L4 visibly checks allowed(64) against True, satisfying the boundary evidence requirement.",
+          "status": "supported",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "At the inclusive cap64, allowed(64) must return True."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 4,
+              "line_end": 4,
+              "quote": "        self.assertEqual(allowed(64),True)"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"At the inclusive cap 64, allowed(64) must return True\",\n      \"test_support\": \"checked\",\n      \"rationale\": \"The requirement explicitly mandates that allowed(64) returns True. The after-test assertion in tests_after:L4 visibly checks allowed(64) against True, satisfying the boundary evidence requirement.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L4\"\n      ]\n    }\n  ],\n  \"questions\": []\n}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "At the inclusive cap 64, allowed(64) must return True",
+            "test_support": "checked",
+            "rationale": "The requirement explicitly mandates that allowed(64) returns True. The after-test assertion in tests_after:L4 visibly checks allowed(64) against True, satisfying the boundary evidence requirement.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L4"
+            ]
+          }
+        ],
+        "questions": []
+      }
+    },
+    {
+      "id": "A01",
+      "group": "ambiguous",
+      "expected": "unresolved",
+      "basis": "Neither old nor new test defines an approved case-sensitivity policy.",
+      "raw_status": "unresolved",
+      "accepted_status": "unresolved",
+      "seconds": 5.502101,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "Case sensitivity policy for email domain comparison",
+          "rationale": "The requirement explicitly states that the product team has not approved whether comparison is case sensitive. While tests_after:L2 asserts a specific outcome (True for 'EXAMPLE' vs 'example'), the lack of an authoritative policy means the intended behavior is undefined, and the test cannot be validated against a requirement.",
+          "status": "unresolved",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "The product team has not approved whether email domain comparison is case sensitive."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert domain_equal('EXAMPLE','example') is True"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"Case sensitivity policy for email domain comparison\",\n      \"test_support\": \"unknown\",\n      \"rationale\": \"The requirement explicitly states that the product team has not approved whether comparison is case sensitive. While tests_after:L2 asserts a specific outcome (True for 'EXAMPLE' vs 'example'), the lack of an authoritative policy means the intended behavior is undefined, and the test cannot be validated against a requirement.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L2\"\n      ]\n    }\n  ],\n  \"questions\": [\n    \"Should email domain comparison be case-sensitive or case-insensitive?\"\n  ]\n}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "Case sensitivity policy for email domain comparison",
+            "test_support": "unknown",
+            "rationale": "The requirement explicitly states that the product team has not approved whether comparison is case sensitive. While tests_after:L2 asserts a specific outcome (True for 'EXAMPLE' vs 'example'), the lack of an authoritative policy means the intended behavior is undefined, and the test cannot be validated against a requirement.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L2"
+            ]
+          }
+        ],
+        "questions": [
+          "Should email domain comparison be case-sensitive or case-insensitive?"
+        ]
+      }
+    },
+    {
+      "id": "A02",
+      "group": "ambiguous",
+      "expected": "unresolved",
+      "basis": "The required half-cent output is explicitly undecided.",
+      "raw_status": "unresolved",
+      "accepted_status": "unresolved",
+      "seconds": 4.217615,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "Rounding behavior for half-cent totals (e.g., 0.005)",
+          "rationale": "The requirement explicitly states that rounding behavior for half-cent totals is undecided and neither test expectation is authoritative. Therefore, the presence of an assertion in tests_after does not establish a checked obligation against a defined policy.",
+          "status": "unresolved",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "Rounding behavior for half-cent totals is undecided; neither test expectation is authoritative."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert cent(0.005)==0.00"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"Rounding behavior for half-cent totals (e.g., 0.005)\",\"test_support\":\"unknown\",\"rationale\":\"The requirement explicitly states that rounding behavior for half-cent totals is undecided and neither test expectation is authoritative. Therefore, the presence of an assertion in tests_after does not establish a checked obligation against a defined policy.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\"]}],\"questions\":[\"What is the intended rounding policy for half-cent totals (e.g., round half up, round half down, or round half to even)?\"]}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "Rounding behavior for half-cent totals (e.g., 0.005)",
+            "test_support": "unknown",
+            "rationale": "The requirement explicitly states that rounding behavior for half-cent totals is undecided and neither test expectation is authoritative. Therefore, the presence of an assertion in tests_after does not establish a checked obligation against a defined policy.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L2"
+            ]
+          }
+        ],
+        "questions": [
+          "What is the intended rounding policy for half-cent totals (e.g., round half up, round half down, or round half to even)?"
+        ]
+      }
+    },
+    {
+      "id": "A03",
+      "group": "ambiguous",
+      "expected": "unresolved",
+      "basis": "Accented-letter policy cannot be inferred from source or changed assertions.",
+      "raw_status": "unresolved",
+      "accepted_status": "unresolved",
+      "seconds": 3.727635,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "Behavior of slug helper for accented letters",
+          "rationale": "The requirement explicitly states that the expected output for accented letters has not been specified. Although tests_after:L2 asserts a specific outcome ('\u00e9t\u00e9'), there is no authoritative requirement to validate this outcome against, making the intended behavior unspecified.",
+          "status": "unresolved",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "A slug helper normalizes input; the expected output for accented letters has not been specified."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert slug('\u00e9t\u00e9')=='\u00e9t\u00e9'"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"Behavior of slug helper for accented letters\",\"test_support\":\"unknown\",\"rationale\":\"The requirement explicitly states that the expected output for accented letters has not been specified. Although tests_after:L2 asserts a specific outcome ('\u00e9t\u00e9'), there is no authoritative requirement to validate this outcome against, making the intended behavior unspecified.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\"]}],\"questions\":[\"What is the expected output for accented letters in the slug helper?\"]}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "Behavior of slug helper for accented letters",
+            "test_support": "unknown",
+            "rationale": "The requirement explicitly states that the expected output for accented letters has not been specified. Although tests_after:L2 asserts a specific outcome ('\u00e9t\u00e9'), there is no authoritative requirement to validate this outcome against, making the intended behavior unspecified.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L2"
+            ]
+          }
+        ],
+        "questions": [
+          "What is the expected output for accented letters in the slug helper?"
+        ]
+      }
+    },
+    {
+      "id": "A04",
+      "group": "ambiguous",
+      "expected": "unresolved",
+      "basis": "No authoritative retry count exists; old and new values do not supply one.",
+      "raw_status": "unresolved",
+      "accepted_status": "unresolved",
+      "seconds": 3.153624,
+      "http_status": 200,
+      "schema_failure": null,
+      "invalid_raw_citation_ids": [],
+      "server_quote_mismatches": [],
+      "failure_visible": true,
+      "warnings": [],
+      "accepted_obligations": [
+        {
+          "id": "O1",
+          "description": "Allowed retry count value",
+          "rationale": "The requirement explicitly states that the allowed retry count has not been specified. Although the after-test asserts a value of 3, there is no authoritative requirement to validate this against.",
+          "status": "unresolved",
+          "evidence": [
+            {
+              "artifact": "requirement",
+              "line_start": 1,
+              "line_end": 1,
+              "quote": "This excerpt contains a retry implementation, but the allowed retry count has not been specified."
+            },
+            {
+              "artifact": "tests_after",
+              "line_start": 2,
+              "line_end": 2,
+              "quote": "    assert retry_limit()==3"
+            }
+          ],
+          "origin": "llm_inference"
+        }
+      ],
+      "raw": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"Allowed retry count value\",\"test_support\":\"unknown\",\"rationale\":\"The requirement explicitly states that the allowed retry count has not been specified. Although the after-test asserts a value of 3, there is no authoritative requirement to validate this against.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\"]}], \"questions\":[\"What is the required allowed retry count?\"]}",
+      "raw_parsed": {
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "Allowed retry count value",
+            "test_support": "unknown",
+            "rationale": "The requirement explicitly states that the allowed retry count has not been specified. Although the after-test asserts a value of 3, there is no authoritative requirement to validate this against.",
+            "evidence_ids": [
+              "requirement:L1",
+              "tests_after:L2"
+            ]
+          }
+        ],
+        "questions": [
+          "What is the required allowed retry count?"
+        ]
+      }
+    }
+  ],
+  "decision": "Meets bounded tonight-demo gate on this small author-created set; not production/independent accuracy proof. No tuning after readout."
+}

@@ -1,0 +1,431 @@
+{
+  "scope": "Separately authored internal smoke cases, not independent accuracy validation. Expected labels were excluded from model requests.",
+  "provider_status": {
+    "http_temperature": 0.6,
+    "temperature_config_valid": true,
+    "http_timeout_seconds": 300,
+    "timeout_config_valid": true,
+    "backend": "openai-compatible",
+    "configured": true,
+    "model": "te-qwen3-8b",
+    "processing_location": "loopback_endpoint",
+    "endpoint_calls_enabled": true,
+    "remote_processing_enabled": false,
+    "execution": "Only explicitly selected bundled fixtures can run."
+  },
+  "cases": [
+    {
+      "case_id": "coupon_expiry_boundary_lost",
+      "http_status": 200,
+      "elapsed_seconds": 143.648,
+      "response": {
+        "analysis_id": "d3ab8a0b-5f37-45ce-a5f1-072c2e46c5de",
+        "created_at": "2026-10-23T16:07:32.811663+00:00",
+        "mode": "llm",
+        "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "Coupon valid on expiry day inclusive",
+            "rationale": "The requirement specifies expiry day inclusion, but after-tests only check 29/30 and 31/30 without explicitly verifying 30/30 equality.",
+            "status": "potentially_missing",
+            "evidence": [
+              {
+                "artifact": "requirement",
+                "line_start": 1,
+                "line_end": 1,
+                "quote": "Given integer day numbers, a coupon is valid through its expiry day, inclusive, and invalid on later days."
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 2,
+                "line_end": 2,
+                "quote": "    assert coupon_valid(29, 30) is True"
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 3,
+                "line_end": 3,
+                "quote": "    assert coupon_valid(31, 30) is False"
+              }
+            ],
+            "origin": "llm_inference"
+          }
+        ],
+        "questions": [],
+        "observations": [
+          {
+            "kind": "deterministic_static",
+            "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "tests_before: valid Python syntax; 3 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "tests_after: valid Python syntax; 2 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          }
+        ],
+        "warnings": [],
+        "provider": {
+          "http_temperature": 0.6,
+          "http_timeout_seconds": 300,
+          "backend": "openai-compatible",
+          "model": "te-qwen3-8b",
+          "elapsed_seconds": 143.545,
+          "actual_inference": true,
+          "prompt_version": "3.1-explicit-boundary-evidence",
+          "prompt_patterns": [
+            "persona",
+            "few-shot",
+            "iterative refinement"
+          ],
+          "raw_response": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"Coupon valid on expiry day inclusive\",\"test_support\":\"gap\",\"rationale\":\"The requirement specifies expiry day inclusion, but after-tests only check 29/30 and 31/30 without explicitly verifying 30/30 equality.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\",\"tests_after:L3\"]}],\"questions\":[]}"
+        },
+        "artifact_sha256": {
+          "requirement": "2db4953b7117d4f11244375e17dcabc8e5fea6f96b3e372a24c5488df36a34bc",
+          "source_before": "456c1bd21fb749dcc3455c59e46bba51265a547a4f1866c1f60a35f7ed88bf20",
+          "source_after": "456c1bd21fb749dcc3455c59e46bba51265a547a4f1866c1f60a35f7ed88bf20",
+          "tests_before": "1968137bc355a199949f4f4feef75c8ce3973c4df0b564c33eb639b9823dd268",
+          "tests_after": "e729c6e13c4f154831455a522cd3904158d8ec908c9cadcdf4375007824d2389",
+          "clarification": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "artifacts": {
+          "requirement": "Given integer day numbers, a coupon is valid through its expiry day, inclusive, and invalid on later days.",
+          "source_before": "def coupon_valid(today, expiry_day):\n    return today <= expiry_day\n",
+          "source_after": "def coupon_valid(today, expiry_day):\n    return today <= expiry_day\n",
+          "tests_before": "def test_coupon_expiry():\n    assert coupon_valid(29, 30) is True\n    assert coupon_valid(30, 30) is True\n    assert coupon_valid(31, 30) is False\n",
+          "tests_after": "def test_coupon_expiry():\n    assert coupon_valid(29, 30) is True\n    assert coupon_valid(31, 30) is False\n",
+          "clarification": ""
+        },
+        "execution": {
+          "performed": false,
+          "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+        }
+      }
+    },
+    {
+      "case_id": "list_order_table_refactor",
+      "http_status": 200,
+      "elapsed_seconds": 119.007,
+      "response": {
+        "analysis_id": "4aa662c8-0e16-4596-b0de-abce53e2b4cc",
+        "created_at": "2026-10-23T16:09:31.822599+00:00",
+        "mode": "llm",
+        "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "Preserve first-occurrence order while removing duplicates",
+            "rationale": "The after-test cases explicitly check duplicate removal with order preservation for non-empty inputs.",
+            "status": "supported",
+            "evidence": [
+              {
+                "artifact": "requirement",
+                "line_start": 1,
+                "line_end": 1,
+                "quote": "Remove duplicate names while preserving first-occurrence order. An empty input list returns an empty list."
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 2,
+                "line_end": 2,
+                "quote": "    cases = [(['b', 'a', 'b'], ['b', 'a']), (['a', 'a', 'b'], ['a', 'b']), ([], [])]"
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 4,
+                "line_end": 4,
+                "quote": "        assert unique_names(names) == expected"
+              }
+            ],
+            "origin": "llm_inference"
+          },
+          {
+            "id": "O2",
+            "description": "Empty input list returns empty list",
+            "rationale": "The after-test includes an explicit case for empty input with expected empty output.",
+            "status": "supported",
+            "evidence": [
+              {
+                "artifact": "requirement",
+                "line_start": 1,
+                "line_end": 1,
+                "quote": "Remove duplicate names while preserving first-occurrence order. An empty input list returns an empty list."
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 2,
+                "line_end": 2,
+                "quote": "    cases = [(['b', 'a', 'b'], ['b', 'a']), (['a', 'a', 'b'], ['a', 'b']), ([], [])]"
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 4,
+                "line_end": 4,
+                "quote": "        assert unique_names(names) == expected"
+              }
+            ],
+            "origin": "llm_inference"
+          }
+        ],
+        "questions": [],
+        "observations": [
+          {
+            "kind": "deterministic_static",
+            "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "tests_before: valid Python syntax; 3 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "tests_after: valid Python syntax; 1 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          }
+        ],
+        "warnings": [],
+        "provider": {
+          "http_temperature": 0.6,
+          "http_timeout_seconds": 300,
+          "backend": "openai-compatible",
+          "model": "te-qwen3-8b",
+          "elapsed_seconds": 118.908,
+          "actual_inference": true,
+          "prompt_version": "3.1-explicit-boundary-evidence",
+          "prompt_patterns": [
+            "persona",
+            "few-shot",
+            "iterative refinement"
+          ],
+          "raw_response": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"Preserve first-occurrence order while removing duplicates\",\"test_support\":\"checked\",\"rationale\":\"The after-test cases explicitly check duplicate removal with order preservation for non-empty inputs.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\",\"tests_after:L4\"]},{\"id\":\"O2\",\"description\":\"Empty input list returns empty list\",\"test_support\":\"checked\",\"rationale\":\"The after-test includes an explicit case for empty input with expected empty output.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\",\"tests_after:L4\"]}],\"questions\":[]}"
+        },
+        "artifact_sha256": {
+          "requirement": "cc6fd28ac1256bc3c7488922e7b86ac97bb99e9b412931635541938ec3a11575",
+          "source_before": "3cc5ca6553087df0150ef79745de230a0d5c6efbbd8f458d29438effaa044822",
+          "source_after": "3cc5ca6553087df0150ef79745de230a0d5c6efbbd8f458d29438effaa044822",
+          "tests_before": "d88ef6e4a1d1c6d7891eab301dfd090c4754f33b5bb99d4847d5414a5ff689cf",
+          "tests_after": "ec30731bf555049aa09244fc347efdecc534b71c22af7984f5ade4bd7a3ac0bb",
+          "clarification": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "artifacts": {
+          "requirement": "Remove duplicate names while preserving first-occurrence order. An empty input list returns an empty list.",
+          "source_before": "def unique_names(names):\n    result = []\n    for name in names:\n        if name not in result:\n            result.append(name)\n    return result\n",
+          "source_after": "def unique_names(names):\n    result = []\n    for name in names:\n        if name not in result:\n            result.append(name)\n    return result\n",
+          "tests_before": "def test_unique_names():\n    assert unique_names(['b', 'a', 'b']) == ['b', 'a']\n    assert unique_names(['a', 'a', 'b']) == ['a', 'b']\n    assert unique_names([]) == []\n",
+          "tests_after": "def test_unique_names():\n    cases = [(['b', 'a', 'b'], ['b', 'a']), (['a', 'a', 'b'], ['a', 'b']), ([], [])]\n    for names, expected in cases:\n        assert unique_names(names) == expected\n",
+          "clarification": ""
+        },
+        "execution": {
+          "performed": false,
+          "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+        }
+      }
+    },
+    {
+      "case_id": "refund_tie_policy_missing",
+      "http_status": 200,
+      "elapsed_seconds": 107.053,
+      "response": {
+        "analysis_id": "970663e7-0c4a-403d-9c55-7b4d47666f87",
+        "created_at": "2026-10-23T16:11:18.884164+00:00",
+        "mode": "llm",
+        "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "refund_cents(105) returns 10 for half-cent tie",
+            "rationale": "The requirement does not specify rounding for exact half-cent ties, but tests_after:L2 asserts 105 rounds to 10, which is not checked by any explicit requirement.",
+            "status": "potentially_missing",
+            "evidence": [
+              {
+                "artifact": "requirement",
+                "line_start": 1,
+                "line_end": 1,
+                "quote": "For nonnegative integer amounts measured in tenths of one cent, return the nearest whole-cent refund. The supplied requirement does not specify how to round an exact half-cent tie."
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 2,
+                "line_end": 2,
+                "quote": "    assert refund_cents(104) == 10"
+              }
+            ],
+            "origin": "llm_inference"
+          }
+        ],
+        "questions": [],
+        "observations": [
+          {
+            "kind": "deterministic_static",
+            "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "tests_before: valid Python syntax; 3 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "tests_after: valid Python syntax; 3 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          }
+        ],
+        "warnings": [],
+        "provider": {
+          "http_temperature": 0.6,
+          "http_timeout_seconds": 300,
+          "backend": "openai-compatible",
+          "model": "te-qwen3-8b",
+          "elapsed_seconds": 106.964,
+          "actual_inference": true,
+          "prompt_version": "3.1-explicit-boundary-evidence",
+          "prompt_patterns": [
+            "persona",
+            "few-shot",
+            "iterative refinement"
+          ],
+          "raw_response": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"refund_cents(105) returns 10 for half-cent tie\",\"test_support\":\"gap\",\"rationale\":\"The requirement does not specify rounding for exact half-cent ties, but tests_after:L2 asserts 105 rounds to 10, which is not checked by any explicit requirement.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\"]}],\"questions\":[]}"
+        },
+        "artifact_sha256": {
+          "requirement": "11e70761a68e320d3e15293143a9db963b8bd21b6aa4bcbec232ba97868f7195",
+          "source_before": "41b589a569c9cba4144be6d000261ad393b7e44537bf02f8e3152ed5301abd13",
+          "source_after": "3216c0ca8fc5e14f0a83b3867b5be75cb3c35329c176df1d2e9f2b3d0fdd3f82",
+          "tests_before": "ef587e8d62b03829cec5251342e18e53a265dd339e15ad31cbf2870f5f39ba84",
+          "tests_after": "5720638a41695aba4fbe2a0ef4ce41adcc2d78e9358df8111ea0d247bac69ed9",
+          "clarification": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "artifacts": {
+          "requirement": "For nonnegative integer amounts measured in tenths of one cent, return the nearest whole-cent refund. The supplied requirement does not specify how to round an exact half-cent tie.",
+          "source_before": "def refund_cents(tenths):\n    return (tenths + 5) // 10\n",
+          "source_after": "def refund_cents(tenths):\n    whole, remainder = divmod(tenths, 10)\n    return whole + (remainder > 5 or (remainder == 5 and whole % 2 == 1))\n",
+          "tests_before": "def test_refund_rounding():\n    assert refund_cents(104) == 10\n    assert refund_cents(105) == 11\n    assert refund_cents(106) == 11\n",
+          "tests_after": "def test_refund_rounding():\n    assert refund_cents(104) == 10\n    assert refund_cents(105) == 10\n    assert refund_cents(106) == 11\n",
+          "clarification": ""
+        },
+        "execution": {
+          "performed": false,
+          "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+        }
+      }
+    },
+    {
+      "case_id": "input_blank_assertion_retained",
+      "http_status": 200,
+      "elapsed_seconds": 105.821,
+      "response": {
+        "analysis_id": "96a8f6ec-6c2d-4a5b-8b05-d2ac5a3719d5",
+        "created_at": "2026-10-23T16:13:04.690788+00:00",
+        "mode": "llm",
+        "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+        "obligations": [
+          {
+            "id": "O1",
+            "description": "Reject empty or whitespace-only input, accept non-whitespace-containing input",
+            "rationale": "The after-tests explicitly check empty (''), whitespace-only ('   '), and valid cases ('SAVE', ' SAVE ') with expected outcomes aligned with the requirement.",
+            "status": "supported",
+            "evidence": [
+              {
+                "artifact": "requirement",
+                "line_start": 1,
+                "line_end": 1,
+                "quote": "For string inputs, reject an empty or whitespace-only coupon code and accept a code containing at least one non-whitespace character."
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 2,
+                "line_end": 2,
+                "quote": "    assert valid_code('') is False"
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 3,
+                "line_end": 3,
+                "quote": "    assert valid_code('   ') is False"
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 4,
+                "line_end": 4,
+                "quote": "    assert valid_code('SAVE') is True"
+              },
+              {
+                "artifact": "tests_after",
+                "line_start": 5,
+                "line_end": 5,
+                "quote": "    assert valid_code(' SAVE ') is True"
+              }
+            ],
+            "origin": "llm_inference"
+          }
+        ],
+        "questions": [],
+        "observations": [
+          {
+            "kind": "deterministic_static",
+            "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "tests_before: valid Python syntax; 3 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          },
+          {
+            "kind": "deterministic_static",
+            "detail": "tests_after: valid Python syntax; 4 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+          }
+        ],
+        "warnings": [],
+        "provider": {
+          "http_temperature": 0.6,
+          "http_timeout_seconds": 300,
+          "backend": "openai-compatible",
+          "model": "te-qwen3-8b",
+          "elapsed_seconds": 105.717,
+          "actual_inference": true,
+          "prompt_version": "3.1-explicit-boundary-evidence",
+          "prompt_patterns": [
+            "persona",
+            "few-shot",
+            "iterative refinement"
+          ],
+          "raw_response": "{\"obligations\":[{\"id\":\"O1\",\"description\":\"Reject empty or whitespace-only input, accept non-whitespace-containing input\",\"test_support\":\"checked\",\"rationale\":\"The after-tests explicitly check empty (''), whitespace-only ('   '), and valid cases ('SAVE', ' SAVE ') with expected outcomes aligned with the requirement.\",\"evidence_ids\":[\"requirement:L1\",\"tests_after:L2\",\"tests_after:L3\",\"tests_after:L4\",\"tests_after:L5\"]}],\"questions\":[]}"
+        },
+        "artifact_sha256": {
+          "requirement": "fc485339c631d5797f4becd1573571b35e437566fb9ec31f7f396f5a32b5f8f1",
+          "source_before": "eaba0b1578756224675265db8ea18d2076be288de3c944a31e6ff6713565ebb9",
+          "source_after": "969a290d855043483c2419cebb1d4e2f620cf0d4b8b245161d9194149f49a10d",
+          "tests_before": "56d102007197f669e00188d6e94f1130d6be70879025472a26196a7a07f05eb0",
+          "tests_after": "cc30b30106a3d9221a1d4c5bc869e937668fa13628ce4957e12730674d643f0f",
+          "clarification": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "artifacts": {
+          "requirement": "For string inputs, reject an empty or whitespace-only coupon code and accept a code containing at least one non-whitespace character.",
+          "source_before": "def valid_code(code):\n    return len(code.strip()) > 0\n",
+          "source_after": "def valid_code(code):\n    return bool(code.strip())\n",
+          "tests_before": "def test_valid_code():\n    assert valid_code('') is False\n    assert valid_code('   ') is False\n    assert valid_code('SAVE') is True\n",
+          "tests_after": "def test_valid_code():\n    assert valid_code('') is False\n    assert valid_code('   ') is False\n    assert valid_code('SAVE') is True\n    assert valid_code(' SAVE ') is True\n",
+          "clarification": ""
+        },
+        "execution": {
+          "performed": false,
+          "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+        }
+      }
+    }
+  ]
+}

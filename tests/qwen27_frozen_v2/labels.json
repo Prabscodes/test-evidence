@@ -1,0 +1,74 @@
+[
+  {
+    "id": "G01",
+    "group": "gap",
+    "expected": "potentially_missing",
+    "basis": "After checks flank21 but no equality case checks the explicitly required21."
+  },
+  {
+    "id": "G02",
+    "group": "gap",
+    "expected": "potentially_missing",
+    "basis": "After assertion enforces74, contradicting required75; implementation does not supply an after-test oracle."
+  },
+  {
+    "id": "G03",
+    "group": "gap",
+    "expected": "potentially_missing",
+    "basis": "After tests cover positive conversion, not the required negative-input exception."
+  },
+  {
+    "id": "G04",
+    "group": "gap",
+    "expected": "potentially_missing",
+    "basis": "A length assertion is irrelevant to the required function return value."
+  },
+  {
+    "id": "C01",
+    "group": "covered",
+    "expected": "supported",
+    "basis": "The exact required row reaches the consuming equality assertion."
+  },
+  {
+    "id": "C02",
+    "group": "covered",
+    "expected": "supported",
+    "basis": "The implementation refactor retains the explicit required after assertion."
+  },
+  {
+    "id": "C03",
+    "group": "covered",
+    "expected": "supported",
+    "basis": "After expected-exception context directly enforces the required input/type."
+  },
+  {
+    "id": "C04",
+    "group": "covered",
+    "expected": "supported",
+    "basis": "An explicit unittest assertion retains the inclusive boundary64 outcome."
+  },
+  {
+    "id": "A01",
+    "group": "ambiguous",
+    "expected": "unresolved",
+    "basis": "Neither old nor new test defines an approved case-sensitivity policy."
+  },
+  {
+    "id": "A02",
+    "group": "ambiguous",
+    "expected": "unresolved",
+    "basis": "The required half-cent output is explicitly undecided."
+  },
+  {
+    "id": "A03",
+    "group": "ambiguous",
+    "expected": "unresolved",
+    "basis": "Accented-letter policy cannot be inferred from source or changed assertions."
+  },
+  {
+    "id": "A04",
+    "group": "ambiguous",
+    "expected": "unresolved",
+    "basis": "No authoritative retry count exists; old and new values do not supply one."
+  }
+]
