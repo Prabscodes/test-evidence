@@ -4,7 +4,7 @@ Latest user target: submit by **05:30UTC /10:30pmPacific**, worst case **06:00UT
 
 | Timebox UTC | Action | State |
 | --- | --- | --- |
-|By04:15| Publish reviewed code/docs to approved public Prabscodes/test-evidence and verify anonymous access | In progress; exact status in ASSIGNMENT_CHECKLIST.md |
+|By04:15| Publish reviewed code/docs to approved public Prabscodes/test-evidence and verify anonymous access | Done: published and anonymously verified; exact evidence in ASSIGNMENT_CHECKLIST.md |
 |04:15–04:45| User records narration for delivered105second silent demo; combine voice and inspect final duration | User narration pending; no AI voice generated |
 |04:45–05:00| Publish voiced video to a user-confirmed destination, check viewer access | Destination/publication pending; do not upload to an unspecified account |
 |05:00–05:30| Check repository/video links and all required form fields, review before authorized submission | Form not submitted |

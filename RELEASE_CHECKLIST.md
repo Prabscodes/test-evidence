@@ -11,7 +11,7 @@ Read directly from the supplied three-page CS4680 Prompt Engineering AI Assistan
 | Practical problem and working AI MVP | Requirement-linked Python test review; real local Qwen inference and UI are implemented |
 | At least two course prompt patterns, explained | Persona, few-shot and iterative refinement; `prompts.py`, UI inspection and `docs/PROMPT_PATTERNS.md` |
 | Required usable UI and AI outputs | Browser review, clarification, stale-state and export workflows verified |
-| Complete code/documentation GitHub URL | Public destination approved: https://github.com/Prabscodes/test-evidence . See ASSIGNMENT_CHECKLIST.md for verified publication status. |
+| Complete code/documentation GitHub URL | Published and verified anonymously: https://github.com/Prabscodes/test-evidence . Final checklist: ASSIGNMENT_CHECKLIST.md. |
 | Published short demo video link | Script ready in `docs/DEMO.md`; record, edit, check strictly <120 seconds and publish after authorization |
 | Live presentation/demo | Rehearse the real model wait, fixture distinction, prompt patterns, limitations and disclosed recording fallback |
 | Submit project through Google Form | https://forms.gle/nMHp5owwYidszwt58 — GitHub link and short video; not submitted |

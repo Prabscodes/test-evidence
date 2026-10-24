@@ -11,7 +11,7 @@
     "fixtures.py": "a32971e3987a5a8f7fa0ce801575fa49e12699d2e1a66cd020f2dd2e496296be",
     "README.md": "f6c3e9f262ccafb40b1aa80e2906c1d42335e01fe5aaddfa4d3f7ed85f6309e0",
     "public_runtime.py": "3a5e5114530aac425cf5db3c2feb2aafa20a488f26f05733900597576b5fa0bd",
-    "RELEASE_CHECKLIST.md": "42034024957fb9beec6ecf45344718939ec240b8f5dca3b1f21e626df87f24ce",
+    "RELEASE_CHECKLIST.md": "fd8be61d90eab38a47bd5ea0d3397c41b6a64bfe71345737164a90b21f0be517",
     "ast_check.py": "f1b0283b29fe747dbd5c91f13032b1b1922b6196dc948b6cb2cb36eab48608c5",
     "app.py": "9900585fdede4d7b6b2f4c03a84f958073b6e125aee63a4ccc501a465ff29e09",
     "requirements-local.txt": "af394335153d5d4a8c393e45b4c03cd2b1018103a74e058ceb92adafaf22629a",
@@ -169,7 +169,7 @@
     "tests/qwen27_frozen_v2/manifest.json": "48190218bb6d84f4fc38fe7bc5069953bd5d8ba7fa9e11c550aa70bc79fa1327",
     "tests/qwen27_frozen_v2/inputs.json": "8e0ca466b8d319af1371d465c47465abe3cadeaa2f6015469c7ccf74ad99c290",
     "docs/DEMO.md": "c541d7e627cc094444ad646a5f0389cfd5e5d88c40baf3599ec0898aa14a76f2",
-    "docs/PUBLISH_PLAN.md": "bffbf639d101b43ed796348ab7b55b55450d347dd44ab4f9a4a209c2becc4360",
+    "docs/PUBLISH_PLAN.md": "d52f7329007e1c3fc5f50a96576ea80f5eeddd07d9362eac406956d602c70e9e",
     "docs/DEMO_NARRATION.md": "6e5ab8ee074698a2a4e4b2f62350be572e70df9b2ddf744dc3f400e69676e07e",
     "docs/PROMPT_PATTERNS.md": "c51decdd6c118780de464d4bace7ba4e599e1e927ba476c574412b7d753c29ab",
     "docs/PUBLIC_DEPLOYMENT.md": "de9999adabbdf1bb869be40776d283226df1c9705ee191cce5348d15cc0d45c2",
@@ -187,8 +187,8 @@
     "scripts/popos_eval.py": "6c8054bc2598dc139626b95643cc15db7887d22935ef2daa5d4813a9c2dbf78d",
     "scripts/durable_request.py": "ee44b0963f84d071f8d0a9644a5e9b4f15f92de74215dd499f61ada20fd63609",
     "scripts/evaluate.py": "6845e062fb7c115a56b08ffa0305a49456a28d1b06c9b318cc5f47342d8d51ac",
-    "ASSIGNMENT_CHECKLIST.md": "691b6f52e36b4f14fc8f2e9d5bd09065386f41d174431ebe1c82563e2e0e73e5",
-    "docs/PUBLICATION_VALIDATION.md": "1b092d847ad67001c5aed7a8f96b634e522d3ee8b72d5d0fe0c3a0cd918fbee1"
+    "ASSIGNMENT_CHECKLIST.md": "df5f0d8edde8af4e7e1a74f45b014a4a563aaf2821874e2d583d00400be02074",
+    "docs/PUBLICATION_VALIDATION.md": "d8a69a32f93f9fc9c88ed7849c7882701c9aae3dddec664ca4a880c80c984089"
   },
   "app_sources_unchanged_from_local": {
     "samples.py": "58b3f6e45b55e8185982879938e562c9da8e10a63243372c7c862d119c4369af",
@@ -225,5 +225,7 @@
     "docs/SUBMISSION_VALIDATION.md",
     "ASSIGNMENT_CHECKLIST.md",
     "docs/PUBLICATION_VALIDATION.md"
-  ]
+  ],
+  "publication_verified_url": "https://github.com/Prabscodes/test-evidence",
+  "initial_verified_code_commit": "2c9e4ef7c3a3ccbf202c6d954870f558bd9af03e"
 }

@@ -2,10 +2,10 @@
 
 User target: **10:30pmPacific tonight (05:30UTC24 October2026)**; worst case **11pm (06:00UTC)**. The assignment itself points to Canvas for the official deadline; confirm that separately.
 
-- [ ] Public source: https://github.com/Prabscodes/test-evidence —approved destination; source push and anonymous verification pending.
+- [x] Public source: https://github.com/Prabscodes/test-evidence —published and verified anonymously on24 October2026 at04:03UTC. Default branchmain; all189 tracked source/document/evidence files matched the reviewed local commit.
 - [x] Practical FastAPI/vanillaJS MVP with real local27B inference, labelled demo, clarification, line citations and exports. No arbitrary uploaded Python execution.
 - [x] At least two course patterns: persona, few-shot and iterative refinement, mapped in docs/PROMPT_PATTERNS.md and inspectable in the UI.
-- [x]90 automated tests passed in the audited source; publication checkout rerun recorded in docs/PUBLICATION_VALIDATION.md.
+- [x]90 automated tests passed again in7.364seconds from the publication checkout, plus clarification, DOM and request-lifecycle regressions. See docs/PUBLICATION_VALIDATION.md.
 - [x] Public admission/privacy/error/concurrency safeguards and isolated container/browser checks. Hosted provider absence fails closed.
 - [x] Twelve fresh author-created frozen cases:4 gaps,4 covered,4 ambiguous; zero observed missed gaps/false support/false alarms/schema or citation failures, median4.43s. Small exploratory set, not independent accuracy proof; full raw outputs and prior failures remain.
 - [x]105second silent1080p demo and separate timed narration/captions/storyboard delivered privately in Library. No AI narration. Paused frames labelled; waits not accelerated. See docs/DEMO.md.
