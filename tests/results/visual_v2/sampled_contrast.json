@@ -1,0 +1,290 @@
+[
+  {
+    "text": "Follow the evidence.",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 42,
+    "weight": 650,
+    "ratio": 5.906,
+    "required": 3
+  },
+  {
+    "text": "Compare a Python change and its tests against an explicit requirement.",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 14,
+    "weight": 400,
+    "ratio": 5.906,
+    "required": 4.5
+  },
+  {
+    "text": "Start with a boundary example",
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(67, 56, 202)",
+    "font": 12,
+    "weight": 600,
+    "ratio": 7.903,
+    "required": 4.5
+  },
+  {
+    "text": "Loaded: A removed boundary assertion hides a regression. Inspect the i",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 5.906,
+    "required": 4.5
+  },
+  {
+    "text": "5 of 5 input sections filled \u00b7 authority supplied for human inspection",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Authoritative requirement Editable \u00b7 missing means unresolved",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 650,
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "State expected outputs, boundaries and errors. Up to 12,000 characters",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Source \u00b7 before",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 650,
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "Original implementation. Paste Python only, without Markdown fences. U",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 11,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Source \u00b7 after",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 650,
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "Changed implementation. Keep function names visible for comparison. Up",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 11,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Tests \u00b7 before",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 650,
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "Original tests, including assertions and parameter tables. Up to 16,00",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 11,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Tests \u00b7 after",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 650,
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "Updated tests. Include boundary assertions and expected values. Up to ",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 11,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Labelled demo uses hand-authored example judgments. Custom inputs rema",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Elapsed time is a wait timer, not model progress. Closing this page do",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(248, 249, 252)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.074,
+    "required": 4.5
+  },
+  {
+    "text": "Persona, few-shot examples, and iterative refinement are explicit\u2014not ",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "DETERMINISTIC DEMO \u00b7 NO LLM",
+    "color": "rgb(70, 84, 108)",
+    "background": "rgb(248, 249, 252)",
+    "font": 10,
+    "weight": 600,
+    "ratio": 7.267,
+    "required": 4.5
+  },
+  {
+    "text": "Development prototype: model judgments, including supported, can be wr",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Hand-authored demonstration judgment \u00b7 no model call",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Evidence review, not a proof of correctness. Uploaded code is never ex",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "potentially missing",
+    "color": "rgb(137, 82, 22)",
+    "background": "rgb(255, 242, 220)",
+    "font": 11,
+    "weight": 600,
+    "ratio": 5.785,
+    "required": 4.5
+  },
+  {
+    "text": "requirement:1\u20131",
+    "color": "rgb(67, 56, 202)",
+    "background": "rgb(240, 242, 248)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 7.061,
+    "required": 4.5
+  },
+  {
+    "text": "tests_before:1\u201312",
+    "color": "rgb(67, 56, 202)",
+    "background": "rgb(240, 242, 248)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 7.061,
+    "required": 4.5
+  },
+  {
+    "text": "tests_after:1\u20139",
+    "color": "rgb(67, 56, 202)",
+    "background": "rgb(240, 242, 248)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 7.061,
+    "required": 4.5
+  },
+  {
+    "text": "Clarify and refine",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 650,
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "Answer a question or supply authoritative context, up to 4,000 charact",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "0s browser wait",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Exports contain your submitted excerpts and raw review. Share only wit",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Run the bundled example's original fixture\u2014not your edited or uploaded",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "ratio": 6.394,
+    "required": 4.5
+  }
+]

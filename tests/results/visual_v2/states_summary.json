@@ -1,0 +1,8 @@
+{
+  "scope": "Explicitly simulated slow/unavailable model transport, not live inference",
+  "external_asset_requests": [],
+  "elapsed_without_percentages": true,
+  "error_focus_no_retry": true,
+  "reduced_motion_no_transition": true,
+  "unique_html_ids": true
+}

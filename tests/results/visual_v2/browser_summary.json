@@ -1,0 +1,27 @@
+{
+  "browser": "149.0.7827.53",
+  "actual_demo_review_refinement_export": true,
+  "actual_allowlisted_fixture_export": true,
+  "keyboard_skip_result_citation_clarification_error_focus": true,
+  "guided_load_no_post": true,
+  "unique_upload_labels_and_described_inputs": true,
+  "mobile_widths_no_overflow": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "zoom_200_no_overflow": true,
+  "simulated_transport_only": [
+    "slow",
+    "duplicate",
+    "interrupted",
+    "503",
+    "late stale response"
+  ],
+  "no_auto_retries": true,
+  "page_errors": [],
+  "live_inference_tested": false,
+  "sampled_text_contrast_pass": 32,
+  "minimum_sampled_text_contrast": 5.785
+}

@@ -60,3 +60,5 @@ The clean source package excludes credentials, weights, virtual environments, ru
 ## Guided review and accessibility follow-up
 
 Start with a boundary example loads editable excerpts without sending a review. Choose the engine and Analyze explicitly. Keyboard users can skip to the workspace, navigate citations to selected lines, add clarification and export a current review. Edited inputs invalidate old exports. Configured provider status is not a readiness test. See [rubric audit and browser verification](docs/UIUX_RUBRIC_AUDIT.md); the current local model endpoint is offline, so this follow-up does not claim a newly verified live inference demo.
+
+[Visual refinement and current UI verification](docs/UI_VISUAL_REFINEMENT.md): a local-only developer workbench theme, with actual demo screenshots and preserved provenance. The live-model endpoint remains offline; the new UI has not been pushed publicly.

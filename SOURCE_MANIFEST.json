@@ -9,7 +9,7 @@
     "requirements.txt": "677b4c89c18cc979a056d773870974088cf3d2b98201ccaf50141988b75b0f8f",
     ".gitignore": "2501f76e58166658290fe42d26fbcc9d0383f3a886b9b2474fc7c43b6a443a6b",
     "fixtures.py": "a32971e3987a5a8f7fa0ce801575fa49e12699d2e1a66cd020f2dd2e496296be",
-    "README.md": "2de183c1cd8f5fce6785cbf17eafa241b4918192b2e112c7f058905f91df7db8",
+    "README.md": "d1ab4367ef6d4a5eaae95e4f817e1f52131ef869d503b004a238dbc6c9f7f505",
     "public_runtime.py": "3a5e5114530aac425cf5db3c2feb2aafa20a488f26f05733900597576b5fa0bd",
     "RELEASE_CHECKLIST.md": "1e9b781717858f35bc96921b13c1d79316c2fcdcb8a13bae5225ae933791831a",
     "ast_check.py": "f1b0283b29fe747dbd5c91f13032b1b1922b6196dc948b6cb2cb36eab48608c5",
@@ -21,8 +21,8 @@
     "consistency.py": "1602d83e831ceb257177ecf85a7838db62276cd6be2b1f33bf574779d565f417",
     "provider.py": "0a7115ff50047b6c4eb795aa419c02fc3fba1983c6ae0625d9e84f1d3ed304d7",
     "analysis.py": "37f9b196b59f162796bfa1d42d321ffde94fce4f77c1e422e5e626e7354aada5",
-    "static/index.html": "d57dbf965ab0f99396a004106fd6ec853d99d54c4beea42eec537865bbac80dc",
-    "static/style.css": "3d7c3bf7a56a69ea80a831ddb512c3462ace33f98cfc6bb4529f9b99b93ad0bf",
+    "static/index.html": "77416eaa2752442f7aeb87a933c4a6d496211bd1ba2ca0ceeae975ed9ca13da3",
+    "static/style.css": "b7077c05c7b0bbe0d674b13b5473b6a8edfc60f0287b2d23bc7e3957093d122b",
     "static/app.js": "6368d1396b53c6b44e2575455a4af81fc1372c6468d0a23c28dc69f997768a97",
     "tests/test_api.py": "4296ae87e2f4675d010ac88288aff20324889f25555c9e59c77875270cfd586c",
     "tests/test_request_lifecycle.py": "6e89fd64caf97bee6090fbed71e52667c43b147e8d77e53ef09e4cd5f62cd29b",
@@ -198,7 +198,15 @@
     "tests/results/uiux_v1/public_browser_summary.json": "18343bb1b92f1ab97c103c7bdda4b3b6a377779eab5250f392d2127d3a60d5b3",
     "tests/results/uiux_v1/unittest.txt": "0557bd4ae8c980c51f7ae1353874814cf5c73c59e67a71423276d09b9cfdc1d7",
     "tests/results/uiux_v1/browser_summary.json": "d6c513b86e74111488d0e74c681ddf70733edf24c91e881513dff59b1c1222a0",
-    "tests/results/uiux_v1/sampled_contrast.json": "17ceacb20a7c026b0c6e550d8bc2ffc19caa580fc8ae75e4f5f20edec19a2f4d"
+    "tests/results/uiux_v1/sampled_contrast.json": "17ceacb20a7c026b0c6e550d8bc2ffc19caa580fc8ae75e4f5f20edec19a2f4d",
+    "docs/UI_VISUAL_REFINEMENT.md": "85baf1418264efb31015d982e6bd4611a160bc4653c311b41f8903ef9b6a70a8",
+    "tests/scripts/visual-states.py": "bb02e8ed82bca717196c94c0a9540bc9a2894122867b5307a29fd191df42d71b",
+    "tests/results/visual_v2/node_regressions.txt": "32b54ace8c1bf5a7100efbb99bacb1e2672758c5bb1e216cda0bcd9625eaa889",
+    "tests/results/visual_v2/public_browser_summary.json": "18343bb1b92f1ab97c103c7bdda4b3b6a377779eab5250f392d2127d3a60d5b3",
+    "tests/results/visual_v2/unittest.txt": "3cab78b32ff3d189a6746be6a050f6aa8a7129f6c13cc66e72017cf196bef0b3",
+    "tests/results/visual_v2/browser_summary.json": "d289f3e9f7e81d2001e8ed7d5bdc70fe43f36b29fdced9614191cb208c0bc4e2",
+    "tests/results/visual_v2/states_summary.json": "59ffafea4086a58d96e026bad2dc2f9a8394ade05bce33cf6eb076a8b15036e0",
+    "tests/results/visual_v2/sampled_contrast.json": "af7a0612e54a872be06552eea599f97204567e8cc64b9dd302a386369cf25a75"
   },
   "app_sources_unchanged_from_local": {
     "samples.py": "58b3f6e45b55e8185982879938e562c9da8e10a63243372c7c862d119c4369af",
@@ -212,8 +220,8 @@
     "consistency.py": "1602d83e831ceb257177ecf85a7838db62276cd6be2b1f33bf574779d565f417",
     "provider.py": "0a7115ff50047b6c4eb795aa419c02fc3fba1983c6ae0625d9e84f1d3ed304d7",
     "analysis.py": "37f9b196b59f162796bfa1d42d321ffde94fce4f77c1e422e5e626e7354aada5",
-    "static/index.html": "d57dbf965ab0f99396a004106fd6ec853d99d54c4beea42eec537865bbac80dc",
-    "static/style.css": "3d7c3bf7a56a69ea80a831ddb512c3462ace33f98cfc6bb4529f9b99b93ad0bf",
+    "static/index.html": "77416eaa2752442f7aeb87a933c4a6d496211bd1ba2ca0ceeae975ed9ca13da3",
+    "static/style.css": "b7077c05c7b0bbe0d674b13b5473b6a8edfc60f0287b2d23bc7e3957093d122b",
     "static/app.js": "6368d1396b53c6b44e2575455a4af81fc1372c6468d0a23c28dc69f997768a97"
   },
   "omissions": [
@@ -251,5 +259,16 @@
     "new_live_inference_verified": false,
     "public_push": "pending review of new UI release scope",
     "screenshots": "private before/after QA, omitted from public candidate"
+  },
+  "visual_refinement": {
+    "base_local_commit": "2a636730a65ed687b3b3434cb23b1d2a4a1f03e2",
+    "runtime_changes": [
+      "static/index.html",
+      "static/style.css"
+    ],
+    "javascript_backend_prompts_fixtures_unchanged": true,
+    "external_assets": false,
+    "render_iterations": 2,
+    "public_push": "not performed"
   }
 }
