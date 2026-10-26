@@ -1,5 +1,5 @@
 {
-  "scope": "Reviewed local UI/UX follow-up candidate to the published release; not yet pushed. Static UI, documented audit and UI regression evidence updated; Python backend, prompts, fixtures and sealed model evidence unchanged.",
+  "scope": "Reviewed local structural workflow candidate, not pushed; start/input/review navigation, client draft safety and progressive findings UI updated; backend/prompts/fixtures and prior model evidence unchanged.",
   "files": {
     "Dockerfile": "4eca08f8073f07027defd94dfd0fd6633247ac76c1a1972755ecb7031dc48095",
     "render.yaml": "b2795833390117b909e282d75b162cf6425ae0ae877bca667e9228788ae8384c",
@@ -9,7 +9,7 @@
     "requirements.txt": "677b4c89c18cc979a056d773870974088cf3d2b98201ccaf50141988b75b0f8f",
     ".gitignore": "2501f76e58166658290fe42d26fbcc9d0383f3a886b9b2474fc7c43b6a443a6b",
     "fixtures.py": "a32971e3987a5a8f7fa0ce801575fa49e12699d2e1a66cd020f2dd2e496296be",
-    "README.md": "d1ab4367ef6d4a5eaae95e4f817e1f52131ef869d503b004a238dbc6c9f7f505",
+    "README.md": "150a03415644a02ddfe17ba8c0252db3b7dff04ab2352f9685b7fc919ec6424c",
     "public_runtime.py": "3a5e5114530aac425cf5db3c2feb2aafa20a488f26f05733900597576b5fa0bd",
     "RELEASE_CHECKLIST.md": "1e9b781717858f35bc96921b13c1d79316c2fcdcb8a13bae5225ae933791831a",
     "ast_check.py": "f1b0283b29fe747dbd5c91f13032b1b1922b6196dc948b6cb2cb36eab48608c5",
@@ -21,9 +21,9 @@
     "consistency.py": "1602d83e831ceb257177ecf85a7838db62276cd6be2b1f33bf574779d565f417",
     "provider.py": "0a7115ff50047b6c4eb795aa419c02fc3fba1983c6ae0625d9e84f1d3ed304d7",
     "analysis.py": "37f9b196b59f162796bfa1d42d321ffde94fce4f77c1e422e5e626e7354aada5",
-    "static/index.html": "77416eaa2752442f7aeb87a933c4a6d496211bd1ba2ca0ceeae975ed9ca13da3",
+    "static/index.html": "f3019c273093e91afdf83110871de7cb42bc6a1cc20be913d7f90f29b0cfc1ba",
     "static/style.css": "b7077c05c7b0bbe0d674b13b5473b6a8edfc60f0287b2d23bc7e3957093d122b",
-    "static/app.js": "6368d1396b53c6b44e2575455a4af81fc1372c6468d0a23c28dc69f997768a97",
+    "static/app.js": "1c01984140f44bb8f2a4fe584caaf80533247caa9a7c3d8487c92c3aef758790",
     "tests/test_api.py": "4296ae87e2f4675d010ac88288aff20324889f25555c9e59c77875270cfd586c",
     "tests/test_request_lifecycle.py": "6e89fd64caf97bee6090fbed71e52667c43b147e8d77e53ef09e4cd5f62cd29b",
     "tests/test_duplicate_json.py": "e4d96d93043fe0fcea92c3ec7c51b9daccaa778d2cebcd338f531e967eeee25b",
@@ -42,7 +42,7 @@
     "tests/scripts/qwen27-browser.py": "3a2b63c7f1c410768a70745fbb49cef0446712f9e7cd3311c98ca00e28a02971",
     "tests/scripts/public-mode-browser.py": "c0e8885b06a1b6aa78039521e52e509bc2ed19a0f23d6c4e62212c68b4bc501d",
     "tests/scripts/request-ux-browser.py": "ffdd3ce9417ad1c05445e36779d0e0d0fc3d4d2955be93aa73162350bbcb0d17",
-    "tests/scripts/request-lifecycle.js": "996fc85c086e930c3867e0271a771f9584128df7b1ca9015350cb8c92f1e5c08",
+    "tests/scripts/request-lifecycle.js": "7331492c4d26024878a681790209c4799a82758730048582358b224c740cbd89",
     "tests/scripts/clarification-regression.js": "d2286776a48267047e1b59f904c9b71b81e562215f0537520ecceaf609c4c249",
     "tests/scripts/request-ux-actual.py": "1997f479110e453c24646cfc9f0d0be2e000aa18189cd08cb4dbe54ba0e6ced1",
     "tests/scripts/dom-smoke.js": "4502d0b902d61dfef7ca1ba9c8e1459d4e611b57059462e78c30f46a8e83f0f7",
@@ -191,7 +191,7 @@
     "docs/PUBLICATION_VALIDATION.md": "d8a69a32f93f9fc9c88ed7849c7882701c9aae3dddec664ca4a880c80c984089",
     "docs/UIUX_RUBRIC_AUDIT.md": "1159004f43dd3507297115952ec4e5032290171358fdbb6211ed0ed49c7fdce8",
     "docs/superpowers/plans/2026-10-26-review-workflow.md": "26f33b74ec35469de4d806fd72f0c3b6ce0a4ec6eb61351b66923cccf3813d02",
-    "tests/scripts/uiux-browser.py": "97ff5ec65cde36199379a0f277b92a19b5302bd5f2fcc9605a32f7afb6c5fe28",
+    "tests/scripts/uiux-browser.py": "31cb7d7ed6f1819c7bdb6af7522fd4243cc6c40ee1d2e24335d3f5eaf27b0103",
     "tests/results/uiux_v1/browser_red.txt": "690b88d0f0c1e79ae6912f63c6ab14f7c4da425e121d5c507459eceb712dd327",
     "tests/results/uiux_v1/node_regressions.txt": "32b54ace8c1bf5a7100efbb99bacb1e2672758c5bb1e216cda0bcd9625eaa889",
     "tests/results/uiux_v1/served_model_offline.json": "9806c96b12da64c47a17d3513eba7ee504368685a5294061803a4b4fe9d8b295",
@@ -206,7 +206,21 @@
     "tests/results/visual_v2/unittest.txt": "3cab78b32ff3d189a6746be6a050f6aa8a7129f6c13cc66e72017cf196bef0b3",
     "tests/results/visual_v2/browser_summary.json": "d289f3e9f7e81d2001e8ed7d5bdc70fe43f36b29fdced9614191cb208c0bc4e2",
     "tests/results/visual_v2/states_summary.json": "59ffafea4086a58d96e026bad2dc2f9a8394ade05bce33cf6eb076a8b15036e0",
-    "tests/results/visual_v2/sampled_contrast.json": "af7a0612e54a872be06552eea599f97204567e8cc64b9dd302a386369cf25a75"
+    "tests/results/visual_v2/sampled_contrast.json": "af7a0612e54a872be06552eea599f97204567e8cc64b9dd302a386369cf25a75",
+    "docs/WORKFLOW_REDESIGN.md": "39789961758f42f022fcd4506c4da4b20ed33d41a94a662329ac5d872f25ee7a",
+    "static/workflow.js": "059862c0fc5b12cba2f521f1c6a43dc5bb83f28c7251d40de6c7a387764345f3",
+    "static/workflow.css": "2d134c65bfb2036245d2415c932523d493f08e427faf7e6006c6f981bcd6eff1",
+    "tests/scripts/workflow-browser.py": "640754337a87c15b50f5cc5db2fe29be291bb583fdf67a04b542fffdb9bbef19",
+    "tests/scripts/workflow-public-browser.py": "e73503853441c5028ffbd6bfde1942fbb57a308537b8958edf069867a95c1061",
+    "tests/scripts/workflow-accessibility.py": "d0d55df0a57be43705d6033ba4aa0e6985ac8f419038bfb0cb26d2b20345909c",
+    "tests/results/workflow_v3/accessibility_summary.json": "3dcd478b40cb64252dee2fb34f999144e8242ab773f8df63f8f63cf0b5512679",
+    "tests/results/workflow_v3/upload_red.txt": "609f1f17da092edf31467553ad2f5a0a6553b54bedce95d4808fb65c7935148d",
+    "tests/results/workflow_v3/frontend_regressions.txt": "fe6093dbd857441609e6cd75cfa2013184bc49433d27a997ae13e1b30f2ea15d",
+    "tests/results/workflow_v3/public_browser_summary.json": "48730a479334818cd0e218368642da1e0f1c19094690503a0080d526161740b1",
+    "tests/results/workflow_v3/unittest.txt": "ad49f7daa40ed164e0c8b11133e362b1ee59c3c14ebfed03a26842a258040eb9",
+    "tests/results/workflow_v3/browser_summary.json": "cc335b7d21d8af17015e258b3fcaadea29936495cfb7bd85c76b2d43b9decb49",
+    "tests/results/workflow_v3/initial_browser_red.txt": "c874b44fe6ed77ceaf1e33ce7ab2fd54a2ac368c0f96026ae622d037681c9799",
+    "tests/results/workflow_v3/sampled_contrast.json": "c6fa1a6da9f37af4a68a78fb39c8391f713992752e95b023f11fb02a9bb3fe13"
   },
   "app_sources_unchanged_from_local": {
     "samples.py": "58b3f6e45b55e8185982879938e562c9da8e10a63243372c7c862d119c4369af",
@@ -220,9 +234,11 @@
     "consistency.py": "1602d83e831ceb257177ecf85a7838db62276cd6be2b1f33bf574779d565f417",
     "provider.py": "0a7115ff50047b6c4eb795aa419c02fc3fba1983c6ae0625d9e84f1d3ed304d7",
     "analysis.py": "37f9b196b59f162796bfa1d42d321ffde94fce4f77c1e422e5e626e7354aada5",
-    "static/index.html": "77416eaa2752442f7aeb87a933c4a6d496211bd1ba2ca0ceeae975ed9ca13da3",
+    "static/index.html": "f3019c273093e91afdf83110871de7cb42bc6a1cc20be913d7f90f29b0cfc1ba",
     "static/style.css": "b7077c05c7b0bbe0d674b13b5473b6a8edfc60f0287b2d23bc7e3957093d122b",
-    "static/app.js": "6368d1396b53c6b44e2575455a4af81fc1372c6468d0a23c28dc69f997768a97"
+    "static/app.js": "1c01984140f44bb8f2a4fe584caaf80533247caa9a7c3d8487c92c3aef758790",
+    "static/workflow.js": "059862c0fc5b12cba2f521f1c6a43dc5bb83f28c7251d40de6c7a387764345f3",
+    "static/workflow.css": "2d134c65bfb2036245d2415c932523d493f08e427faf7e6006c6f981bcd6eff1"
   },
   "omissions": [
     "weights, runtimes, virtualenv, caches, credentials, assignment/research PDFs, original archive",
@@ -234,7 +250,8 @@
     "docs/SETUP.md local-launcher section omitted in public copy",
     "submission test logs replace private absolute paths with <LOCAL_PATH>",
     "model_public.json omits local directory; raw model judgments remain unaltered",
-    "UIUX unittest portable log copy replaces local dependency paths with <LOCAL_PATH>; original retained privately"
+    "UIUX unittest portable log copy replaces local dependency paths with <LOCAL_PATH>; original retained privately",
+    "Workflow portable failure/test logs redact local dependency/trace paths; original private logs retained"
   ],
   "sealed_experiment_note": "Raw frozen outputs and source snapshots are unchanged. Original seals also reference full private runtime/launch protocols omitted here. Do not treat redacted/omitted metadata as matching original protocol hashes.",
   "publication_changes_from_audited_zip": [
@@ -270,5 +287,23 @@
     "external_assets": false,
     "render_iterations": 2,
     "public_push": "not performed"
+  },
+  "workflow_redesign": {
+    "base_commit": "03abeebfeac297f5a12eb792c40d8c042608d096",
+    "preserved_rollback_commits": [
+      "03abeeb",
+      "2a63673"
+    ],
+    "new_views": [
+      "start",
+      "workspace",
+      "review"
+    ],
+    "source_and_test_editor_tabs": true,
+    "client_storage": "DOM memory only, no source in URLs/localStorage",
+    "model_backend_contract_changed": false,
+    "source_citation_and_execution_boundary_unchanged": true,
+    "public_push": false,
+    "raw_model_evidence_unchanged": true
   }
 }

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<LOCAL_PATH>", line 12, in <module>
+    assert page.locator('#start-view').count()==1,'Missing focused start view'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Missing focused start view

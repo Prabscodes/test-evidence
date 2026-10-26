@@ -44,6 +44,11 @@ const tests={
   const h=harness();await flush();const active=h.click('analyze');await flush();h.get('source_after').listeners.input();h.resolve();await active;
   assert.match(h.get('error').textContent,/Inputs changed/);assert(h.get('export-json').disabled);
  },
+ async 'uncertain request blocks sample replacement until explicit status recovery'(){
+  const h=harness();await flush();const active=h.click('analyze');await flush();h.reject();await active;
+  assert(h.get('samples').disabled,'Do not allow a sample selector to show a different fixture while request outcome is uncertain');
+  await h.click('check-status');assert(!h.get('samples').disabled);
+ },
  async 'changing review mode invalidates an existing report'(){
   const h=harness();await flush();const active=h.click('analyze');await flush();h.resolve();await active;
   h.get('mode').value='demo';h.get('mode').listeners.change();assert(h.get('export-json').disabled,'Engine selection must not leave an old report exportable as current');

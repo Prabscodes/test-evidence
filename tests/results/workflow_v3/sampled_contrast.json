@@ -1,0 +1,472 @@
+[
+  {
+    "text": "Does the change stillcheck the requirement?",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(244, 246, 249)",
+    "font": 46,
+    "weight": 650,
+    "view": "start",
+    "ratio": 14.569,
+    "required": 3
+  },
+  {
+    "text": "01 / EXPLORE",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 11,
+    "weight": 400,
+    "view": "start",
+    "ratio": 5.906,
+    "required": 4.5
+  },
+  {
+    "text": "A boundary check disappeared.",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(244, 246, 249)",
+    "font": 16,
+    "weight": 650,
+    "view": "start",
+    "ratio": 14.569,
+    "required": 4.5
+  },
+  {
+    "text": "Open boundary example \u2197",
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(67, 56, 202)",
+    "font": 12,
+    "weight": 600,
+    "view": "start",
+    "ratio": 7.903,
+    "required": 4.5
+  },
+  {
+    "text": "02 / YOUR CHANGE",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 11,
+    "weight": 400,
+    "view": "start",
+    "ratio": 5.906,
+    "required": 4.5
+  },
+  {
+    "text": "Review your own Python change.",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(244, 246, 249)",
+    "font": 16,
+    "weight": 650,
+    "view": "start",
+    "ratio": 14.569,
+    "required": 4.5
+  },
+  {
+    "text": "Loaded: A removed boundary assertion hides a regression. Ins",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 12,
+    "weight": 400,
+    "view": "start",
+    "ratio": 5.906,
+    "required": 4.5
+  },
+  {
+    "text": "The boundary matters.",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 24,
+    "weight": 650,
+    "view": "start",
+    "ratio": 15.774,
+    "required": 3
+  },
+  {
+    "text": "Passing tests can miss a requirement. Review support remains",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 13,
+    "weight": 400,
+    "view": "start",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 12,
+    "weight": 400,
+    "view": "start",
+    "ratio": 5.906,
+    "required": 4.5
+  },
+  {
+    "text": "Elapsed time is a wait timer, not model progress. Closing th",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(248, 249, 252)",
+    "font": 11,
+    "weight": 400,
+    "view": "workspace",
+    "ratio": 6.074,
+    "required": 4.5
+  },
+  {
+    "text": "Give the review its context.",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(244, 246, 249)",
+    "font": 28,
+    "weight": 650,
+    "view": "workspace",
+    "ratio": 14.569,
+    "required": 3
+  },
+  {
+    "text": "Edit in any order. Source and test tabs keep their contents;",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 12,
+    "weight": 400,
+    "view": "workspace",
+    "ratio": 5.906,
+    "required": 4.5
+  },
+  {
+    "text": "The requirement",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 15,
+    "weight": 650,
+    "view": "workspace",
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "AUTHORITY",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 11,
+    "weight": 400,
+    "view": "workspace",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Expected behavior",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 650,
+    "view": "workspace",
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "State expected outputs, boundaries and errors. Up to 12,000 ",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "view": "workspace",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Use short excerpts with relevant assertions, parameters and ",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "view": "workspace",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Source before ORIGINAL",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 650,
+    "view": "workspace",
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "Original Python implementation. Up to 16,000 characters; omi",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 11,
+    "weight": 400,
+    "view": "workspace",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Source after CHANGED",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 650,
+    "view": "workspace",
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "Changed Python implementation. Up to 16,000 characters; reta",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 11,
+    "weight": 400,
+    "view": "workspace",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Hand-authored example judgments; custom inputs remain unreso",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 11,
+    "weight": 400,
+    "view": "workspace",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Review change \u2197",
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(67, 56, 202)",
+    "font": 12,
+    "weight": 600,
+    "view": "workspace",
+    "ratio": 7.903,
+    "required": 4.5
+  },
+  {
+    "text": "",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 12,
+    "weight": 400,
+    "view": "workspace",
+    "ratio": 5.906,
+    "required": 4.5
+  },
+  {
+    "text": "Review the evidence.",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(244, 246, 249)",
+    "font": 28,
+    "weight": 650,
+    "view": "review",
+    "ratio": 14.569,
+    "required": 3
+  },
+  {
+    "text": "Inspect the evidence. A supported judgment is not approval.",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 5.906,
+    "required": 4.5
+  },
+  {
+    "text": "Findings",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(244, 246, 249)",
+    "font": 13,
+    "weight": 650,
+    "view": "review",
+    "ratio": 14.569,
+    "required": 4.5
+  },
+  {
+    "text": "O1",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(240, 240, 253)",
+    "font": 11,
+    "weight": 400,
+    "view": "review",
+    "ratio": 5.66,
+    "required": 4.5
+  },
+  {
+    "text": "potentially missing",
+    "color": "rgb(137, 82, 22)",
+    "background": "rgb(255, 242, 220)",
+    "font": 10,
+    "weight": 600,
+    "view": "review",
+    "ratio": 5.785,
+    "required": 4.5
+  },
+  {
+    "text": "Select a finding. Status is a fallible judgment, not a confi",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 5.906,
+    "required": 4.5
+  },
+  {
+    "text": "Labelled demo judgment \u00b7 no LLM",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 17,
+    "weight": 650,
+    "view": "review",
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "Hand-authored demonstration judgment \u00b7 no model call",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Evidence review, not a proof of correctness. Uploaded code i",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Finding 1 of 1 \u00b7 O1",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 11,
+    "weight": 400,
+    "view": "review",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "potentially missing",
+    "color": "rgb(137, 82, 22)",
+    "background": "rgb(255, 242, 220)",
+    "font": 11,
+    "weight": 600,
+    "view": "review",
+    "ratio": 5.785,
+    "required": 4.5
+  },
+  {
+    "text": "Clarify, then refine.",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 18,
+    "weight": 650,
+    "view": "review",
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "Selected finding: O1. Clarification applies to the complete ",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Authoritative clarification",
+    "color": "rgb(25, 35, 52)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 650,
+    "view": "review",
+    "ratio": 15.774,
+    "required": 4.5
+  },
+  {
+    "text": "Add requirement authority or answer a question, up to 4,000 ",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Refine review",
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(67, 56, 202)",
+    "font": 12,
+    "weight": 600,
+    "view": "review",
+    "ratio": 7.903,
+    "required": 4.5
+  },
+  {
+    "text": "0s browser wait",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Contains your excerpts and raw review. Editing inputs blocks",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Persona, few-shot and iterative refinement are inspectable. ",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "Optional, separate evidence. Runs only the selected immutabl",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(255, 255, 255)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 6.394,
+    "required": 4.5
+  },
+  {
+    "text": "",
+    "color": "rgb(82, 96, 116)",
+    "background": "rgb(244, 246, 249)",
+    "font": 12,
+    "weight": 400,
+    "view": "review",
+    "ratio": 5.906,
+    "required": 4.5
+  }
+]

@@ -1,7 +1,7 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const fields = ['requirement', 'source_before', 'source_after', 'tests_before', 'tests_after'];
-let samples = [], analysis = null, busy = false, stale = false, inputVersion = 0;
+let samples = [], analysis = null, busy = false, stale = false, inputVersion = 0, selectedSampleId = "";
 let publicState={public_mode:false,public_live_ready:false,provider_consent_token:""};
 let serverRunning=false, needsStatusCheck=false, checkingStatus=false;
 let actionStarted=null, serverStarted=null, elapsedTimer=null, lastWait=null;
@@ -34,6 +34,7 @@ function updateControls() {
  $('run-fixture').disabled=busy || serverRunning || !$('samples').value;
  $('check-status').disabled=busy || checkingStatus;
  $('load-example').disabled=blocked() || samples.length===0;
+ $('samples').disabled=blocked();
  updateExports();
 }
 async function checkServerStatus() {
@@ -57,7 +58,7 @@ async function checkServerStatus() {
 $('check-status').addEventListener('click',checkServerStatus);
 function text(value) { return typeof value === 'string' ? value : JSON.stringify(value, null, 2); }
 function element(tag, value, className) { const node=document.createElement(tag); if(value !== undefined) node.textContent=text(value); if(className) node.className=className; return node; }
-function error(message, moveFocus=false) { $('error').textContent=message; $('error').hidden=!message; mirrorFeedback(); if(message && moveFocus) $('error').focus(); }
+function error(message, moveFocus=false) { $('error').textContent=message; $('error').hidden=!message; mirrorFeedback(); globalThis.reviewWorkflow?.statusChanged(); if(message && moveFocus) $('error').focus(); }
 async function request(path, options={}) {
  let response;
  try { response=await fetch(path, options); }
@@ -77,7 +78,7 @@ async function request(path, options={}) {
  }
  return data;
 }
-function updateExports() { $('export-json').disabled=busy || stale || !analysis; $('export-md').disabled=busy || stale || !analysis; }
+function updateExports() { $('export-json').disabled=busy || stale || !analysis; $('export-md').disabled=busy || stale || !analysis; globalThis.reviewWorkflow?.sync({hasReview:!!analysis,stale,busy,blocked:blocked()}); }
 function setBusy(value, message='') {
  if(value) { actionStarted=Date.now(); lastWait=null; $('progress').textContent=message; }
  else {
@@ -92,7 +93,7 @@ function setBusy(value, message='') {
  $('status-note').textContent='Elapsed time is a wait timer, not model progress. Closing this page does not guarantee cancellation. No automatic retries.';
  updateControls(); updateTimer();
 }
-function clearReport() { analysis=null; stale=false; $('report').hidden=true; $('empty').hidden=false; $('result-mode').textContent='INPUTS CHANGED'; $('execution').replaceChildren(); updateExports(); }
+function clearReport() { globalThis.reviewWorkflow?.clearReview(); analysis=null; stale=false; $('report').hidden=true; $('empty').hidden=false; $('result-mode').textContent='INPUTS CHANGED'; $('execution').replaceChildren(); updateExports(); }
 function markStale() { updateInputSummary(); inputVersion++; $('execution').replaceChildren(); if(analysis) { stale=true; $('result-mode').textContent='STALE · INPUTS EDITED'; $('disclaimer').textContent='Inputs have changed since this report. Reanalyze before citation navigation or export.'; } updateExports(); }
 [...fields,'clarification'].forEach(id => $(id).addEventListener('input',markStale));
 function updateInputSummary() {
@@ -103,12 +104,15 @@ function updateInputSummary() {
 function loadSample(id, focus=false) {
  if(blocked()) return;
  const sample=samples.find(item=>item.id===id);
- inputVersion++; clearReport();
- if(!sample) { $('run-fixture').disabled=true; return; }
+ if(!sample) { selectedSampleId=''; $('run-fixture').disabled=true; return; }
+ const hasDraft=fields.some(key=>$(key).value.trim()) || $('clarification').value.trim();
+ const differs=fields.some(key=>$(key).value!==(sample[key]||'')) || $('clarification').value.trim();
+ if(hasDraft && differs && globalThis.confirm && !globalThis.confirm('Replace the current draft with this bundled example? The current inputs, clarification and previous review will be cleared.')) { $('samples').value=selectedSampleId; return; }
+ selectedSampleId=id; inputVersion++; clearReport();
  $('samples').value=id; fields.forEach(key=>$(key).value=sample[key] || ''); $('clarification').value=''; error('');
  updateInputSummary(); updateControls();
  $('example-hint').textContent=`Loaded: ${sample.title || sample.id}. Inspect the inputs, choose an engine, then Analyze evidence. No review has been sent.`;
- if(focus) { $('requirement').focus(); $('requirement').scrollIntoView({block:'center'}); }
+ if(focus) { globalThis.reviewWorkflow?.openInputs(); $('requirement').focus(); $('requirement').scrollIntoView({block:'center'}); }
 }
 $('samples').addEventListener('change',()=>loadSample($('samples').value));
 $('load-example').addEventListener('click',()=>loadSample('missing_regression',true));
@@ -118,9 +122,21 @@ function showNextAction(obligations) {
  $('review-next-step').textContent=statuses.includes('unresolved')?'Resolve unanswered questions or unclear authority before relying on this review. Add authoritative context, then refine.':statuses.includes('potentially_missing')?'Inspect each potentially missing claim and its cited lines. Confirm the requirement, then decide whether a test change or clarification is needed.':'Inspect the cited support against your requirement. Supported is a fallible review judgment; it does not approve the change. Export the current review for a human decision.';
 }
 
-document.querySelectorAll('input[type=file]').forEach(input => input.addEventListener('change', async () => { const file=input.files[0]; if(!file) return; if(file.size>80000) { error('Please use a small text file (80 KB maximum).'); input.value=''; return; } const content=await file.text(); if(busy) {input.value='';return;} if(content.length>$(input.dataset.target).maxLength) { error('This file exceeds the input character limit. Please select a smaller excerpt.'); input.value=''; return; } $(input.dataset.target).value=content; $(input.dataset.target).dispatchEvent(new Event('input')); error(''); input.value=''; }));
+document.querySelectorAll('input[type=file]').forEach(input => input.addEventListener('change', async () => {
+ const file=input.files[0], target=$(input.dataset.target); if(!file || !target) return;
+ if(file.size>80000) { error('Please use a small text file (80 KB maximum).',true); input.value=''; return; }
+ const readVersion=inputVersion, previousValue=target.value;
+ let content;
+ try { content=await file.text(); }
+ catch { error('Could not read the selected text file. No input was replaced.',true); input.value=''; return; }
+ if(busy || inputVersion!==readVersion || target.value!==previousValue) {
+  error('Inputs changed while the file was read. No input was replaced. Select the file again if needed.',true); input.value=''; return;
+ }
+ if(content.length>target.maxLength) { error('This file exceeds the input character limit. Select a smaller excerpt.',true); input.value=''; return; }
+ target.value=content; target.dispatchEvent(new Event('input')); error(''); input.value='';
+}));
 $('mode').addEventListener('change', () => { markStale(); $('mode-note').textContent=$('mode').value==='llm' ? 'Uses the server-configured provider. Your submitted requirement and code are sent to that provider. Credentials stay on the server.' : 'Labelled demo uses hand-authored example judgments. Custom inputs remain unresolved; no model is called.'; updateControls(); });
-function renderReport(result) { $('judgment-heading').textContent=result.mode==='llm'?'Model judgment · fallible':'Labelled demo judgment · no LLM'; $('review-meta').textContent=result.provider?.actual_inference?`Actual model: ${result.provider.model || 'configured provider'} · ${result.provider.elapsed_seconds ?? 'unknown'}s provider time · no uploaded code executed`:'Hand-authored demonstration judgment · no model call'; analysis=result; stale=false; updateExports(); $('empty').hidden=true; $('report').hidden=false; $('result-mode').textContent=result.mode==='llm' ? 'LLM INFERENCE' : 'DETERMINISTIC DEMO · NO LLM'; $('disclaimer').textContent=result.disclaimer || 'Evidence of test support is not a proof of software correctness.'; $('warnings').textContent=(result.warnings || []).map(text).join(' · '); $('provider-details').textContent=JSON.stringify(result.provider || {},null,2); $('raw-response').textContent=result.provider?.raw_response || result.raw_response || ''; const obligations=result.obligations || []; $('summary').replaceChildren(); ['supported','potentially_missing','unresolved'].forEach(status => $('summary').append(element('span', `${obligations.filter(o=>o.status===status).length} ${status.replaceAll('_',' ')}`, status))); $('obligations').replaceChildren(); obligations.forEach(obligation => { const card=element('article',undefined,'evidence-card'); const head=element('div',undefined,'card-header'); head.append(element('strong',obligation.id || 'Obligation'),element('span',(obligation.status || 'unresolved').replaceAll('_',' '),'status '+(['supported','potentially_missing','unresolved'].includes(obligation.status)?obligation.status:'unresolved'))); card.append(head,element('div',obligation.origin || (result.mode==='llm'?'LLM inference':'Deterministic demo'),'origin'),element('h3',obligation.description),element('p',obligation.rationale)); (obligation.evidence || []).forEach(evidence => { const citation=element('div',undefined,'citation'), link=element('button',`${evidence.artifact}:${evidence.line_start}–${evidence.line_end}`); link.type='button'; link.title='Highlight these lines in the input'; link.addEventListener('click',()=>{ if(stale){error('Inputs changed. Reanalyze to navigate citations.',true);return;} const target=$(evidence.artifact); if(!target || ![...fields,'clarification'].includes(evidence.artifact)) return; const lines=target.value.split('\n'); const start=lines.slice(0,Math.max(0,evidence.line_start-1)).join('\n').length+(evidence.line_start>1?1:0); const end=lines.slice(0,evidence.line_end).join('\n').length; target.focus(); target.setSelectionRange(start,end); target.scrollIntoView({behavior:'smooth',block:'center'}); }); citation.append(link,element('pre',evidence.quote || '')); card.append(citation); }); $('obligations').append(card); }); $('observations').replaceChildren(); (result.observations || []).forEach(observation => { const row=element('div',undefined,'observation'); row.append(element('strong',observation.kind || 'Observation'),element('span',observation.detail || observation)); $('observations').append(row); }); $('questions').replaceChildren(); (result.questions || []).forEach(question => $('questions').append(element('li',typeof question==='string'?question:question.question || question))); $('questions-section').hidden=!(result.questions || []).length; showNextAction(obligations); $('judgment-heading').focus(); }
+function renderReport(result) { $('judgment-heading').textContent=result.mode==='llm'?'Model judgment · fallible':'Labelled demo judgment · no LLM'; $('review-meta').textContent=result.provider?.actual_inference?`Actual model: ${result.provider.model || 'configured provider'} · ${result.provider.elapsed_seconds ?? 'unknown'}s provider time · no uploaded code executed`:'Hand-authored demonstration judgment · no model call'; analysis=result; stale=false; updateExports(); $('empty').hidden=true; $('report').hidden=false; $('result-mode').textContent=result.mode==='llm' ? 'LLM INFERENCE' : 'DETERMINISTIC DEMO · NO LLM'; $('disclaimer').textContent=result.disclaimer || 'Evidence of test support is not a proof of software correctness.'; $('warnings').textContent=(result.warnings || []).map(text).join(' · '); $('provider-details').textContent=JSON.stringify(result.provider || {},null,2); $('raw-response').textContent=result.provider?.raw_response || result.raw_response || ''; const obligations=result.obligations || []; $('summary').replaceChildren(); ['supported','potentially_missing','unresolved'].forEach(status => $('summary').append(element('span', `${obligations.filter(o=>o.status===status).length} ${status.replaceAll('_',' ')}`, status))); $('obligations').replaceChildren(); obligations.forEach(obligation => { const card=element('article',undefined,'evidence-card'); const head=element('div',undefined,'card-header'); head.append(element('strong',obligation.id || 'Obligation'),element('span',(obligation.status || 'unresolved').replaceAll('_',' '),'status '+(['supported','potentially_missing','unresolved'].includes(obligation.status)?obligation.status:'unresolved'))); card.append(head,element('div',obligation.origin || (result.mode==='llm'?'LLM inference':'Deterministic demo'),'origin'),element('h3',obligation.description),element('p',obligation.rationale)); (obligation.evidence || []).forEach(evidence => { const citation=element('details',undefined,'citation'), link=element('button','Open cited input'); const caption=element('summary',`${evidence.artifact}:${evidence.line_start}–${evidence.line_end}`); citation.append(caption); link.type='button'; link.title='Highlight these lines in the input'; link.addEventListener('click',()=>{ if(stale){error('Inputs changed. Reanalyze to navigate citations.',true);return;} const target=$(evidence.artifact); if(!target || ![...fields,'clarification'].includes(evidence.artifact)) return; globalThis.reviewWorkflow?.openInputs(evidence.artifact); const lines=target.value.split('\n'); const start=lines.slice(0,Math.max(0,evidence.line_start-1)).join('\n').length+(evidence.line_start>1?1:0); const end=lines.slice(0,evidence.line_end).join('\n').length; target.focus(); target.setSelectionRange(start,end); target.scrollIntoView({behavior:'smooth',block:'center'}); }); citation.append(link,element('pre',evidence.quote || '')); card.append(citation); }); $('obligations').append(card); }); $('observations').replaceChildren(); (result.observations || []).forEach(observation => { const row=element('div',undefined,'observation'); row.append(element('strong',observation.kind || 'Observation'),element('span',observation.detail || observation)); $('observations').append(row); }); $('questions').replaceChildren(); (result.questions || []).forEach(question => $('questions').append(element('li',typeof question==='string'?question:question.question || question))); $('questions-section').hidden=!(result.questions || []).length; showNextAction(obligations); if(globalThis.reviewWorkflow ? globalThis.reviewWorkflow.onResult(obligations) : true) $('judgment-heading').focus(); }
 async function analyze(refine=false) {
  if(blocked()) return;
  error('');
@@ -130,6 +146,7 @@ async function analyze(refine=false) {
  const body=Object.fromEntries(fields.map(id=>[id,$(id).value])); body.mode=$('mode').value; body.clarification=$('clarification').value;
  if(refine) body.previous_analysis={obligations:analysis?.obligations || [],questions:analysis?.questions || []};
  if(analysis) { stale=true; $('result-mode').textContent='PREVIOUS REVIEW · NEW REQUEST PENDING'; $('disclaimer').textContent='A new request is pending. This previous review is not the current result; exports remain disabled until a new review succeeds.'; }
+ globalThis.reviewWorkflow?.beginReview();
  setBusy(true,body.mode==='llm'?(refine?'Model refinement request active · waiting for server…':'Model review request active · waiting for server…'):'Static inspection and labelled demo request active…');
  try {
   const result=await request('/api/analyze',{method:'POST',headers:reviewHeaders(),body:JSON.stringify(body)});

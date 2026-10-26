@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "<LOCAL_PATH>", line 21, in <module>
+    page.wait_for_timeout(100);assert page.locator('#source_after').input_value()==manual,'Delayed upload must not overwrite a newer edit'
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Delayed upload must not overwrite a newer edit
+Starting server 1/1: TE_PROVIDER=none <LOCAL_PATH> -m uvicorn app:app --host 127.0.0.1 --port 18770 --no-access-log
+Waiting for server on port 18770...
+Server ready on port 18770
+
+All 1 server(s) ready
+Running: <LOCAL_PATH> tests/scripts/workflow-browser.py --url http://127.0.0.1:18770 --out <LOCAL_PATH>
+
+
+Stopping 1 server(s)...
+Server 1 stopped
+All servers stopped
