@@ -33,6 +33,7 @@ function updateControls() {
  $('analyze').disabled=blocked() || publicInferenceBlocked(); $('refine').disabled=blocked() || publicInferenceBlocked();
  $('run-fixture').disabled=busy || serverRunning || !$('samples').value;
  $('check-status').disabled=busy || checkingStatus;
+ $('load-example').disabled=blocked() || samples.length===0;
  updateExports();
 }
 async function checkServerStatus() {
@@ -40,7 +41,7 @@ async function checkServerStatus() {
  checkingStatus=true; updateControls();
  try {
   const state=await request('/api/status'); const config=state.provider || state;showPublicStatus(state);
-  $('connection').textContent=config.configured?'Provider configured':'Local review · configure a provider for LLM mode';
+  $('connection').textContent=config.configured?'LLM configured · readiness not verified':'No live provider · labelled demo available';
   $('connection').title=JSON.stringify(config);
   if(!busy) {
    serverRunning=state.analysis_running===true || state.public_work_running===true; needsStatusCheck=false;
@@ -56,7 +57,7 @@ async function checkServerStatus() {
 $('check-status').addEventListener('click',checkServerStatus);
 function text(value) { return typeof value === 'string' ? value : JSON.stringify(value, null, 2); }
 function element(tag, value, className) { const node=document.createElement(tag); if(value !== undefined) node.textContent=text(value); if(className) node.className=className; return node; }
-function error(message) { $('error').textContent=message; $('error').hidden=!message; mirrorFeedback(); }
+function error(message, moveFocus=false) { $('error').textContent=message; $('error').hidden=!message; mirrorFeedback(); if(message && moveFocus) $('error').focus(); }
 async function request(path, options={}) {
  let response;
  try { response=await fetch(path, options); }
@@ -85,18 +86,41 @@ function setBusy(value, message='') {
   $('progress').textContent=serverRunning?'An app review is still active. Check status before another request.':needsStatusCheck?'Check app status before another review; no automatic retry was sent.':message;
  }
  busy=value;
+ $('results-panel').ariaBusy=String(value);
  [...fields,'clarification','samples','mode'].forEach(id=>$(id).disabled=value);
  document.querySelectorAll('input[type=file]').forEach(input=>input.disabled=value);
  $('status-note').textContent='Elapsed time is a wait timer, not model progress. Closing this page does not guarantee cancellation. No automatic retries.';
  updateControls(); updateTimer();
 }
 function clearReport() { analysis=null; stale=false; $('report').hidden=true; $('empty').hidden=false; $('result-mode').textContent='INPUTS CHANGED'; $('execution').replaceChildren(); updateExports(); }
-function markStale() { inputVersion++; $('execution').replaceChildren(); if(analysis) { stale=true; $('result-mode').textContent='STALE · INPUTS EDITED'; $('disclaimer').textContent='Inputs have changed since this report. Reanalyze before citation navigation or export.'; } updateExports(); }
+function markStale() { updateInputSummary(); inputVersion++; $('execution').replaceChildren(); if(analysis) { stale=true; $('result-mode').textContent='STALE · INPUTS EDITED'; $('disclaimer').textContent='Inputs have changed since this report. Reanalyze before citation navigation or export.'; } updateExports(); }
 [...fields,'clarification'].forEach(id => $(id).addEventListener('input',markStale));
-$('samples').addEventListener('change', () => { inputVersion++; clearReport(); const sample=samples.find(item => item.id === $('samples').value); if(!sample) { $('run-fixture').disabled=true; return; } fields.forEach(id => $(id).value=sample[id] || ''); $('clarification').value=''; error(''); $('run-fixture').disabled=busy || serverRunning; });
+function updateInputSummary() {
+ const filled=fields.filter(id=>$(id).value.trim()).length;
+ const message=`${filled} of 5 input sections filled · ${$('requirement').value.trim()?'authority supplied for human inspection':'no requirement supplied; expect unresolved authority'}.`;
+ if($('input-summary').textContent!==message) $('input-summary').textContent=message;
+}
+function loadSample(id, focus=false) {
+ if(blocked()) return;
+ const sample=samples.find(item=>item.id===id);
+ inputVersion++; clearReport();
+ if(!sample) { $('run-fixture').disabled=true; return; }
+ $('samples').value=id; fields.forEach(key=>$(key).value=sample[key] || ''); $('clarification').value=''; error('');
+ updateInputSummary(); updateControls();
+ $('example-hint').textContent=`Loaded: ${sample.title || sample.id}. Inspect the inputs, choose an engine, then Analyze evidence. No review has been sent.`;
+ if(focus) { $('requirement').focus(); $('requirement').scrollIntoView({block:'center'}); }
+}
+$('samples').addEventListener('change',()=>loadSample($('samples').value));
+$('load-example').addEventListener('click',()=>loadSample('missing_regression',true));
+$('go-clarify').addEventListener('click',()=>{ $('clarification').focus(); $('clarification').scrollIntoView({block:'center'}); });
+function showNextAction(obligations) {
+ const statuses=obligations.map(item=>item.status);
+ $('review-next-step').textContent=statuses.includes('unresolved')?'Resolve unanswered questions or unclear authority before relying on this review. Add authoritative context, then refine.':statuses.includes('potentially_missing')?'Inspect each potentially missing claim and its cited lines. Confirm the requirement, then decide whether a test change or clarification is needed.':'Inspect the cited support against your requirement. Supported is a fallible review judgment; it does not approve the change. Export the current review for a human decision.';
+}
+
 document.querySelectorAll('input[type=file]').forEach(input => input.addEventListener('change', async () => { const file=input.files[0]; if(!file) return; if(file.size>80000) { error('Please use a small text file (80 KB maximum).'); input.value=''; return; } const content=await file.text(); if(busy) {input.value='';return;} if(content.length>$(input.dataset.target).maxLength) { error('This file exceeds the input character limit. Please select a smaller excerpt.'); input.value=''; return; } $(input.dataset.target).value=content; $(input.dataset.target).dispatchEvent(new Event('input')); error(''); input.value=''; }));
-$('mode').addEventListener('change', () => { markStale(); $('mode-note').textContent=$('mode').value==='llm' ? 'Uses the server-configured provider. Your submitted requirement and code are sent to that provider. Credentials stay on the server.' : 'Demo mode uses deterministic rules. It does not count as a model analysis.'; updateControls(); });
-function renderReport(result) { $('judgment-heading').textContent=result.mode==='llm'?'Model judgment · fallible':'Labelled demo judgment · no LLM'; $('review-meta').textContent=result.provider?.actual_inference?`Actual model: ${result.provider.model || 'configured provider'} · ${result.provider.elapsed_seconds ?? 'unknown'}s provider time · no uploaded code executed`:'Hand-authored demonstration judgment · no model call'; analysis=result; stale=false; updateExports(); $('empty').hidden=true; $('report').hidden=false; $('result-mode').textContent=result.mode==='llm' ? 'LLM INFERENCE' : 'DETERMINISTIC DEMO · NO LLM'; $('disclaimer').textContent=result.disclaimer || 'Evidence of test support is not a proof of software correctness.'; $('warnings').textContent=(result.warnings || []).map(text).join(' · '); $('provider-details').textContent=JSON.stringify(result.provider || {},null,2); $('raw-response').textContent=result.provider?.raw_response || result.raw_response || ''; const obligations=result.obligations || []; $('summary').replaceChildren(); ['supported','potentially_missing','unresolved'].forEach(status => $('summary').append(element('span', `${obligations.filter(o=>o.status===status).length} ${status.replaceAll('_',' ')}`, status))); $('obligations').replaceChildren(); obligations.forEach(obligation => { const card=element('article',undefined,'evidence-card'); const head=element('div',undefined,'card-header'); head.append(element('strong',obligation.id || 'Obligation'),element('span',(obligation.status || 'unresolved').replaceAll('_',' '),'status '+(['supported','potentially_missing','unresolved'].includes(obligation.status)?obligation.status:'unresolved'))); card.append(head,element('div',obligation.origin || (result.mode==='llm'?'LLM inference':'Deterministic demo'),'origin'),element('h3',obligation.description),element('p',obligation.rationale)); (obligation.evidence || []).forEach(evidence => { const citation=element('div',undefined,'citation'), link=element('button',`${evidence.artifact}:${evidence.line_start}–${evidence.line_end}`); link.type='button'; link.title='Highlight these lines in the input'; link.addEventListener('click',()=>{ if(stale){error('Inputs changed. Reanalyze to navigate citations.');return;} const target=$(evidence.artifact); if(!target || ![...fields,'clarification'].includes(evidence.artifact)) return; const lines=target.value.split('\n'); const start=lines.slice(0,Math.max(0,evidence.line_start-1)).join('\n').length+(evidence.line_start>1?1:0); const end=lines.slice(0,evidence.line_end).join('\n').length; target.focus(); target.setSelectionRange(start,end); target.scrollIntoView({behavior:'smooth',block:'center'}); }); citation.append(link,element('pre',evidence.quote || '')); card.append(citation); }); $('obligations').append(card); }); $('observations').replaceChildren(); (result.observations || []).forEach(observation => { const row=element('div',undefined,'observation'); row.append(element('strong',observation.kind || 'Observation'),element('span',observation.detail || observation)); $('observations').append(row); }); $('questions').replaceChildren(); (result.questions || []).forEach(question => $('questions').append(element('li',typeof question==='string'?question:question.question || question))); $('questions-section').hidden=!(result.questions || []).length; }
+$('mode').addEventListener('change', () => { markStale(); $('mode-note').textContent=$('mode').value==='llm' ? 'Uses the server-configured provider. Your submitted requirement and code are sent to that provider. Credentials stay on the server.' : 'Labelled demo uses hand-authored example judgments. Custom inputs remain unresolved; no model is called.'; updateControls(); });
+function renderReport(result) { $('judgment-heading').textContent=result.mode==='llm'?'Model judgment · fallible':'Labelled demo judgment · no LLM'; $('review-meta').textContent=result.provider?.actual_inference?`Actual model: ${result.provider.model || 'configured provider'} · ${result.provider.elapsed_seconds ?? 'unknown'}s provider time · no uploaded code executed`:'Hand-authored demonstration judgment · no model call'; analysis=result; stale=false; updateExports(); $('empty').hidden=true; $('report').hidden=false; $('result-mode').textContent=result.mode==='llm' ? 'LLM INFERENCE' : 'DETERMINISTIC DEMO · NO LLM'; $('disclaimer').textContent=result.disclaimer || 'Evidence of test support is not a proof of software correctness.'; $('warnings').textContent=(result.warnings || []).map(text).join(' · '); $('provider-details').textContent=JSON.stringify(result.provider || {},null,2); $('raw-response').textContent=result.provider?.raw_response || result.raw_response || ''; const obligations=result.obligations || []; $('summary').replaceChildren(); ['supported','potentially_missing','unresolved'].forEach(status => $('summary').append(element('span', `${obligations.filter(o=>o.status===status).length} ${status.replaceAll('_',' ')}`, status))); $('obligations').replaceChildren(); obligations.forEach(obligation => { const card=element('article',undefined,'evidence-card'); const head=element('div',undefined,'card-header'); head.append(element('strong',obligation.id || 'Obligation'),element('span',(obligation.status || 'unresolved').replaceAll('_',' '),'status '+(['supported','potentially_missing','unresolved'].includes(obligation.status)?obligation.status:'unresolved'))); card.append(head,element('div',obligation.origin || (result.mode==='llm'?'LLM inference':'Deterministic demo'),'origin'),element('h3',obligation.description),element('p',obligation.rationale)); (obligation.evidence || []).forEach(evidence => { const citation=element('div',undefined,'citation'), link=element('button',`${evidence.artifact}:${evidence.line_start}–${evidence.line_end}`); link.type='button'; link.title='Highlight these lines in the input'; link.addEventListener('click',()=>{ if(stale){error('Inputs changed. Reanalyze to navigate citations.',true);return;} const target=$(evidence.artifact); if(!target || ![...fields,'clarification'].includes(evidence.artifact)) return; const lines=target.value.split('\n'); const start=lines.slice(0,Math.max(0,evidence.line_start-1)).join('\n').length+(evidence.line_start>1?1:0); const end=lines.slice(0,evidence.line_end).join('\n').length; target.focus(); target.setSelectionRange(start,end); target.scrollIntoView({behavior:'smooth',block:'center'}); }); citation.append(link,element('pre',evidence.quote || '')); card.append(citation); }); $('obligations').append(card); }); $('observations').replaceChildren(); (result.observations || []).forEach(observation => { const row=element('div',undefined,'observation'); row.append(element('strong',observation.kind || 'Observation'),element('span',observation.detail || observation)); $('observations').append(row); }); $('questions').replaceChildren(); (result.questions || []).forEach(question => $('questions').append(element('li',typeof question==='string'?question:question.question || question))); $('questions-section').hidden=!(result.questions || []).length; showNextAction(obligations); $('judgment-heading').focus(); }
 async function analyze(refine=false) {
  if(blocked()) return;
  error('');
@@ -109,11 +133,11 @@ async function analyze(refine=false) {
  setBusy(true,body.mode==='llm'?(refine?'Model refinement request active · waiting for server…':'Model review request active · waiting for server…'):'Static inspection and labelled demo request active…');
  try {
   const result=await request('/api/analyze',{method:'POST',headers:reviewHeaders(),body:JSON.stringify(body)});
-  if(requestVersion!==inputVersion) { error('Inputs changed while analysis was running. Response discarded. Analyze again.'); return; }
+  if(requestVersion!==inputVersion) { error('Inputs changed while analysis was running. Response discarded. Analyze again.',true); return; }
   renderReport(result.analysis || result);
  } catch(err) {
   needsStatusCheck=Boolean(err.uncertain || [429,502,503,504].includes(err.status));
-  error(err.message);
+  error(err.message,true);
   if(analysis) { stale=true; $('result-mode').textContent='PREVIOUS REVIEW · NEW REQUEST FAILED'; $('disclaimer').textContent='The new request failed. This previous review is stale; no new conclusion was accepted. Reanalyze before exporting.'; }
  } finally { setBusy(false); }
 }
@@ -139,8 +163,8 @@ function renderExecution(result) {
  const details=element('details');details.append(element('summary','Inspect exact commands, hashes and raw results'),element('pre',JSON.stringify(result,null,2)));root.append(details);
  const exportButton=element('button','Export execution JSON','secondary');exportButton.type='button';exportButton.id='export-execution';exportButton.addEventListener('click',()=>download('test-evidence-execution-'+String(result.sample_id || 'fixture').replace(/[^a-zA-Z0-9_-]/g,'_')+'.json',JSON.stringify(result,null,2),'application/json'));root.append(exportButton,element('p','Separate execution artifact: immutable bundled fixture only, not the review or your edited inputs.','hint'));
 }
-$('run-fixture').addEventListener('click',async()=>{ if(busy || serverRunning || !$('samples').value) return; const version=inputVersion, sample=$('samples').value; $('execution').replaceChildren(); setBusy(true,'Executing the immutable bundled fixture · uploaded code is not run…'); error(''); try { const result=await request('/api/fixtures/'+encodeURIComponent(sample)+'/run',{method:'POST'}); if(version!==inputVersion) { error('Inputs changed during fixture execution. The response was discarded.'); return; } renderExecution(result); } catch(err) { error(err.message); } finally { setBusy(false); } });
-$('prompts-button').addEventListener('click',async()=>{ try { $('prompts').textContent=JSON.stringify(await request('/api/prompts'),null,2); } catch(err) { error(err.message); } });
+$('run-fixture').addEventListener('click',async()=>{ if(busy || serverRunning || !$('samples').value) return; const version=inputVersion, sample=$('samples').value; $('execution').replaceChildren(); setBusy(true,'Executing the immutable bundled fixture · uploaded code is not run…'); error(''); try { const result=await request('/api/fixtures/'+encodeURIComponent(sample)+'/run',{method:'POST'}); if(version!==inputVersion) { error('Inputs changed during fixture execution. The response was discarded.'); return; } renderExecution(result); $('execution').focus(); } catch(err) { error(err.message,true); } finally { setBusy(false); } });
+$('prompts-button').addEventListener('click',async()=>{ try { $('prompts').textContent=JSON.stringify(await request('/api/prompts'),null,2); } catch(err) { error(err.message,true); } });
 function download(filename,content,type) { const url=URL.createObjectURL(new Blob([content],{type})); const link=document.createElement('a'); link.href=url; link.download=filename; link.click(); setTimeout(()=>URL.revokeObjectURL(url),1000); }
 $('export-json').addEventListener('click',()=>{if(analysis && !stale && !busy) download('test-evidence-analysis.json',JSON.stringify(analysis,null,2),'application/json');});
 $('export-md').addEventListener('click',()=>{if(!analysis || stale || busy)return; const rows=['# Test Evidence review','',`Analysis: ${analysis.analysis_id || 'unspecified'}`,`Mode: ${analysis.mode}`,'',analysis.disclaimer || 'This report does not prove correctness.','']; for(const o of analysis.obligations || []) { rows.push(`## ${o.id}: ${o.description}`,`Status: ${o.status} · Origin: ${o.origin || analysis.mode}`,'',o.rationale || '',''); for(const e of o.evidence || []) rows.push(`Evidence: ${e.artifact}:${e.line_start}–${e.line_end}`,...String(e.quote || '').split('\n').map(line=>'> '+line),''); } rows.push('## Observations',...(analysis.observations || []).map(o=>`- ${o.kind}: ${text(o.detail)}`),'','## Questions',...(analysis.questions || []).map(q=>`- ${text(q)}`)); download('test-evidence-analysis.md',rows.map(line=>String(line).replaceAll('<','&lt;')).join('\n'),'text/markdown');});
@@ -148,7 +172,7 @@ async function init() {
  try {
   const data=await request('/api/samples'); samples=Array.isArray(data)?data:data.samples || [];
   samples.forEach(sample=>{const option=element('option',sample.title || sample.id);option.value=sample.id;$('samples').append(option);});
- } catch(err) { error(err.message); }
+ } catch(err) { error(err.message,true); }
  await checkServerStatus();
 }
 init();

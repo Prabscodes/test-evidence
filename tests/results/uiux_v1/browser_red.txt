@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+    assert page.locator('#load-example').count()==1,'Missing guided example action'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Missing guided example action

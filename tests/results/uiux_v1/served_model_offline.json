@@ -1,0 +1,13 @@
+{
+  "scope": "Actual updated local app and actual unavailable loopback model endpoint; not successful inference",
+  "app_url": "http://127.0.0.1:8765",
+  "model_configured": "te-qwen35-27b-ct4",
+  "processing_location": "loopback_endpoint",
+  "http_status": 503,
+  "error": "Could not reach or complete a request to the model server. Check that it is running and the configured endpoint is correct. It may still be finishing an interrupted request. No conclusion was accepted and no automatic retry was sent.",
+  "wall_seconds": 1.307,
+  "one_post_no_retry": true,
+  "error_focus": true,
+  "no_false_result_or_export": true,
+  "status_recovery": true
+}
