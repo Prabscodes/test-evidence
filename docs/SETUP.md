@@ -4,7 +4,11 @@
 
 Use the README commands with the four pinned application requirements. The server exposes only loopback. Demo mode is deterministic and never calls an LLM. App dependencies are separate from model-serving dependencies. On Windows use WSL for the verified Linux resource-limit behavior; native Windows has not been validated.
 
-## Portable equivalent with existing weights/runtime
+## Existing Bonsai 2 trial and 4B rollback
+
+The later [Bonsai 2 PQ2_0 setup and measured limitations](BONSAI_TRIAL.md) uses the official PrismML runtime with a short, single-request context. It preserves an overbroad refactor warning and makes no accuracy or ongoing-availability claim. The commands below retain the earlier 4B configuration for rollback; they do not use the Bonsai file.
+
+## Portable 4B configuration with existing weights/runtime
 
 This documents the verified configuration; it does not install or download the runtime or model. Set absolute paths to your existing compatible installations. The tested runtime was **vLLM 0.25.1 (g752a3a504)**, Python 3.12.13, PyTorch 2.11.0, Transformers 5.14.1, FlashInfer 0.6.13 and Triton 3.6.0. The optional `requirements-local.txt` belongs to the older CPU Transformers adapter and is not the vLLM server environment.
 

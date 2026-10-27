@@ -18,7 +18,9 @@ Open **http://127.0.0.1:8765**, load a sample, and select labelled demo. Demo ju
 
 ## Actual model inference
 
-The current finishing demo uses existing **Qwen3.5-4B BF16** with vLLM0.25.1, thinking disabled and4GiB CPU offload. Two genuine current-UI calls completed in150.1s and227.3s; exact results/settings and limitations are in [finishing validation](docs/FINISHING_VALIDATION.md). The27B records are historical: its recorded weights directory is currently absent and its full-GPU footprint exceeds current free resources. Weights/runtime are separate from source.
+The latest bounded local trial used existing **Ternary Bonsai 2 27B PQ2_0** with the pinned official PrismML runtime. Genuine browser review and clarification took **4.726 and 5.120 seconds** on a known development example. A known legitimate refactor also produced an **overbroad gap warning**; the model remains fallible. Exact setup, raw responses, failures and resource limits are in [Bonsai trial evidence](docs/BONSAI_TRIAL.md). These two known inputs are not an accuracy benchmark or continuous-hosting claim.
+
+The prepared **110-second silent video is earlier Qwen3.5-4B BF16 footage**, with its original 150.1/227.3-second disclosures. Do not relabel that recording as Bonsai. [4B finishing validation](docs/FINISHING_VALIDATION.md) and its rollback setup remain available. The original separately evaluated 27B compressed-tensor checkpoint is historical and its recorded directory is absent; Bonsai is a different model/runtime profile. Weights and runtimes are separate from source.
 
 Select **LLM review** to inspect the actual model, provider time and raw output. Errors remain visible; there is no silent cloud fallback. Reviews show elapsed waiting without invented percentages and never retry automatically. [Local setup](docs/SETUP.md) · [Public deployment preparation](docs/PUBLIC_DEPLOYMENT.md). Public live inference requires an approved hosted provider; the prepared default is explicitly labelled demo with live inference unavailable. This PC/GPU is never exposed publicly.
 
@@ -53,13 +55,13 @@ Other limits: short Python excerpts only, restricted model context, single-reque
 
 ## Submission material
 
-[Release checklist](RELEASE_CHECKLIST.md) · [100-second demo script](docs/DEMO.md) · [Dependencies and licenses](THIRD_PARTY_NOTICES.md)
+[Release checklist](RELEASE_CHECKLIST.md) · [110-second recorded demo and narration](docs/DEMO.md) · [Dependencies and licenses](THIRD_PARTY_NOTICES.md)
 
 The clean source package excludes credentials, weights, virtual environments, runtime caches, machine/session metadata and the assignment PDF. Historical failures remain in the local development tree; selected unaltered synthetic raw failures accompany the source release. GitHub publication and remaining assignment steps are tracked in [ASSIGNMENT_CHECKLIST.md](ASSIGNMENT_CHECKLIST.md). Video narration/publication and the required Google Slides deck/viewer URL remain pending before final submission. The live form requires Name, GitHub Repo URL, Demo Video URL and Google Slides URL; Email is optional, and Published URL (live app) is optional/highly recommended. Hosted live inference remains a separate optional assignment item. An application source license has not yet been selected.
 
 ## Guided review and accessibility follow-up
 
-Start with a boundary example loads editable excerpts without sending a review. Choose the engine and Analyze explicitly. Keyboard users can skip to the workspace, navigate citations to selected lines, add clarification and export a current review. Edited inputs invalidate old exports. Configured provider status is not a readiness test. See [rubric audit and browser verification](docs/UIUX_RUBRIC_AUDIT.md); that snapshot predated the current finishing run. Current real4B results are recorded separately in docs/FINISHING_VALIDATION.md.
+Start with a boundary example loads editable excerpts without sending a review. Choose the engine and Analyze explicitly. Keyboard users can skip to the workspace, navigate citations to selected lines, add clarification and export a current review. Edited inputs invalidate old exports. Configured provider status is not a readiness test. See [rubric audit and browser verification](docs/UIUX_RUBRIC_AUDIT.md); that snapshot predated the current finishing run. Recorded 4B results are in docs/FINISHING_VALIDATION.md; the later Bonsai trial is documented separately above.
 
 [Visual refinement and current UI verification](docs/UI_VISUAL_REFINEMENT.md): a local-only developer workbench theme, with actual demo screenshots and preserved provenance. This historical design snapshot predates the finishing release; current state is in docs/FINISHING_VALIDATION.md.
 
@@ -69,4 +71,4 @@ Start with a boundary example loads editable excerpts without sending a review. 
 2. Inputs: keep requirement authority visible; compare Source and Tests in separate tabs. Choose an engine, then explicitly Review change.
 3. Review: select a finding, inspect its limits and expandable citations, jump to exact input lines, clarify/refine and export a current review. Provider/prompts/static/fixture tools remain separate and inspectable.
 
-Back/forward navigation retains this tab's draft and selection. Refresh does not persist it. See [structural redesign and verification](docs/WORKFLOW_REDESIGN.md). The finishing release is prepared for the authorized public source push. Current inference is a temporary local4B service; no public app endpoint is provided.
+Back/forward navigation retains this tab's draft and selection. Refresh does not persist it. See [structural redesign and verification](docs/WORKFLOW_REDESIGN.md). The structural workflow is published. Local inference trials are temporary and their readiness must be checked; no public app endpoint is provided.
