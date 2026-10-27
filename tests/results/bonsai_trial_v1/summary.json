@@ -1,0 +1,25 @@
+{
+  "recorded_at": "2026-10-27T01:50:22.073155+00:00",
+  "scope": "Two actual Bonsai2-27B-PQ2_0 development-example requests through current app; not held-out evaluation",
+  "mocked": false,
+  "records": [
+    {
+      "kind": "review",
+      "http_status": 200,
+      "wall_seconds": 4.726,
+      "provider_seconds": 4.604
+    },
+    {
+      "kind": "refinement",
+      "http_status": 200,
+      "wall_seconds": 5.12,
+      "provider_seconds": 5.007
+    }
+  ],
+  "page_errors": [],
+  "browser": "149.0.7827.53",
+  "no_automatic_retry": true,
+  "partial_scope_disclosed": true,
+  "code_execution": "only separately requested immutable bundled fixture",
+  "status": "completed"
+}

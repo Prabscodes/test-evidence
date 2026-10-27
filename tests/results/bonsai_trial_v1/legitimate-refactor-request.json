@@ -1,0 +1,8 @@
+{
+  "requirement": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible.",
+  "source_before": "def eligible(age):\n    return age >= 18\n",
+  "source_after": "def eligible(age):\n    return age >= 18\n",
+  "tests_before": "import unittest\nfrom subject import eligible\n\nclass EligibilityTests(unittest.TestCase):\n    def test_underage(self):\n        self.assertFalse(eligible(17))\n\n    def test_exact_boundary(self):\n        self.assertTrue(eligible(18))\n\n    def test_above_boundary(self):\n        self.assertTrue(eligible(19))\n",
+  "tests_after": "import unittest\nfrom subject import eligible\n\nclass EligibilityTests(unittest.TestCase):\n    def test_eligibility_cases(self):\n        for age, expected in [(17, False), (18, True), (19, True)]:\n            with self.subTest(age=age):\n                self.assertEqual(eligible(age), expected)\n",
+  "mode": "llm"
+}

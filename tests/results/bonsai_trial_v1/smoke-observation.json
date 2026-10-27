@@ -1,0 +1,19 @@
+{
+  "http_status": 200,
+  "wall_seconds": 0.754,
+  "content_exact": "<think>\n\n</think>\n\n{\"ready\":true}",
+  "json_valid": false,
+  "reason": "Unparsed empty think tags from reasoning-format none; semantic answer correct but invalid transport shape",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 27,
+    "prompt_ms": 701.488,
+    "prompt_per_token_ms": 25.98103703703704,
+    "prompt_per_second": 38.489610656205095,
+    "predicted_n": 6,
+    "predicted_ms": 49.428,
+    "predicted_per_token_ms": 9.8856,
+    "predicted_per_second": 101.15723881200938
+  },
+  "no_automatic_retry": true
+}

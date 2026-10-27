@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-10-27T01:54:02.324410+00:00",
+  "samples": 548,
+  "sampling_interval_seconds": 1,
+  "sampled_peak_total_gpu_mib": 25333,
+  "minimum_sampled_free_gpu_mib": 6777,
+  "sampled_peak_trial_gpu_mib": 8022,
+  "protected_workload_allocation_mib": 16786,
+  "host_cgroup_final_profile": {
+    "memory.current": "6051385344",
+    "memory.peak": "6051913728",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+    "memory.swap.current": "0"
+  },
+  "host_peak_scope": "Kernel memory.peak for final service instance, warm filesystem/cache; not all host RAM or cold-start requirement. Earlier successful profile snapshot was7556775936bytes.",
+  "resource_guard_triggered": false,
+  "runtime_limit_hours": 2,
+  "final_start_utc": "2026-10-27T01:48:44Z",
+  "expected_expiry_utc": "2026-10-27T03:48:44Z",
+  "comfyui_changed": false
+}

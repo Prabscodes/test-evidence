@@ -1,0 +1,7 @@
+{
+  "attempt1": "Rejected repeat-last-n=-1 before model load",
+  "attempt2": "Loaded successfully; genuine smoke returned expected JSON with empty think tags in content; raw JSON invalid",
+  "attempt3": "Restart guard rejected occupied port before loading. Subsequent read-only ss showed no listener and no Bonsai GPU process. Health-wait test canceled; no additional generation sent.",
+  "next_change": "SO_REUSEADDR for safe port availability check; preserve explicit deepseek reasoning parser and local CORS restriction",
+  "no_other_service_changed": true
+}

@@ -1,0 +1,13 @@
+{
+  "http_status": 200,
+  "browser_equivalent_wall_seconds": 4.575,
+  "provider_seconds": 4.513,
+  "statuses": [
+    "supported",
+    "supported",
+    "potentially_missing"
+  ],
+  "warnings": [],
+  "scope": "Known bundled development case, not independent evaluation",
+  "no_retry": true
+}

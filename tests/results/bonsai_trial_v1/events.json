@@ -1,0 +1,84 @@
+[
+  {
+    "event": "start_ready",
+    "seconds": 0.899
+  },
+  {
+    "event": "inputs_source",
+    "seconds": 3.48
+  },
+  {
+    "event": "inputs_tests",
+    "seconds": 6.511
+  },
+  {
+    "event": "review_request_start",
+    "seconds": 9.522
+  },
+  {
+    "event": "review_response",
+    "seconds": 14.249,
+    "http_status": 200,
+    "wall_seconds": 4.726,
+    "provider_seconds": 4.604,
+    "model": "te-bonsai2-27b-pq2",
+    "statuses": [
+      "potentially_missing",
+      "supported",
+      "supported"
+    ]
+  },
+  {
+    "event": "review_visible",
+    "seconds": 14.262
+  },
+  {
+    "event": "citation_open",
+    "seconds": 18.345
+  },
+  {
+    "event": "clarification_entered",
+    "seconds": 21.383
+  },
+  {
+    "event": "refinement_request_start",
+    "seconds": 24.387
+  },
+  {
+    "event": "refinement_response",
+    "seconds": 29.507,
+    "http_status": 200,
+    "wall_seconds": 5.12,
+    "provider_seconds": 5.007,
+    "model": "te-bonsai2-27b-pq2",
+    "statuses": [
+      "potentially_missing",
+      "supported",
+      "supported"
+    ]
+  },
+  {
+    "event": "refinement_visible",
+    "seconds": 29.51
+  },
+  {
+    "event": "provenance_prompts",
+    "seconds": 33.612
+  },
+  {
+    "event": "review_exports",
+    "seconds": 37.713
+  },
+  {
+    "event": "fixture_visible",
+    "seconds": 39.959
+  },
+  {
+    "event": "final_review",
+    "seconds": 44.028
+  },
+  {
+    "event": "end",
+    "seconds": 46.581
+  }
+]

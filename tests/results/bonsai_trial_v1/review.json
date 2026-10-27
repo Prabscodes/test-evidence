@@ -1,0 +1,151 @@
+{
+  "analysis_id": "ea123937-2c64-4fc3-96a8-271dacd0203c",
+  "created_at": "2026-10-27T01:49:49.662144+00:00",
+  "mode": "llm",
+  "disclaimer": "Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.",
+  "review_scope": {
+    "coverage": "partial",
+    "complete_requirement_coverage": false,
+    "prompt_obligation_limit": 3,
+    "listed_obligation_count": 3,
+    "note": "Partial review: the model is instructed to return at most 3 obligations. Counts apply only to listed findings; no coverage evidence is provided for unlisted requirements. Split broad requirements into smaller reviews."
+  },
+  "obligations": [
+    {
+      "id": "O1",
+      "description": "Age 18 is eligible because eligibility requires age at least 18.",
+      "rationale": "Requirement L1 explicitly requires age 18 to be eligible, but the AFTER tests only check ages 17 and 19; no AFTER assertion checks the exact boundary age 18.",
+      "status": "potentially_missing",
+      "evidence": [
+        {
+          "artifact": "requirement",
+          "line_start": 1,
+          "line_end": 1,
+          "quote": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible."
+        },
+        {
+          "artifact": "tests_after",
+          "line_start": 6,
+          "line_end": 6,
+          "quote": "        self.assertFalse(eligible(17))"
+        },
+        {
+          "artifact": "tests_after",
+          "line_start": 9,
+          "line_end": 9,
+          "quote": "        self.assertTrue(eligible(19))"
+        }
+      ],
+      "origin": "llm_inference"
+    },
+    {
+      "id": "O2",
+      "description": "Age 17 is not eligible because eligibility requires age at least 18.",
+      "rationale": "Requirement L1 explicitly requires age 17 not to be eligible, and the AFTER test asserts that eligible(17) is false.",
+      "status": "supported",
+      "evidence": [
+        {
+          "artifact": "requirement",
+          "line_start": 1,
+          "line_end": 1,
+          "quote": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible."
+        },
+        {
+          "artifact": "tests_after",
+          "line_start": 6,
+          "line_end": 6,
+          "quote": "        self.assertFalse(eligible(17))"
+        }
+      ],
+      "origin": "llm_inference"
+    },
+    {
+      "id": "O3",
+      "description": "Age 19 is eligible because eligibility requires age at least 18.",
+      "rationale": "Requirement L1 requires age at least 18 to be eligible, and the AFTER test asserts that eligible(19) is true.",
+      "status": "supported",
+      "evidence": [
+        {
+          "artifact": "requirement",
+          "line_start": 1,
+          "line_end": 1,
+          "quote": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible."
+        },
+        {
+          "artifact": "tests_after",
+          "line_start": 9,
+          "line_end": 9,
+          "quote": "        self.assertTrue(eligible(19))"
+        }
+      ],
+      "origin": "llm_inference"
+    }
+  ],
+  "questions": [],
+  "observations": [
+    {
+      "kind": "deterministic_static",
+      "detail": "source_before: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+    },
+    {
+      "kind": "deterministic_static",
+      "detail": "source_after: valid Python syntax; 0 assert statements; 0 assert-prefixed method calls. Counts do not establish behavior coverage."
+    },
+    {
+      "kind": "deterministic_static",
+      "detail": "tests_before: valid Python syntax; 0 assert statements; 3 assert-prefixed method calls. Counts do not establish behavior coverage."
+    },
+    {
+      "kind": "deterministic_static",
+      "detail": "tests_after: valid Python syntax; 0 assert statements; 2 assert-prefixed method calls. Counts do not establish behavior coverage."
+    }
+  ],
+  "warnings": [],
+  "provider": {
+    "http_temperature": 0.7,
+    "http_timeout_seconds": 300,
+    "backend": "openai-compatible",
+    "model": "te-bonsai2-27b-pq2",
+    "elapsed_seconds": 4.604,
+    "actual_inference": true,
+    "prompt_version": "3.1-explicit-boundary-evidence",
+    "prompt_patterns": [
+      "persona",
+      "few-shot",
+      "iterative refinement"
+    ],
+    "raw_response": "```json\n{\n  \"obligations\": [\n    {\n      \"id\": \"O1\",\n      \"description\": \"Age 18 is eligible because eligibility requires age at least 18.\",\n      \"test_support\": \"gap\",\n      \"rationale\": \"Requirement L1 explicitly requires age 18 to be eligible, but the AFTER tests only check ages 17 and 19; no AFTER assertion checks the exact boundary age 18.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L6\",\n        \"tests_after:L9\"\n      ]\n    },\n    {\n      \"id\": \"O2\",\n      \"description\": \"Age 17 is not eligible because eligibility requires age at least 18.\",\n      \"test_support\": \"checked\",\n      \"rationale\": \"Requirement L1 explicitly requires age 17 not to be eligible, and the AFTER test asserts that eligible(17) is false.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L6\"\n      ]\n    },\n    {\n      \"id\": \"O3\",\n      \"description\": \"Age 19 is eligible because eligibility requires age at least 18.\",\n      \"test_support\": \"checked\",\n      \"rationale\": \"Requirement L1 requires age at least 18 to be eligible, and the AFTER test asserts that eligible(19) is true.\",\n      \"evidence_ids\": [\n        \"requirement:L1\",\n        \"tests_after:L9\"\n      ]\n    }\n  ],\n  \"questions\": []\n}\n```",
+    "raw_response_sha256": "76c6aa3c56221418e5239adf18707ec67de7f42be9e0a3ca7563ef3761520ca0"
+  },
+  "artifact_sha256": {
+    "requirement": "14ffbc7ec17649672f2462e5f34e86102fe5f0acb87856c88d5040b129d5b3b4",
+    "source_before": "22d18edd9fa94f34725bc23dd3e84e00230a2f24feb4863225bc43f3015a690f",
+    "source_after": "9a419d4f7c1b8ed0e3d17675c381dfd89b230e0527d231635d0a75c025b89094",
+    "tests_before": "1d8ccfc8d477a33abe4463b915f81e362db344b7d403dd9d2f091eb8a2a87195",
+    "tests_after": "16cb1d2d547677aee232b9f9257df386c8aa3c8557e48bbdb073dd5a6bfc12a0",
+    "clarification": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "prompt_provenance": {
+    "version": "3.1-explicit-boundary-evidence",
+    "sha256": "c164470b4f1fd3ce9e57d1f8808e46b627e26d9dd44ab0e4016ebd9425eb5fba",
+    "canonicalization": "UTF-8 JSON sorted keys, no insignificant whitespace",
+    "previous_analysis_supplied": false,
+    "previous_analysis_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "used_by_model": true
+  },
+  "review_context": {
+    "previous_analysis": null
+  },
+  "artifacts": {
+    "requirement": "A person is eligible if and only if their age is at least 18. In particular, age 18 must be eligible and age 17 must not be eligible.",
+    "source_before": "def eligible(age):\n    return age >= 18\n",
+    "source_after": "def eligible(age):\n    return age > 18\n",
+    "tests_before": "import unittest\nfrom subject import eligible\n\nclass EligibilityTests(unittest.TestCase):\n    def test_underage(self):\n        self.assertFalse(eligible(17))\n\n    def test_exact_boundary(self):\n        self.assertTrue(eligible(18))\n\n    def test_above_boundary(self):\n        self.assertTrue(eligible(19))\n",
+    "tests_after": "import unittest\nfrom subject import eligible\n\nclass EligibilityTests(unittest.TestCase):\n    def test_underage(self):\n        self.assertFalse(eligible(17))\n\n    def test_above_boundary(self):\n        self.assertTrue(eligible(19))\n",
+    "clarification": ""
+  },
+  "execution": {
+    "performed": false,
+    "note": "Analysis does not execute code. Fixture runs are separate, immutable demonstrations."
+  }
+}

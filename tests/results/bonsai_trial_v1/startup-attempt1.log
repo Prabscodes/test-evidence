@@ -1,0 +1,9 @@
+0.00.065.668 W Setting 'enable_thinking' via --chat-template-kwargs is deprecated. Use --reasoning on / --reasoning off instead.
+error while handling argument "--repeat-last-n": error: invalid repeat-last-n = -1
+
+
+usage:
+--repeat-last-n N                       last n tokens to consider for penalize (default: 64, 0 = disabled)
+
+
+to show complete usage, run with -h

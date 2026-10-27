@@ -237,7 +237,29 @@
     "tests/test_provider.py": "cd36cded9a095cc6824bd5d612bfdf5892ac21c84f1bcebfc28a4bb4efec3667",
     "tests/test_public_mode.py": "ffa29a40d27ef958636336e05b3d9fc283d0ca910a45ce100ba91b52c63bf61d",
     "tests/test_request_lifecycle.py": "6e89fd64caf97bee6090fbed71e52667c43b147e8d77e53ef09e4cd5f62cd29b",
-    "tests/test_review_scope.py": "9da3f8b5e9fa082bed1fffafb27aca1ac7006c94e25db95af963a2b6f3ba7585"
+    "tests/test_review_scope.py": "9da3f8b5e9fa082bed1fffafb27aca1ac7006c94e25db95af963a2b6f3ba7585",
+    "docs/BONSAI_TRIAL.md": "fe379ace4ead71b5c846c536d46b7a6db7f26ccd64c000488fd65c85b07df222",
+    "tests/results/bonsai_trial_v1/legitimate-refactor-request.json": "3ffe36b66cc2deec5ab9a245e610138c85a4bc7f62c6e13b23317445415e9b36",
+    "tests/results/bonsai_trial_v1/startup-attempt1.log": "d947d9b508cc0eba99892de74cebc2a3208ff4d763537f544964075e898d2b0c",
+    "tests/results/bonsai_trial_v1/smoke-response.json": "25c54d166d05c1b4923064588619a4827a5a5313615638229223251b7bcecf03",
+    "tests/results/bonsai_trial_v1/legitimate-refactor-response.json": "da28929671279cbbc486de553c03234af8a7bf1726c5223d6c062396c884de25",
+    "tests/results/bonsai_trial_v1/smoke-observation.json": "af698a057c657b0f45ab3e5b2d44d233393c8abe8a5a8460ecff640433b6b3e7",
+    "tests/results/bonsai_trial_v1/review_export.json": "dc335a57f16c14c6bfb96c303fcc91d474cf8f2c2d4bfe4bd6276ca5db8e6852",
+    "tests/results/bonsai_trial_v1/README.md": "def8300da092fb8907f89d02820e99dd326c60c50fb606b34b646b7b79ed6695",
+    "tests/results/bonsai_trial_v1/review_export.md": "bc2fe784151c5a5ca83f48d87c54142408a3c390eccfc2bb2eb9f9d39216e264",
+    "tests/results/bonsai_trial_v1/recovery-notes.json": "d70273e6bf6e20eefc72dab2eeb442a23508bd72d97d37df54605eea9d9d95f9",
+    "tests/results/bonsai_trial_v1/review.json": "e96753f6c3a47f53022c2e764d3facca86e5d2462707f7d920b237f1bd95f260",
+    "tests/results/bonsai_trial_v1/events.json": "0ca45b488fd4adc1c3573ca32e8c356a85c85dd8ba19e95eca080432bbeb3c28",
+    "tests/results/bonsai_trial_v1/application-tests.txt": "16f13d612483372d48c8804678778b3b689957560a1b4405fcb2e82550cd6485",
+    "tests/results/bonsai_trial_v1/legitimate-refactor-summary.json": "a0c29db7a53d82115363096c165529ae3699253a63095ac34cfdd1c4204c69b0",
+    "tests/results/bonsai_trial_v1/smoke-request.json": "bd49e129ec0fa35fec11c5d96b6c35870787aba91940d58fc0065ce8a709a565",
+    "tests/results/bonsai_trial_v1/resource-summary.json": "793fee79d10bb26d678a7c8f9c722e2ed45755c7a7e5dc10727b29f78855dcf8",
+    "tests/results/bonsai_trial_v1/summary.json": "f69825a0b726ce40b850d3b51bf6b195d60f455ce358a92ceba368355cae1f9a",
+    "tests/results/bonsai_trial_v1/smoke-v4-summary.json": "9d5d8a3d53ed8ea789724a37e31ad593bfca9d1a98acc91ed2e526024c950806",
+    "tests/results/bonsai_trial_v1/smoke-v4-response.json": "c38745a394b910224b523a93e6f59bbbe857e4350b2d68915dd3c946281e26c6",
+    "tests/results/bonsai_trial_v1/smoke-v4-request.json": "bd49e129ec0fa35fec11c5d96b6c35870787aba91940d58fc0065ce8a709a565",
+    "tests/results/bonsai_trial_v1/refinement.json": "281a617e4b4ddc7110295f3103a314d1ce6470dc869109998338e4be3b42fa53",
+    "tests/results/bonsai_trial_v1/profile.json": "d879b20e44a0134ce0912621bd962962a481f7e3bfb54bf15b134161edde56e0"
   },
   "app_sources_unchanged_from_local": {
     "samples.py": "58b3f6e45b55e8185982879938e562c9da8e10a63243372c7c862d119c4369af",
@@ -336,5 +358,12 @@
     "video_seconds": 110,
     "voiceover_slides_url_video_url_form": "pending/unverified",
     "publication": "Implementation published and anonymously verified; see docs/PUBLICATION_VALIDATION.md for exact commit and receipt."
+  },
+  "bonsai_trial": {
+    "status": "Local bounded trial; not accuracy benchmark",
+    "prompt_unchanged": true,
+    "known_refactor_overbroad_warning_preserved": true,
+    "previous_public_release": "3f0c1a12567a9eb2d54b97167972dca1b6e4aae2",
+    "new_publication": "not performed in this trial"
   }
 }
