@@ -1,6 +1,6 @@
 # Test Evidence — CS4680 AI Assistant MVP
 
-Test Evidence helps a reviewer compare an **explicit requirement** with before/after Python source and tests. It returns evidence-linked **supported**, **potentially missing**, or **unresolved** judgments, asks for clarification, and exports the review. Its practical goal is to make changed or missing checks easier to inspect. It does not prove correctness or replace human review.
+Test Evidence helps a reviewer compare an **explicit requirement** with before/after Python source and tests. It returns evidence-linked **supported**, **potentially missing**, or **unresolved** judgments, asks for clarification, and exports the review. Its practical goal is to make changed or missing checks easier to inspect. It does not prove correctness or replace human review. **Every review is partial:** the LLM is instructed to return at most three obligations, and counts cover listed findings only. No coverage is established for unlisted requirements.
 
 The web UI uses a real open-source LLM through an OpenAI-compatible API. A separate, clearly labelled deterministic demo works without weights or credentials. Only immutable bundled fixtures can execute; uploaded code is AST-inspected and never run.
 
@@ -18,7 +18,7 @@ Open **http://127.0.0.1:8765**, load a sample, and select labelled demo. Demo ju
 
 ## Actual model inference
 
-The current local profile uses existing **Qwen3.5-27B compressed-tensors4-bit**, download revision `65497df9ca706cd6aa9cc8374fc259f39e78672d`, fully on the RTX 5090 with vLLM 0.25.1. Thinking is disabled; exact file pins/settings and retained failures are in [27B validation](docs/QWEN27_VALIDATION.md). The earlier4B profile remains documented for rollback. Weights/runtime are separate from source.
+The current finishing demo uses existing **Qwen3.5-4B BF16** with vLLM0.25.1, thinking disabled and4GiB CPU offload. Two genuine current-UI calls completed in150.1s and227.3s; exact results/settings and limitations are in [finishing validation](docs/FINISHING_VALIDATION.md). The27B records are historical: its recorded weights directory is currently absent and its full-GPU footprint exceeds current free resources. Weights/runtime are separate from source.
 
 Select **LLM review** to inspect the actual model, provider time and raw output. Errors remain visible; there is no silent cloud fallback. Reviews show elapsed waiting without invented percentages and never retry automatically. [Local setup](docs/SETUP.md) · [Public deployment preparation](docs/PUBLIC_DEPLOYMENT.md). Public live inference requires an approved hosted provider; the prepared default is explicitly labelled demo with live inference unavailable. This PC/GPU is never exposed publicly.
 
@@ -43,11 +43,11 @@ node tests/scripts/dom-smoke.js
 node tests/scripts/request-lifecycle.js
 ```
 
-The application and isolated evaluation helper have 90 passing tests; mocked-provider tests are not model-accuracy evidence. Real browser workflows and actual GPU reviews were also exercised. [Release evidence](docs/SUBMISSION_VALIDATION.md) records exact runs and limitations.
+The application and isolated evaluation helper have 93 passing tests; mocked-provider tests are not model-accuracy evidence. Real browser workflows and actual GPU reviews were also exercised. [Release evidence](docs/SUBMISSION_VALIDATION.md) records exact runs and limitations.
 
-On six synthetic diagnostic cases, the Qwen profile matched **3/6** expected labels, produced **three false accusations**, and took **37.7–92.4 seconds** per call (median 47.8). The set was frozen for an earlier profile and reused without tuning; it is not a new held-out accuracy estimate. Duplicate JSON keys now make the assessment unresolved while preserving exact raw output; see [parser and evaluation transport verification](docs/JSON_OUTPUT_VALIDATION.md). A valid line citation can still be misinterpreted. **Do not use this app as an approval gate.**
+On six historical synthetic diagnostic cases, the earlier4B profile matched **3/6** expected labels, produced **three false accusations**, and took **37.7–92.4 seconds** per call (median 47.8). The set was frozen for an earlier profile and reused without tuning; it is not a new held-out accuracy estimate. Duplicate JSON keys now make the assessment unresolved while preserving exact raw output; see [parser and evaluation transport verification](docs/JSON_OUTPUT_VALIDATION.md). A valid line citation can still be misinterpreted. **Do not use this app as an approval gate.**
 
-A new twelve-case author-created set was frozen before 27B calls: 4/4 gaps, 4/4 covered cases and 4/4 ambiguous abstentions matched, with median 4.43s warmed latency and no observed schema/citation failures. This meets a bounded demo gate, not an independent accuracy benchmark or production guarantee. Full raw outputs and failure history remain available.
+A historical twelve-case author-created set was frozen before27B calls: 4/4 gaps, 4/4 covered cases and 4/4 ambiguous abstentions matched, with median 4.43s warmed latency and no observed schema/citation failures. This meets a bounded demo gate, not an independent accuracy benchmark or production guarantee. Full raw outputs and failure history remain available.
 
 Other limits: short Python excerpts only, restricted model context, single-request local service, stochastic outputs, no representative real-repository study and no production authentication/hardening. The runner is an immutable fixture allowlist, not an arbitrary-code sandbox. Local hosting stays loopback-only. Separate public cloud configuration has admission/consent/privacy bounds and fails closed without an approved hosted provider.
 
@@ -59,9 +59,9 @@ The clean source package excludes credentials, weights, virtual environments, ru
 
 ## Guided review and accessibility follow-up
 
-Start with a boundary example loads editable excerpts without sending a review. Choose the engine and Analyze explicitly. Keyboard users can skip to the workspace, navigate citations to selected lines, add clarification and export a current review. Edited inputs invalidate old exports. Configured provider status is not a readiness test. See [rubric audit and browser verification](docs/UIUX_RUBRIC_AUDIT.md); the current local model endpoint is offline, so this follow-up does not claim a newly verified live inference demo.
+Start with a boundary example loads editable excerpts without sending a review. Choose the engine and Analyze explicitly. Keyboard users can skip to the workspace, navigate citations to selected lines, add clarification and export a current review. Edited inputs invalidate old exports. Configured provider status is not a readiness test. See [rubric audit and browser verification](docs/UIUX_RUBRIC_AUDIT.md); that snapshot predated the current finishing run. Current real4B results are recorded separately in docs/FINISHING_VALIDATION.md.
 
-[Visual refinement and current UI verification](docs/UI_VISUAL_REFINEMENT.md): a local-only developer workbench theme, with actual demo screenshots and preserved provenance. The live-model endpoint remains offline; the new UI has not been pushed publicly.
+[Visual refinement and current UI verification](docs/UI_VISUAL_REFINEMENT.md): a local-only developer workbench theme, with actual demo screenshots and preserved provenance. This historical design snapshot predates the finishing release; current state is in docs/FINISHING_VALIDATION.md.
 
 ## Current structural workflow
 
@@ -69,4 +69,4 @@ Start with a boundary example loads editable excerpts without sending a review. 
 2. Inputs: keep requirement authority visible; compare Source and Tests in separate tabs. Choose an engine, then explicitly Review change.
 3. Review: select a finding, inspect its limits and expandable citations, jump to exact input lines, clarify/refine and export a current review. Provider/prompts/static/fixture tools remain separate and inspectable.
 
-Back/forward navigation retains this tab's draft and selection. Refresh does not persist it. See [structural redesign and verification](docs/WORKFLOW_REDESIGN.md). This local release is not publicly pushed, and the configured model endpoint remains offline.
+Back/forward navigation retains this tab's draft and selection. Refresh does not persist it. See [structural redesign and verification](docs/WORKFLOW_REDESIGN.md). The finishing release is prepared for the authorized public source push. Current inference is a temporary local4B service; no public app endpoint is provided.

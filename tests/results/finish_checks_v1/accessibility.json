@@ -1,0 +1,14 @@
+{
+  "scope": "Actual labelled-demo and browser accessibility checks; not full WCAG certification",
+  "skip_keyboard": true,
+  "associated_input_help_and_unique_uploads": true,
+  "three_pixel_focus": true,
+  "sampled_text_count": 47,
+  "minimum_sampled_ratio": 5.66,
+  "controls_checked_44px": 32,
+  "all_views_200_percent_css_zoom_no_overflow": true,
+  "reduced_motion": true,
+  "unique_ids": true,
+  "external_requests": [],
+  "fresh_direct_review_no_result_or_post": true
+}

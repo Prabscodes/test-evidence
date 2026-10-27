@@ -67,8 +67,14 @@ The active-request display shows elapsed browser wait, not model progress or a c
 If a model is unavailable or its name is wrong, confirm the existing local serving process/alias; do not download another model as a default fix. For an input/context rejection, shorten excerpts or review the endpoint's supported settings. Credentials stay server-side and should never be entered in review text. Static inspection and model judgment do not execute code; only the separate bundled fixture button does.
 
 
-## Current27B portable configuration
+## Historical27B portable configuration
 
 With the existing compatible runtime and the exact matching compressed-tensors files pinned in `tests/results/qwen27_v1/model_public.json`, adapt the earlier serve command: model directory to the existing 27B files, alias `te-qwen35-27b-ct4`, loopback port18083, CPU offload0, prefill128, explicit KV cache1073741824bytes and utilization0.80. Keep context6144, one sequence, eager/text-only, native sampler, thinkingfalse and the sampler unchanged. Quantization is detected from its compressed-tensors config; do not force ordinary AWQ because of a directory name. The0.80/cache settings are not a whole-process VRAM cap. Verify adequate measured headroom on your own machine.
 
 Point the app to `http://127.0.0.1:18083/v1` with `TE_MODEL=te-qwen35-27b-ct4`; keep local temperature 0.7, timeout300 and output1536. Do not set `TE_PUBLIC` for this loopback profile. The prepared public mode rejects loopback inference and needs a separately approved hosted provider; see `PUBLIC_DEPLOYMENT.md`. No automatic installation/download or public exposure is performed.
+
+## Current finishing profile and scope
+
+Use the4B command above only when existing weights/runtime and safe shared resources are available. The26October finishing run used that conservative profile, with actual review/refinement times150.062s and227.309s. Exact current records: tests/results/finish_live_v1 and docs/FINISHING_VALIDATION.md. These calls are one known development example, not a benchmark. Temporary model lifetime is bounded; verify /v1/models and model identity before a live demo. The app health endpoint alone is not model readiness. No automatic model download or public exposure occurs.
+
+Each LLM review is instructed to return at most three obligations; inputs/results/exports disclose partial scope. Split broad requirements into focused reviews; listed supported findings cannot establish full requirement coverage.

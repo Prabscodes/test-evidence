@@ -1,23 +1,21 @@
-# Final assignment checklist
+# Assignment checklist
 
-User target: **10:30pmPacific tonight (05:30UTC24 October2026)**; worst case **11pm (06:00UTC)**. The assignment itself points to Canvas for the official deadline; confirm that separately.
+Current finishing pass: **27 October 2026 UTC**. The assignment PDF says to check Canvas for the official deadline; earlier October 23–24 planning targets are historical. This document does not claim that the project has been submitted.
 
-- [x] Public source: https://github.com/Prabscodes/test-evidence —published and verified anonymously on24 October2026 at04:03UTC. Default branchmain; all189 tracked source/document/evidence files matched the reviewed local commit.
-- [x] Practical FastAPI/vanillaJS MVP with real local27B inference, labelled demo, clarification, line citations and exports. No arbitrary uploaded Python execution.
-- [x] At least two course patterns: persona, few-shot and iterative refinement, mapped in docs/PROMPT_PATTERNS.md and inspectable in the UI.
-- [x]90 automated tests passed again in7.364seconds from the publication checkout, plus clarification, DOM and request-lifecycle regressions. See docs/PUBLICATION_VALIDATION.md.
-- [x] Public admission/privacy/error/concurrency safeguards and isolated container/browser checks. Hosted provider absence fails closed.
-- [x] Twelve fresh author-created frozen cases:4 gaps,4 covered,4 ambiguous; zero observed missed gaps/false support/false alarms/schema or citation failures, median4.43s. Small exploratory set, not independent accuracy proof; full raw outputs and prior failures remain.
-- [x]105second silent1080p demo and separate timed narration/captions/storyboard delivered privately in Library. No AI narration. Paused frames labelled; waits not accelerated. See docs/DEMO.md.
-- [ ] User records narration, combines it with the silent video, checks clarity/audio and final duration **strictly under120seconds**.
-- [ ] Publish the voiced video to a user-confirmed account/destination; paste the verified viewer URL here: **pending**.
-- [ ] An eight-slide PPTX is prepared and validated. Create/connect the required native Google Slides presentation, verify reviewer access, and record its URL: **pending**. The existing deck is handled separately; do not duplicate it.
-- [ ] Review the live presentation: problem → actual recorded model workflow → prompt patterns → clarification → separate trusted fixture → limitations.
-- [ ] Review required fields and submit https://forms.gle/nMHp5owwYidszwt58 with the required **Name, GitHub Repo URL, Demo Video URL and Google Slides URL** only after appropriate authorization; save receipt. **Email is optional. Published URL (live app) is optional/highly recommended.** **Not submitted.**
-- [ ] Optional-bonus public app: host/account and approved hosted model/key/cost/data processing remain unconfirmed. Do not expose the PC/GPU or silently substitute demo for live inference. No paid service is provisioned.
+| Requirement | Verified evidence / remaining action |
+| --- | --- |
+| Practical AI MVP and usable interface | FastAPI/vanilla JS; Start → Inputs → Review, source/test comparison, citations, clarification and separate fixture exports. Current genuine 4B review/refinement completed. |
+| At least two prompt patterns | Persona, few-shot examples and iterative refinement; [mapping](docs/PROMPT_PATTERNS.md), inspectable actual prompts. |
+| Complete public source and documentation | Approved target: **https://github.com/Prabscodes/test-evidence**. Publication receipt is recorded separately after remote verification. |
+| Engineering and browser checks | **93 application tests pass**; Node regressions and desktop/mobile workflow, keyboard, stale/export, public admission/error and accessibility checks pass. [Evidence](docs/FINISHING_VALIDATION.md). Controlled-provider browser checks are distinguished from genuine inference. |
+| Honest scope and evidence | Inputs, results and JSON/Markdown exports disclose partial review, at most three prompted obligations, and no coverage of unlisted requirements. No arbitrary uploaded Python execution. Prior model failures preserved. |
+| Short demo | **110-second silent 1080p edit prepared**, current actual 4B footage, waits/paused frames labelled. [Narration and recording directions](docs/DEMO.md). User audio and final voiced export **pending**. |
+| Published demo viewer URL | **Pending** user narration, confirmed publishing account/destination and viewer-access check. Must be strictly under 120 seconds. |
+| Native Google Slides URL | Eight-slide deck prepared separately. Native import/connection and verified reviewer access **pending**; a PPTX alone is not the required URL. |
+| Live presentation | Rehearse the problem, recorded real inference with actual latency, prompt patterns, clarification, citations, separate fixture and limitations. **Pending owner rehearsal.** |
+| Course form | **Not submitted.** Required: **Name, GitHub Repo URL, Demo Video URL, Google Slides URL**. Email is optional. Published URL/live app is optional/highly recommended. Form: https://forms.gle/nMHp5owwYidszwt58 . Review links and obtain appropriate authorization before submission; retain receipt. |
+| Public app | Optional rubric bonus. No public GPU endpoint, hosted-provider credential, paid hosting or PC exposure is provisioned. Temporary loopback inference is not public deployment. |
 
-The live submission form requires Google Slides even though the assignment PDF does not explicitly list a slides deliverable. Narration, published video, Google Slides/viewer link and authorized form submission remain pending; the project is not ready for final submission until those required items are complete.
+Current model: existing **Qwen3.5-4B BF16**, vLLM 0.25.1, thinking disabled, 4 GiB CPU offload. Actual current calls took **150.1 and 227.3 seconds** on one known development example. This is not broad accuracy evidence. Historical 27B results remain available, but its recorded weights path is absent and its full-GPU profile does not fit current shared headroom. See exact provenance and limitations in [finishing validation](docs/FINISHING_VALIDATION.md).
 
-Application source license remains unselected; no unrestricted reuse license is invented. Model weights, credentials, private machine/session data, assignment PDF and unrelated projects are excluded. This checklist distinguishes prepared/delivered artifacts from publication and submission.
-
-26 October local UI follow-up: guided onboarding, accessible input help, result/error focus, responsive evidence and next-action guidance are implemented on a local branch. See docs/UIUX_RUBRIC_AUDIT.md for scope and verification. The local model endpoint is currently offline; no new live-model or benchmark result is claimed. User narration, video publication, native Google Slides URL and form submission remain unverified.
+Source excludes weights, credentials, assignment PDF, private session data and unrelated projects. Application source license remains unselected; no unrestricted license is invented. Required narration/video/Slides/form steps above remain open even after source publication.

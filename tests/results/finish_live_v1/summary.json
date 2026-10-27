@@ -1,0 +1,25 @@
+{
+  "recorded_at": "2026-10-26T23:53:52.969807+00:00",
+  "scope": "Two actual Qwen3.5-4B development-example requests through current app; not held-out evaluation",
+  "mocked": false,
+  "records": [
+    {
+      "kind": "review",
+      "http_status": 200,
+      "wall_seconds": 150.062,
+      "provider_seconds": 149.933
+    },
+    {
+      "kind": "refinement",
+      "http_status": 200,
+      "wall_seconds": 227.309,
+      "provider_seconds": 227.211
+    }
+  ],
+  "page_errors": [],
+  "browser": "149.0.7827.53",
+  "no_automatic_retry": true,
+  "partial_scope_disclosed": true,
+  "code_execution": "only separately requested immutable bundled fixture",
+  "status": "completed"
+}

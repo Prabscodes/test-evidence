@@ -1,0 +1,11 @@
+{
+  "scope": "Actual routed public UI with synthetic provider; zero external API/GPU calls",
+  "consent_before_post": true,
+  "consent_reset_across_navigation": true,
+  "source_and_key_safe_errors_exports_logs": true,
+  "spoofed_forwarded_headers_rate_limited": true,
+  "absence_fail_closed": true,
+  "labelled_demo_separate": true,
+  "mobile_no_overflow": true,
+  "page_errors": []
+}

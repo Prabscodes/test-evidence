@@ -1,3 +1,5 @@
+> Historical record below. Current finishing evidence: [27 October validation](FINISHING_VALIDATION.md), 93 application tests, structural workflow, partial scope notices and genuine current 4B review/refinement. Current publication state is in the assignment checklist and release receipt. Earlier 27B results are not current endpoint performance.
+
 # Source publication verification
 
 Publication checkout was extracted from audited source ZIP SHA256 `71706e638955cb382d28bcd9218c5943f2d24f7ffb3902f27c74cbdefb1ea314`; every original manifest hash matched. Executable app/model-prompt/fixture/test files are unchanged. Only publication/readiness documentation and manifest metadata are updated for the approved repository and latest user timing.

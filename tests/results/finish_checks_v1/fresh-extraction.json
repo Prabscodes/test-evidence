@@ -1,0 +1,11 @@
+{
+  "source_candidate_sha256": "8987faf2652f2832dd5e7b38d40e2f523d7174c2f48d178748a949f1f450f9a9",
+  "initial_restricted_run": "Stopped after first in-process API test stalled; no model call or source change.",
+  "approved_local_rerun": {
+    "tests": 93,
+    "seconds": 8.751,
+    "passed": true
+  },
+  "same_existing_dependencies": true,
+  "downloads": false
+}

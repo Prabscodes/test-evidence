@@ -1,3 +1,5 @@
+> Historical record below. Current finishing evidence: [27 October validation](FINISHING_VALIDATION.md), 93 application tests, structural workflow, partial scope notices and genuine current 4B review/refinement. Current publication state is in the assignment checklist and release receipt. Earlier 27B results are not current endpoint performance.
+
 > Historical preparation snapshot. For the current90-test release and latest quality/publication evidence, see [assignment checklist](../ASSIGNMENT_CHECKLIST.md), [27B validation](QWEN27_VALIDATION.md) and [public deployment](PUBLIC_DEPLOYMENT.md). Older measured results below are preserved.
 
 # Submission preparation validation — 23 October 2026

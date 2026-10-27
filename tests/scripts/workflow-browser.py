@@ -28,6 +28,7 @@ with sync_playwright() as p:
     page.go_back();assert page.locator('#start-view').is_visible();page.go_forward();assert page.locator('#workspace-view').is_visible()
     assert page.locator('#tests_after').input_value()=='assert eligible(19)\n'
     assert not posts,'Navigation/loading must not submit a review'
+    assert 'at most three' in page.locator('#scope-note').inner_text()
     page.click('button[data-view="start"]');page.once('dialog',lambda d:d.dismiss());page.click('#load-example');assert page.locator('#requirement').input_value()=='Keep the threshold inclusive.'
     page.once('dialog',lambda d:d.accept());page.click('#load-example');assert 'at least 18' in page.locator('#requirement').input_value()
     assert page.locator('#workspace-view').is_visible();page.click('#source-tab');page.keyboard.press('ArrowRight');assert page.locator('#tests-tab').get_attribute('aria-selected')=='true'
@@ -39,6 +40,7 @@ with sync_playwright() as p:
     assert page.locator('.finding-button').count()>=1
     assert page.locator('.citation').first.evaluate('(n)=>n.tagName')=='DETAILS' and not page.locator('.citation').first.get_attribute('open')
     assert 'DETERMINISTIC DEMO' in page.locator('#result-mode').inner_text()
+    assert 'Partial review' in page.locator('#review-scope').inner_text() and 'unlisted' in page.locator('#review-scope').inner_text()
     page.screenshot(path=str(out/'desktop-review.png'))
     page.locator('.citation summary').first.click();page.locator('.citation button').first.click()
     assert page.locator('#workspace-view').is_visible();assert page.evaluate('document.activeElement.tagName')=='TEXTAREA'
@@ -55,6 +57,9 @@ with sync_playwright() as p:
     page.locator('#export-tools summary').click()
     with page.expect_download() as d:page.click('#export-json')
     d.value.save_as(str(out/'review-export.json'))
+    assert json.loads((out/'review-export.json').read_text())['review_scope']['complete_requirement_coverage'] is False
+    with page.expect_download() as md:page.click('#export-md')
+    md.value.save_as(str(out/'review-export.md'));assert '## Review scope' in (out/'review-export.md').read_text() and 'unlisted' in (out/'review-export.md').read_text()
     page.locator('#execution-tools summary').click();page.click('#run-fixture');page.wait_for_selector('#export-execution')
     with page.expect_download() as d:page.click('#export-execution')
     d.value.save_as(str(out/'execution-export.json'))

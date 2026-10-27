@@ -1,20 +1,28 @@
 # Edit map and provenance
 
-Raw source: genuine local27B browser review, refinement, citations, prompt inspection, immutable fixture and separate exports. The browser harness recovery is disclosed in the project evidence. Original raw footage and actual request responses are retained locally. This edit uses no synthetic replacement of model results.
+Actual current three-view UI and genuine Qwen3.5-4B calls; no synthetic replacement responses. Two known development-example requests, not a benchmark. The conservative profile uses BF16,4GiB CPU offload, thinking disabled and native sampling. Exact responses/settings accompany source. Initial browser/provider time150.062/149.933s; refinement227.309/227.211s. Raw recording retained.
 
-| Seconds | Visual |
+| Seconds | Content |
 | --- | --- |
-| 0.00–6.00 | card: Test Evidence |
-| 6.00–12.00 | card: Passing tests need context |
-| 12.00–25.00 | raw: Actual recorded browser workflow |
-| 25.00–33.00 | freeze: Inspect the exact submitted evidence |
-| 33.00–38.00 | raw: Actual recorded browser workflow |
-| 38.00–48.00 | freeze: Persona  /  Few-shot examples  /  Iterative refinement |
-| 48.00–61.00 | raw: Actual recorded browser workflow |
-| 61.00–71.00 | freeze: Clarification is authority; the previous answer is context |
-| 71.00–77.36 | raw: Actual recorded browser workflow |
-| 77.36–91.36 | card: Keep three kinds of evidence separate |
-| 91.36–100.00 | card: Useful assistance, bounded claims |
-| 100.00–105.00 | card: Test Evidence |
+| 0.0–6.0 | card: Test Evidence |
+| 6.0–11.0 | raw: RECORDED ACTUAL QWEN3.5-4B WORKFLOW | Human review required |
+| 11.0–14.0 | freeze: RECORDED UI | Paused frame for explanation |
+| 14.0–17.0 | raw: RECORDED ACTUAL QWEN3.5-4B WORKFLOW | Human review required |
+| 17.0–21.0 | freeze: RECORDED UI | Paused frame for explanation |
+| 21.0–25.0 | raw: ACTUAL REVIEW: 150.1s | Wait shortened in this edit |
+| 25.0–29.0 | raw: RECORDED ACTUAL QWEN3.5-4B WORKFLOW | Human review required |
+| 29.0–37.0 | freeze: RECORDED RESULT | Partial review: listed findings only, not full coverage |
+| 37.0–40.0 | raw: RECORDED ACTUAL QWEN3.5-4B WORKFLOW | Human review required |
+| 40.0–47.0 | freeze: RECORDED UI | Paused frame for explanation |
+| 47.0–50.0 | raw: RECORDED ACTUAL QWEN3.5-4B WORKFLOW | Human review required |
+| 50.0–56.0 | freeze: RECORDED UI | Clarification is authority; prior output is context |
+| 56.0–60.0 | raw: ACTUAL REFINEMENT: 227.3s | Wait shortened in this edit |
+| 60.0–64.0 | raw: RECORDED ACTUAL QWEN3.5-4B WORKFLOW | Human review required |
+| 64.0–72.0 | freeze: RECORDED UI | Paused frame for explanation |
+| 72.0–76.0 | raw: RECORDED ACTUAL QWEN3.5-4B WORKFLOW | Human review required |
+| 76.0–82.0 | freeze: RECORDED UI | Persona / Few-shot / Iterative refinement |
+| 82.0–88.3 | raw: ACTUAL BUNDLED FIXTURE | Uploaded code is never executed |
+| 88.3–92.0 | freeze: RECORDED EXECUTION | Immutable fixture, separate export |
+| 92.0–110.0 | card: Useful evidence. Bounded claims. |
 
-Paused frames are labelled. No wait has been accelerated. Intro/outro cards provide context and limitations. No audio was generated; add the user's narration and verify the final duration stays below120seconds. Captions are supplied separately.
+Waits are cut shorter with explicit on-screen labels, and paused frames are labelled. No result is presented as a currently live public request. No narration was generated. Verify the voiced final export remains strictly under120seconds.

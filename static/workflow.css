@@ -498,3 +498,5 @@ font-size:15px}
 @media(max-width:600px){.workspace-outline{display:flex;gap:8px;margin:0 0 16px;flex-wrap:wrap}.workspace-outline button{flex:1;font-size:11px;padding:10px 8px}.context-pane textarea{height:150px;min-height:120px}}
 
 @media(max-width:900px){.finding-navigation .finding-button{min-width:0;max-width:none;flex-direction:row;align-items:center;gap:10px;padding:10px 12px;min-height:44px}.finding-navigation .finding-button strong{display:none}.finding-navigation .finding-button .status{white-space:nowrap}.finding-navigation #finding-list{padding-bottom:4px}}
+
+.coverage-note{font-size:12px;line-height:1.8;color:var(--ink);background:#fff7e8;border-left:2px solid #916018;padding:10px 12px;margin:12px 0 20px}.review-reader .coverage-note{margin-bottom:14px}

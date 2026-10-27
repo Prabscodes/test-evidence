@@ -1,0 +1,14 @@
+clarification-regression.js
+PASS: visible clarification is sent on Analyze and Refine; prior review only on Refine.
+
+dom-smoke.js
+PASS: mocked DOM UI flow; sample load, analysis, untrusted text rendering, refinement summary, missing specification, fixture API, prompt API. Not browser layout validation.
+
+request-lifecycle.js
+PASS: elapsed state advances without percentages and duplicate clicks send one POST
+PASS: transport cancellation requires read-only status recovery and never auto repeats
+PASS: a failed fresh request cannot reenable exports of a previous report
+PASS: reloaded page sees running app request and does not start another review
+PASS: late response for edited inputs is discarded
+PASS: uncertain request blocks sample replacement until explicit status recovery
+PASS: changing review mode invalidates an existing report

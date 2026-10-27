@@ -10,6 +10,15 @@ from errors import UserInputError
 
 ARTIFACTS=('requirement','source_before','source_after','tests_before','tests_after','clarification')
 DISCLAIMER='Evidence review, not a proof of correctness. Uploaded code is never executed. Supported means limited visible evidence only.'
+MODEL_REVIEW_OBLIGATION_LIMIT=3
+
+def review_scope(mode,listed_count):
+    if mode=='llm':
+        note=f'Partial review: the model is instructed to return at most {MODEL_REVIEW_OBLIGATION_LIMIT} obligations. Counts apply only to listed findings; no coverage evidence is provided for unlisted requirements. Split broad requirements into smaller reviews.'
+    else:
+        note='Partial review: hand-authored example judgments only, not model inference. Counts apply only to listed findings; no coverage evidence is provided for unlisted requirements. Custom inputs remain unresolved in demo mode.'
+    return {'coverage':'partial','complete_requirement_coverage':False,'prompt_obligation_limit':MODEL_REVIEW_OBLIGATION_LIMIT if mode=='llm' else None,'listed_obligation_count':listed_count,'note':note}
+
 class AnalysisInput(BaseModel):
     model_config=ConfigDict(extra='forbid')
     requirement: str=Field(default='',max_length=12000)
@@ -148,4 +157,4 @@ def analyze(request):
     hashes={k:hashlib.sha256(data[k].encode()).hexdigest() for k in ARTIFACTS}
     canonical_prompt=json.dumps(messages(data),ensure_ascii=False,sort_keys=True,separators=(',',':'))
     prompt_provenance={'version':PROMPT_VERSION,'sha256':hashlib.sha256(canonical_prompt.encode()).hexdigest(),'canonicalization':'UTF-8 JSON sorted keys, no insignificant whitespace','previous_analysis_supplied':bool(data.get('previous_analysis')),'previous_analysis_sha256':hashlib.sha256(json.dumps(data.get('previous_analysis'),ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest(),'used_by_model':request.mode=='llm'}
-    return {'analysis_id':str(uuid.uuid4()),'created_at':datetime.now(timezone.utc).isoformat(),'mode':request.mode,'disclaimer':DISCLAIMER,'obligations':parsed['obligations'],'questions':parsed['questions'],'observations':observations(data),'warnings':warnings,'provider':meta,'artifact_sha256':hashes,'prompt_provenance':prompt_provenance,'review_context':{'previous_analysis':data.get('previous_analysis')},'artifacts':{k:data[k] for k in ARTIFACTS},'execution':{'performed':False,'note':'Analysis does not execute code. Fixture runs are separate, immutable demonstrations.'}}
+    return {'analysis_id':str(uuid.uuid4()),'created_at':datetime.now(timezone.utc).isoformat(),'mode':request.mode,'disclaimer':DISCLAIMER,'review_scope':review_scope(request.mode,len(parsed['obligations'])),'obligations':parsed['obligations'],'questions':parsed['questions'],'observations':observations(data),'warnings':warnings,'provider':meta,'artifact_sha256':hashes,'prompt_provenance':prompt_provenance,'review_context':{'previous_analysis':data.get('previous_analysis')},'artifacts':{k:data[k] for k in ARTIFACTS},'execution':{'performed':False,'note':'Analysis does not execute code. Fixture runs are separate, immutable demonstrations.'}}

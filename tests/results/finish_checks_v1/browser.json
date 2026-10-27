@@ -1,0 +1,26 @@
+{
+  "actual_demo_review_refinement_export": true,
+  "actual_allowlisted_fixture_export": true,
+  "start_workspace_review_navigation": true,
+  "draft_and_editor_preserved": true,
+  "delayed_upload_cannot_overwrite_newer_edit": true,
+  "browser_back_forward_preserved": true,
+  "sample_replace_confirm_cancel_preserved": true,
+  "keyboard_editor_tabs": true,
+  "citation_opens_correct_editor_and_exact_selection": true,
+  "finding_selection_and_context_preserved": true,
+  "late_result_does_not_steal_navigation": true,
+  "stale_exports_blocked_across_views": true,
+  "simulated_multi_finding_and_interrupted_transport": true,
+  "duplicate_no_auto_retry": true,
+  "layout_widths_all_views_no_overflow": [
+    320,
+    390,
+    768,
+    1024,
+    1440
+  ],
+  "page_errors": [],
+  "live_inference": false,
+  "browser": "149.0.7827.53"
+}
