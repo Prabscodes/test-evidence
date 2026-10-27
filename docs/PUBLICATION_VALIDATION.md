@@ -1,3 +1,13 @@
+# Current publication verification — 27 October 2026
+
+The approved structural workflow and scope-honesty implementation was pushed to **https://github.com/Prabscodes/test-evidence**, public default branch `main`, implementation commit `8762d8d18afbfe52b99759a0850b78a43057c805`. Anonymous HTTPS verification at **2026-10-27T00:07:46.244398+00:00** matched every one of the **238 remote blobs** against the reviewed checkout and byte-verified README, backend, input UI, assignment checklist and finishing validation. This documentation receipt is a follow-up to that verified implementation; application code, prompts, fixtures and raw results are unchanged by the receipt.
+
+Final relevant checks: **93 application tests** pass in 8.084 seconds in the working checkout and 8.751 seconds from a clean extraction; Node and browser regression summaries are in `tests/results/finish_checks_v1`. The first restricted-executor clean test stalled and was stopped; the same tests passed in the bounded approved local executor. Scope regression tests and actual current 4B review/refinement evidence are separate.
+
+The audited source set contains no weights, assignment PDF, credentials, private machine/session paths, video binary or unrelated files. All prior model failures and raw results remain unchanged. Account identity was verified as Prabscodes and existing authentication was used; no new credential, access scope, global Git/security setting or paid service was created. Git author uses the account noreply address. Source publication is complete; native Slides URL, user voiceover, public video URL and form receipt remain pending/unverified.
+
+## Historical publication record
+
 > Historical record below. Current finishing evidence: [27 October validation](FINISHING_VALIDATION.md), 93 application tests, structural workflow, partial scope notices and genuine current 4B review/refinement. Current publication state is in the assignment checklist and release receipt. Earlier 27B results are not current endpoint performance.
 
 # Source publication verification

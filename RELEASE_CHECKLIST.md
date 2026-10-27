@@ -10,8 +10,8 @@ Current scope: reviewed structural workflow plus a bounded partial-scope disclos
 - [x] Complete two genuine current 4B browser calls without retry; save exact responses, provenance and timing. One known development case is not an accuracy claim.
 - [x] Keep public-mode synthetic-provider checks distinct from real inference; verify admission, consent, safe errors, rate limits and fail-closed provider absence.
 - [x] Prepare current 110-second silent video, labelled shortened waits and paused frames, script, captions and recording directions; inspect representative rendered frames.
-- [ ] Verify the reviewed source commit on the approved public repository and record the receipt. Do not infer this from local commit creation alone.
-- [ ] Package exact clean source and verify extraction/manifest. Exclude weights, secrets, private machine data, assignment PDF and caches.
+- [x] Approved implementation commit published and anonymously verified: all 238 source/document/evidence blobs match. See publication record.
+- [x] Clean source extraction passes 93 tests; manifest and scoped privacy/credential-pattern audit pass. Final exact Git archive is delivered separately; weights, secrets, private machine data, assignment PDF and caches are excluded.
 
 ## Owner / connected-account steps
 

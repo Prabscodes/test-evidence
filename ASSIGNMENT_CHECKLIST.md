@@ -6,7 +6,7 @@ Current finishing pass: **27 October 2026 UTC**. The assignment PDF says to chec
 | --- | --- |
 | Practical AI MVP and usable interface | FastAPI/vanilla JS; Start → Inputs → Review, source/test comparison, citations, clarification and separate fixture exports. Current genuine 4B review/refinement completed. |
 | At least two prompt patterns | Persona, few-shot examples and iterative refinement; [mapping](docs/PROMPT_PATTERNS.md), inspectable actual prompts. |
-| Complete public source and documentation | Approved target: **https://github.com/Prabscodes/test-evidence**. Publication receipt is recorded separately after remote verification. |
+| Complete public source and documentation | Approved target: **https://github.com/Prabscodes/test-evidence**. Reviewed implementation commit `8762d8d18afbfe52b99759a0850b78a43057c805` published and anonymously verified on 27 October at 00:07 UTC; all 238 remote blobs matched. See [publication record](docs/PUBLICATION_VALIDATION.md). |
 | Engineering and browser checks | **93 application tests pass**; Node regressions and desktop/mobile workflow, keyboard, stale/export, public admission/error and accessibility checks pass. [Evidence](docs/FINISHING_VALIDATION.md). Controlled-provider browser checks are distinguished from genuine inference. |
 | Honest scope and evidence | Inputs, results and JSON/Markdown exports disclose partial review, at most three prompted obligations, and no coverage of unlisted requirements. No arbitrary uploaded Python execution. Prior model failures preserved. |
 | Short demo | **110-second silent 1080p edit prepared**, current actual 4B footage, waits/paused frames labelled. [Narration and recording directions](docs/DEMO.md). User audio and final voiced export **pending**. |
