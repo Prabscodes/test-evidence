@@ -1,6 +1,8 @@
+> Current form correction, 4 November: required Name, GitHub Repo URL, Demo Video URL and **Published URL**; Email optional; no Slides field. The PDF describes public app hosting as bonus. Resolve that discrepancy using a verified app deployment URL or instructor clarification before submission.
+
 # Submission and live-presentation runbook
 
-Reviewed4 November2026. Source, a published short video, a Google Slides URL required by the live form, and an in-class live demonstration are separate deliverables. Public hosting of the app is optional bonus. The PDF gives the official deadline only as “See the date in Canvas”.
+Reviewed4 November2026. Source, a published short video, a prepared Google Slides presentation supporting the live demo, and an in-class live demonstration are separate deliverables. The PDF calls public hosting of the app an optional bonus; the current form nevertheless requires a Published URL, which needs an actual reviewed app URL or instructor clarification. The PDF gives the official deadline only as “See the date in Canvas”.
 
 ## What to demonstrate
 
@@ -34,4 +36,4 @@ The local app is at `http://127.0.0.1:8765`. Check both app status and the confi
 
 ## Final field review
 
-The form requires Name, GitHub Repo URL, Demo Video URL and Google Slides URL. Email and Published URL/live app are optional. Use the verified final viewer links, not a private video draft or local file path. Confirm reviewer access and retain a submission receipt. Preparation and an available form are not proof of submission.
+The form requires Name, GitHub Repo URL, Demo Video URL and Published URL. Email is optional. Published URL is required by the current form; it is not the Google Slides link. Use the verified final viewer links, not a private video draft or local file path. Confirm reviewer access and retain a submission receipt. Preparation and an available form are not proof of submission.
