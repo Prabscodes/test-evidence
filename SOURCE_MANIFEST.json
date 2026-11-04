@@ -3,7 +3,7 @@
   "files": {
     ".dockerignore": "a2b942006b21a13e8736bae9542e57f6052ae2b2fe79d486a9c82809ed72384e",
     ".gitignore": "2501f76e58166658290fe42d26fbcc9d0383f3a886b9b2474fc7c43b6a443a6b",
-    "ASSIGNMENT_CHECKLIST.md": "1415f57cc33384bc72be00eb235a969778429aec17c0858f5065d34b5c084659",
+    "ASSIGNMENT_CHECKLIST.md": "2a55e5b0d829dafbfd0f51b044500a603772d6a29452693f41b46a1116911b9f",
     "Dockerfile": "4eca08f8073f07027defd94dfd0fd6633247ac76c1a1972755ecb7031dc48095",
     "README.md": "09260b2bfb112790ee53863a33d6139d9efd0110304189065ce0410708750f6b",
     "RELEASE_CHECKLIST.md": "fbc1d8e0dc9701ca5d274a13adb641adb6fba6874cc5fe9b6e7ed4b4dad457ef",
@@ -260,7 +260,7 @@
     "tests/results/bonsai_trial_v1/smoke-v4-request.json": "bd49e129ec0fa35fec11c5d96b6c35870787aba91940d58fc0065ce8a709a565",
     "tests/results/bonsai_trial_v1/refinement.json": "281a617e4b4ddc7110295f3103a314d1ce6470dc869109998338e4be3b42fa53",
     "tests/results/bonsai_trial_v1/profile.json": "d879b20e44a0134ce0912621bd962962a481f7e3bfb54bf15b134161edde56e0",
-    "docs/PRESENTATION_RUNBOOK.md": "98be3c42fa28b7b7b3610251425f515b93a833ad9b03f7d5acba9ff1d7eb9ca1"
+    "docs/PRESENTATION_RUNBOOK.md": "3ea150df5bf0559cfa2670ce6898187fb1793f38186826ce3c5efed93a1976b8"
   },
   "app_sources_unchanged_from_local": {
     "samples.py": "58b3f6e45b55e8185982879938e562c9da8e10a63243372c7c862d119c4369af",

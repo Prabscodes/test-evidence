@@ -2,7 +2,7 @@
 
 # Submission and live-presentation runbook
 
-Reviewed4 November2026. Source, a published short video, a prepared Google Slides presentation supporting the live demo, and an in-class live demonstration are separate deliverables. The PDF calls public hosting of the app an optional bonus; the current form nevertheless requires a Published URL, which needs an actual reviewed app URL or instructor clarification. The PDF gives the official deadline only as “See the date in Canvas”.
+Reviewed 4 November 2026. Source, a published short video, a prepared Google Slides presentation supporting the live demo, and an in-class live demonstration are separate deliverables. The PDF calls public hosting of the app an optional bonus; the current form nevertheless requires a Published URL, which needs an actual reviewed app URL or instructor clarification. The PDF gives the official deadline only as “See the date in Canvas”.
 
 ## What to demonstrate
 
@@ -16,7 +16,7 @@ Reviewed4 November2026. Source, a published short video, a prepared Google Slide
 |80–95s | Current review export; optionally separate fixture result | Uploaded Python is never executed. Only immutable bundled fixtures run, with a separate export. |
 |95–108s | Limits and next step | Partial review, up to three prompted obligations, possible false alarms and essential human review. |
 
-Target 108 seconds and verify the actual final export is strictly less than120seconds. The schedule is a guide, not permission to relabel prerecorded output as a live call. If waits are shortened, label the edit; if a model call fails, disclose it. No AI replacement narration is required: the user supplies their own voice.
+Target 108 seconds and verify the actual final export is strictly less than 120 seconds. The schedule is a guide, not permission to relabel prerecorded output as a live call. If waits are shortened, label the edit; if a model call fails, disclose it. No AI replacement narration is required: the user supplies their own voice.
 
 ## Existing recording versus re-recording
 
