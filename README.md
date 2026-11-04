@@ -55,9 +55,9 @@ Other limits: short Python excerpts only, restricted model context, single-reque
 
 ## Submission material
 
-[Release checklist](RELEASE_CHECKLIST.md) · [110-second recorded demo and narration](docs/DEMO.md) · [Dependencies and licenses](THIRD_PARTY_NOTICES.md)
+[Current checklist](ASSIGNMENT_CHECKLIST.md) · [Presentation and recording runbook](docs/PRESENTATION_RUNBOOK.md) · [Historical 110-second footage](docs/DEMO.md) · [Dependencies and licenses](THIRD_PARTY_NOTICES.md)
 
-The clean source package excludes credentials, weights, virtual environments, runtime caches, machine/session metadata and the assignment PDF. Historical failures remain in the local development tree; selected unaltered synthetic raw failures accompany the source release. GitHub publication and remaining assignment steps are tracked in [ASSIGNMENT_CHECKLIST.md](ASSIGNMENT_CHECKLIST.md). Video narration/publication and the required Google Slides deck/viewer URL remain pending before final submission. The live form requires Name, GitHub Repo URL, Demo Video URL and Google Slides URL; Email is optional, and Published URL (live app) is optional/highly recommended. Hosted live inference remains a separate optional assignment item. An application source license has not yet been selected.
+The clean source package excludes credentials, weights, virtual environments, runtime caches, machine/session metadata and the assignment PDF. Historical failures remain in the local development tree; selected unaltered synthetic raw failures accompany the source release. GitHub publication and remaining assignment steps are tracked in [ASSIGNMENT_CHECKLIST.md](ASSIGNMENT_CHECKLIST.md). A native Slides deck with link-reader access and a later narrated video were located. Final video content/duration, published video URL and course receipt still need verification; use the current checklist rather than assuming older packet statuses are current. The live form requires Name, GitHub Repo URL, Demo Video URL and Google Slides URL; Email is optional, and Published URL (live app) is optional/highly recommended. Hosted live inference remains a separate optional assignment item. An application source license has not yet been selected.
 
 ## Guided review and accessibility follow-up
 

@@ -1,3 +1,5 @@
+> Current4 November submission status and recording guidance: [assignment checklist](ASSIGNMENT_CHECKLIST.md) and [presentation runbook](docs/PRESENTATION_RUNBOOK.md). Earlier unchecked owner steps below are historical preparation items, not evidence that later artifacts are absent.
+
 # Release and submission checklist
 
 Current scope: reviewed structural workflow plus a bounded partial-scope disclosure fix. Preserve historical failures and raw evaluation seals. No further model or benchmark tuning is part of this finishing pass.
