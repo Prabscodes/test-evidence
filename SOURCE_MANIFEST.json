@@ -1,5 +1,5 @@
 {
-  "scope": "Approved structural workflow release with partial-scope disclosure, genuine current 4B workflow evidence, 93-test regression evidence and current narration material; historical raw results preserved.",
+  "scope": "Submission-readiness source revision: clearer small-change guidance and pre-review prompt inspector; prior raw model evidence remains historical.",
   "files": {
     ".dockerignore": "a2b942006b21a13e8736bae9542e57f6052ae2b2fe79d486a9c82809ed72384e",
     ".gitignore": "2501f76e58166658290fe42d26fbcc9d0383f3a886b9b2474fc7c43b6a443a6b",
@@ -50,9 +50,9 @@
     "scripts/qwen27_frozen_eval.py": "eb98bb200e8da78e8845ca04040a4193758d10e9d3e87e2b8442962bc7b7076f",
     "scripts/qwen35_eval.py": "c728903651f8e05e73400cadf233f5132051c91a95b611b4f11a09575f80c1a5",
     "static/app.js": "6d21afc294c4bbfc8e8e12c86f16b6fb3ec672eb7e416b281f0e20e8931a7075",
-    "static/index.html": "ec0f98e740d2ac8c676c9d45c1e1183403ad7a3d1314fb777852dd576f309967",
+    "static/index.html": "79a2068aa7ad8c1f59907266de6c864043c935bfcd69aae7f5854f83f7520b89",
     "static/style.css": "b7077c05c7b0bbe0d674b13b5473b6a8edfc60f0287b2d23bc7e3957093d122b",
-    "static/workflow.css": "69fb0b0319be6c19bcdbbbf001457087ce928a44026bef6e8bf105c67c42cb55",
+    "static/workflow.css": "7380178160ad39b6e39f3f28c2813b2c5376df4a840477bda7915e6e52d73151",
     "static/workflow.js": "059862c0fc5b12cba2f521f1c6a43dc5bb83f28c7251d40de6c7a387764345f3",
     "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "tests/acceptance_cases.json": "d755592de89a5482d6b3e0f2d1b61ae3bb1e94866e28c9dfd3894eceaff21163",
@@ -260,7 +260,9 @@
     "tests/results/bonsai_trial_v1/smoke-v4-request.json": "bd49e129ec0fa35fec11c5d96b6c35870787aba91940d58fc0065ce8a709a565",
     "tests/results/bonsai_trial_v1/refinement.json": "281a617e4b4ddc7110295f3103a314d1ce6470dc869109998338e4be3b42fa53",
     "tests/results/bonsai_trial_v1/profile.json": "d879b20e44a0134ce0912621bd962962a481f7e3bfb54bf15b134161edde56e0",
-    "docs/PRESENTATION_RUNBOOK.md": "3ea150df5bf0559cfa2670ce6898187fb1793f38186826ce3c5efed93a1976b8"
+    "docs/PRESENTATION_RUNBOOK.md": "3ea150df5bf0559cfa2670ce6898187fb1793f38186826ce3c5efed93a1976b8",
+    "docs/SUBMISSION_READY_RUNBOOK.md": "74ceb42c225edf6c03d19b2f688ac3c14d4a12c63669e3a2142fb149d2bc5a78",
+    "docs/superpowers/plans/2026-11-04-submission-readiness.md": "8bd96ab05c4afe0e15fcff39ce685f1a113929198c89527ccf62ad12a84218d2"
   },
   "app_sources_unchanged_from_local": {
     "samples.py": "58b3f6e45b55e8185982879938e562c9da8e10a63243372c7c862d119c4369af",
@@ -273,12 +275,12 @@
     "critique.py": "433aafcc7f3ea6572ae91ce33ae8255e16f0716d7b062099c52ab629c90ea044",
     "consistency.py": "1602d83e831ceb257177ecf85a7838db62276cd6be2b1f33bf574779d565f417",
     "provider.py": "0a7115ff50047b6c4eb795aa419c02fc3fba1983c6ae0625d9e84f1d3ed304d7",
-    "analysis.py": "37f9b196b59f162796bfa1d42d321ffde94fce4f77c1e422e5e626e7354aada5",
-    "static/index.html": "f3019c273093e91afdf83110871de7cb42bc6a1cc20be913d7f90f29b0cfc1ba",
+    "analysis.py": "d13ec5c9206487cdc3599bd75ae4732378695a45086c0312a4d9e36afeaf099f",
+    "static/index.html": "79a2068aa7ad8c1f59907266de6c864043c935bfcd69aae7f5854f83f7520b89",
     "static/style.css": "b7077c05c7b0bbe0d674b13b5473b6a8edfc60f0287b2d23bc7e3957093d122b",
-    "static/app.js": "1c01984140f44bb8f2a4fe584caaf80533247caa9a7c3d8487c92c3aef758790",
+    "static/app.js": "6d21afc294c4bbfc8e8e12c86f16b6fb3ec672eb7e416b281f0e20e8931a7075",
     "static/workflow.js": "059862c0fc5b12cba2f521f1c6a43dc5bb83f28c7251d40de6c7a387764345f3",
-    "static/workflow.css": "2d134c65bfb2036245d2415c932523d493f08e427faf7e6006c6f981bcd6eff1"
+    "static/workflow.css": "7380178160ad39b6e39f3f28c2813b2c5376df4a840477bda7915e6e52d73151"
   },
   "omissions": [
     "weights, runtimes, virtualenv, caches, credentials, assignment/research PDFs, original archive",
